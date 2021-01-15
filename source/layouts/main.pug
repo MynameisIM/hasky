@@ -34,12 +34,10 @@ html(lang='ru')
       each css in htmlWebpackPlugin.files.extracted.css
         link(rel='stylesheet', href=('../' + css.file), media=css.query)
   body
-    noscript
-      iframe(src='https://www.googletagmanager.com/ns.html?id=GTM-K8FCQZK' height='0' width='0' style='display: none; visibility: hidden')
     .page
       .page__wrap
         if (headerData)
-          +header(headerData, transparentTheme, false)
+          +header(headerData)
         block content
       if (footerData)
         +footer(footerData)
