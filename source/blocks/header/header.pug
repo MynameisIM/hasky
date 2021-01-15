@@ -2,4 +2,44 @@ include ../../core/svg
 
 mixin header(data)
   header.header
-    .header__container header
+    .header__top
+      .header__top-geo
+        .header__geo(role='button')
+          +svg('pin')
+          span г. Ульяновск
+        a.header__phone(href='tel:88003504217') 8 800 350 4217
+      .header__top-links
+        .header__links
+          each item in data.links
+            a.header__top-link(href=item.href, class=(item.icon ? 'header__top-link--desktop' : ''))
+              if item.icon
+                +svg(item.icon)
+              span= item.text
+        .header__flags
+          each item in data.flags
+            a.header__flag(href='#')
+              +svg(item)
+    .header__main
+      .header__main-menu
+        button.header__hamburger(type='button')
+          span
+          span
+          span
+          .header__hamburger-text Меню
+        a.header__main-logo(href='#')
+          +svg('logo')
+      .header__main-right
+        .header__search-box
+          input.header__search(type='text', name='search')
+        .header__like
+          +svg('like')
+          .header__like-text 0
+        .header__compare
+          +svg('compare')
+          .header__compare-text 0
+        .header__cart
+          +svg('cart')
+          .header__cart-text 0
+        .header__login
+          +svg('login')
+          .header__login-text 0

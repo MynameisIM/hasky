@@ -1,3 +1,32 @@
 {
-  "title": "text"
+  "links": [
+    {
+      "icon": "header-l-i-1",
+      "href": "#",
+      "text": "Ручной инструмент"
+    },
+    {
+      "icon": "header-l-i-2",
+      "href": "#",
+      "text": "Специнструмент"
+    },
+    {
+      "icon": "header-l-i-3",
+      "href": "#",
+      "text": "Шиномонтаж"
+    },
+    {
+      "href": "#",
+      "text": "Доставка"
+    },
+    {
+      "href": "#",
+      "text": "Оплата"
+    },
+    {
+      "href": "#",
+      "text": "Контакты"
+    }
+  ],
+  "flags": ["flag-r", "flag-g", "flag-gb"]
 }
