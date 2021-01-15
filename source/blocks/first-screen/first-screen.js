@@ -1,5 +1,5 @@
 export default class FirstScreen {
-	constructor(parent) {
-		console.log(parent);
-	}
+  constructor(parent) {
+    console.log(parent);
+  }
 }
