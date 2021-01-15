@@ -1,0 +1,5 @@
+$parent: first-screen;
+
+@include block($parent) {
+  width: 100%;
+}

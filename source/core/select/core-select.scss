@@ -1,0 +1,173 @@
+@import '~choices.js/public/assets/styles/choices.min.css';
+
+$parent: core-select;
+$choices: choices;
+
+@include block($parent) {
+  position: relative;
+  width: 100%;
+  border-bottom: 1px solid $green-l;
+
+  .choices[data-type*="select-multiple"] {
+    .choices__list--multiple {
+      @include element($choices, 'item') {
+        border: none;
+        background: transparent;
+        color: $black;
+        margin-right: rem(6);
+        margin-bottom: rem(3);
+        padding: 0;
+
+        &::after {
+          content: ",";
+          margin-left: -3px;
+        }
+
+        &:last-child {
+          &::after {
+            content: none;
+          }
+        }
+      }
+    }
+  }
+
+  .choices[data-type*="select-one"],
+  .choices[data-type*="select-multiple"] {
+    width: 100%;
+    position: relative;
+    display: flex;
+    letter-spacing: 0.1em;
+    font-size: rem(12);
+    line-height: rem(18);
+    font-weight: bold;
+    text-transform: uppercase;
+
+    &::after {
+      border: solid $green-l;
+      border-width: 0 1px 1px 0;
+      display: inline-block;
+      padding: 3px;
+      transform: rotate(45deg);
+      -webkit-transform: rotate(45deg);
+      transition: border-color $ease;
+      top: auto;
+      bottom: rem(14);
+      right: 0;
+      opacity: 1;
+    }
+
+    .choices__item {
+      letter-spacing: 0.1em;
+      font-size: rem(12);
+      line-height: rem(18);
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    .choices__list--dropdown {
+      border-top: solid $green-l;
+      border-width: 1px 0 0 0;
+      box-sizing: border-box;
+      padding: 0;
+      z-index: 3;
+      box-shadow: 0 rem(4) rem(5) rgba(136, 136, 136, 0.2);
+      border-radius: 0;
+      width: auto;
+      min-width: 100%;
+
+      .choices__item {
+        padding: rem(12) rem(20);
+        border: none;
+        background-color: transparent;
+        transition: background-color $ease, border-color $ease;
+        word-break: initial;
+        white-space: nowrap;
+      }
+
+      .choices__item--selectable.is-highlighted {
+        background-color: $green-m;
+        color: $white;
+        border-color: transparent;
+
+        &::after {
+          display: none;
+        }
+      }
+    }
+
+    .choices__inner {
+      padding: 0;
+      background-color: $white;
+      border: none;
+      transition: border-color $ease;
+      box-sizing: border-box;
+      min-height: rem(26);
+
+      &[data-invalid] {
+        border-color: $red;
+
+        & + .choices__list--dropdown {
+          border-color: $red;
+        }
+      }
+    }
+
+    &:not(.is-open):hover {
+      .choices__inner {
+        border-color: $green-m;
+      }
+
+      &::after {
+        border-color: $green-m;
+      }
+    }
+
+    .choices__input {
+      display: none;
+    }
+
+    &.is-open {
+      &::after {
+        margin-top: 0;
+        border-color: $green-m;
+        transform: rotate(-135deg);
+        -webkit-transform: rotate(-135deg);
+      }
+    }
+
+    .choices__button {
+      border-left-color: transparent;
+      margin: 0 1px 0 1px;
+
+      &::before,
+      &::after {
+        position: absolute;
+        content: '';
+        width: 1px;
+        height: 10px;
+        background-color: $green-m;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(45deg);
+      }
+
+      &::after {
+        transform: translate(-50%, -50%) rotate(-45deg);
+      }
+    }
+
+    .choices__list--single {
+      padding: 0;
+
+      .choices__button {
+        display: none;
+      }
+    }
+
+    .choices__placeholder {
+      color: $gray;
+      opacity: 1;
+    }
+  }
+}

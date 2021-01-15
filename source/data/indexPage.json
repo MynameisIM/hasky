@@ -1,0 +1,8 @@
+{
+  "blocks": [
+    {
+      "name": "firstScreen",
+      "data": "file::/parts/firstScreen.json"
+    }
+  ]
+}

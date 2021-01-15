@@ -1,0 +1,7 @@
+mixin core-select(data, className)
+  .core-select(class=className)
+    select.core-select__select(id= data.id, disabled= data.disabled || false, name= data.name, required= data.required || false, data-validator= data.validators || false, data-tag=data.tag, multiple=data.multiple || false)
+      if data.options
+        each option in data.options
+          option.core-select__item(selected= option.selected || false, value= option.value)
+            span.core-select__text= option.text
