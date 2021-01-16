@@ -5,9 +5,16 @@ $parent: header;
 
   @include element($parent, 'top') {
     background-color: $e5;
+
+    @media (min-width: $portrait) {
+      display: flex;
+      height: rem(47);
+    }
   }
 
   @include element($parent, 'geo') {
+    display: flex;
+    align-items: center;
     font-size: rem(14);
     line-height: rem(16);
     color: $a1;
@@ -18,6 +25,10 @@ $parent: header;
       height: rem(13);
       fill: $a1;
       margin-right: rem(8);
+
+      @media (min-width: $portrait) {
+        margin-right: rem(17);
+      }
     }
   }
 
@@ -27,11 +38,16 @@ $parent: header;
     line-height: rem(32);
     color: $a1;
     margin-left: auto;
-  }
 
-  @include element($parent, 'geo') {
-    display: flex;
-    align-items: center;
+    @media (min-width: $portrait) {
+      font-size: rem(18);
+      line-height: rem(21);
+      margin-left: rem(12);
+    }
+
+    @media (min-width: 1600px) {
+      margin-left: auto;
+    }
   }
 
   @include element($parent, 'top-geo') {
@@ -39,6 +55,21 @@ $parent: header;
     align-items: center;
     height: rem(50);
     padding: 0 rem(6);
+
+    @media (min-width: $portrait) {
+      height: 100%;
+      width: 43.5%;
+      padding: 0 rem(12);
+    }
+
+    @media (min-width: $desktop) {
+      width: 35%;
+    }
+
+    @media (min-width: 1600px) {
+      width: 28%;
+      padding: 0 rem(18) 0 rem(30);
+    }
   }
 
   @include element($parent, 'top-links') {
@@ -47,10 +78,31 @@ $parent: header;
     height: rem(47);
     background-color: $a1;
     padding-right: rem(7);
+
+    @media (min-width: $portrait) {
+      height: 100%;
+      width: 56.5%;
+      padding-left: rem(10);
+      padding-right: rem(15);
+    }
+
+    @media (min-width: $desktop) {
+      width: 65%;
+    }
+
+    @media (min-width: 1600px) {
+      width: 72%;
+      padding-right: rem(30);
+    }
   }
 
   @include element($parent, 'links') {
     margin-top: rem(-4);
+
+    @media (min-width: $desktop) {
+      display: inline-flex;
+      align-items: center;
+    }
   }
 
   @include element($parent, 'top-link') {
@@ -61,9 +113,9 @@ $parent: header;
     padding: 0 rem(12);
 
     svg {
-      width: rem(27);
-      height: rem(27);
-      margin-right: rem(10);
+      width: rem(25);
+      height: rem(25);
+      margin-right: rem(14);
       fill: $white;
     }
 
@@ -71,8 +123,39 @@ $parent: header;
       padding: 0 rem(17);
     }
 
+    @media (min-width: $portrait) {
+      font-size: rem(16);
+      line-height: rem(18);
+      padding: 0 rem(22);
+    }
+
+    @media (min-width: $desktop) {
+      font-size: rem(14);
+      line-height: 1.2;
+      padding: 0 rem(4);
+    }
+
+    @media (min-width: $desktop-1440) {
+      padding: 0 rem(7);
+    }
+
+    @media (min-width: 1600px) {
+      font-size: rem(16);
+      line-height: rem(18);
+      padding: 0 rem(16);
+    }
+
+    @media (min-width: 1900px) {
+      padding: 0 rem(35);
+    }
+
     @include modifier($parent, 'desktop') {
       display: none;
+
+      @media (min-width: $desktop) {
+        display: inline-flex;
+        align-items: center;
+      }
     }
   }
 
@@ -87,6 +170,23 @@ $parent: header;
     svg {
       width: rem(24);
       height: rem(16);
+
+      @media (min-width: $portrait) {
+        width: rem(30);
+        height: rem(20);
+      }
+    }
+
+    @media (min-width: $portrait) {
+      margin: 0 rem(10);
+    }
+
+    @media (min-width: $desktop) {
+      margin: 0;
+    }
+
+    @media (min-width: $desktop-1440) {
+      margin: 0 rem(10);
     }
   }
 
@@ -96,12 +196,31 @@ $parent: header;
     height: 100%;
     background-color: $c07;
     padding-left: rem(10);
+
+    @media (min-width: $portrait) {
+      height: 100%;
+      width: 43.5%;
+      padding-left: rem(20);
+    }
+
+    @media (min-width: $desktop) {
+      width: 35%;
+    }
+
+    @media (min-width: 1600px) {
+      width: 28%;
+      padding-left: rem(40);
+    }
   }
 
   @include element($parent, 'main') {
     display: flex;
     align-items: center;
     height: rem(85);
+
+    @media (min-width: $portrait) {
+      height: rem(103);
+    }
   }
 
   @include element($parent, 'main-logo') {
@@ -111,29 +230,85 @@ $parent: header;
       width: rem(215);
       height: rem(17);
       fill: $white;
+
+      @media (min-width: $portrait) {
+        width: rem(345);
+        height: rem(28);
+      }
+
+      @media (min-width: 1600px) {
+        width: rem(384);
+        height: rem(31);
+      }
     }
   }
 
   @include element($parent, 'search-box') {
     display: none;
+
+    @media (min-width: $portrait) {
+      position: relative;
+      display: inline-flex;
+      width: 42%;
+      height: rem(45);
+    }
+  }
+
+  @include element($parent, 'search') {
+    width: 100%;
+    font-size: rem(14);
+    line-height: rem(16);
+    color: $ac;
+    border-bottom: 1px solid $c67;
   }
 
   @include element($parent, 'like') {
+    position: relative;
     width: rem(49);
     height: rem(49);
     display: none;
+
+    @media (min-width: $portrait) {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      margin-left: auto;
+    }
+
+    svg {
+      @media (min-width: $portrait) {
+        width: rem(30);
+        height: rem(30);
+      }
+    }
   }
 
   @include element($parent, 'compare') {
+    position: relative;
     width: rem(49);
     height: rem(49);
     display: none;
+
+    @media (min-width: $portrait) {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      margin-left: rem(26);
+    }
+
+    svg {
+      @media (min-width: $portrait) {
+        width: rem(23);
+        height: rem(29);
+      }
+    }
   }
 
   @include element($parent, 'cart') {
     position: relative;
     display: flex;
     justify-content: center;
+    align-items: center;
     width: rem(48);
     height: rem(48);
     font-size: rem(11);
@@ -145,20 +320,52 @@ $parent: header;
       width: rem(40);
       height: rem(40);
       fill: $white;
+
+      @media (min-width: $portrait) {
+        width: rem(31);
+        height: rem(31);
+      }
+    }
+
+    @media (min-width: $portrait) {
+      margin-left: rem(32);
     }
   }
 
-  @include element($parent, 'cart-text') {
+  @include element($parent, 'btn-text') {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
     bottom: rem(-11);
+    color: $white;
   }
 
   @include element($parent, 'login') {
+    position: relative;
     width: rem(49);
     height: rem(49);
     display: none;
+
+    @media (min-width: $portrait) {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      margin-left: rem(29);
+    }
+
+    svg {
+      @media (min-width: $portrait) {
+        width: rem(24);
+        height: rem(24);
+      }
+    }
+  }
+
+  @media (min-width: $portrait) {
+    @media (min-width: $portrait) {
+      font-size: rem(11);
+      line-height: rem(13);
+    }
   }
 
   @include element($parent, 'main-right') {
@@ -168,6 +375,23 @@ $parent: header;
     height: 100%;
     background-color: $c07;
     padding-right: rem(15);
+
+    @media (min-width: $portrait) {
+      width: 56.5%;
+      height: 100%;
+      background-color: $c39;
+      padding-right: rem(20);
+      padding-left: rem(28);
+    }
+
+    @media (min-width: $desktop) {
+      width: 65%;
+    }
+
+    @media (min-width: 1600px) {
+      width: 72%;
+      padding-right: rem(35);
+    }
   }
 
   @include element($parent, 'hamburger') {
@@ -175,6 +399,14 @@ $parent: header;
     width: rem(51);
     height: rem(51);
     margin-right: rem(20);
+
+    @media (min-width: $portrait) {
+      margin-right: rem(15);
+    }
+
+    @media (min-width: 1600px) {
+      margin-right: rem(30);
+    }
 
     span {
       position: absolute;
@@ -186,12 +418,25 @@ $parent: header;
       left: 50%;
       transform: translate(-50%, -50%);
 
+      @media (min-width: 1600px) {
+        width: rem(54);
+        height: rem(6);
+      }
+
       &:nth-child(1) {
         top: rem(14);
+
+        @media (min-width: 1600px) {
+          top: rem(11);
+        }
       }
 
       &:nth-child(3) {
         top: rem(39);
+
+        @media (min-width: 1600px) {
+          top: rem(42);
+        }
       }
     }
   }
@@ -204,5 +449,24 @@ $parent: header;
     left: 50%;
     transform: translateX(-50%);
     bottom: rem(-13);
+  }
+
+  @include element($parent, 'callback') {
+    display: none;
+
+    @media (min-width: $portrait) {
+      display: inline-flex;
+      font-size: rem(11);
+      line-height: rem(13);
+      margin-left: rem(18);
+    }
+
+    @media (min-width: 1600px) {
+      margin-left: rem(7);
+    }
+
+    @media (min-width: 1900px) {
+      margin-left: rem(18);
+    }
   }
 }
