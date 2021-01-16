@@ -28,5 +28,133 @@
       "text": "Контакты"
     }
   ],
-  "flags": ["flag-r", "flag-g", "flag-gb"]
+  "flags": ["flag-r", "flag-g", "flag-gb"],
+  "menu": {
+    "links": [
+      {
+        "icon": "header-menu-i-1",
+        "title": "Все инструменты",
+        "list": [
+          {
+            "href": "#",
+            "text": "Ручной инструмент"
+          }
+        ]
+      },
+      {
+        "icon": "header-menu-i-2",
+        "title": "Ручной инструмент",
+        "list": [
+          {
+            "href": "#",
+            "text": "Ручной инструмент"
+          },
+          {
+            "href": "#",
+            "text": "Ручной инструмент"
+          },
+          {
+            "href": "#",
+            "text": "Ручной инструмент"
+          },
+          {
+            "href": "#",
+            "text": "Ручной инструмент"
+          },
+          {
+            "href": "#",
+            "text": "Ручной инструмент"
+          },
+          {
+            "href": "#",
+            "text": "Ручной инструмент"
+          },
+          {
+            "href": "#",
+            "text": "Ручной инструмент"
+          },
+          {
+            "href": "#",
+            "text": "Ручной инструмент"
+          },
+          {
+            "href": "#",
+            "text": "Ручной инструмент"
+          }
+        ]
+      },
+      {
+        "icon": "header-menu-i-3",
+        "title": "Специнструмент",
+        "list": [
+          {
+            "href": "#",
+            "text": "Ручной инструмент"
+          }
+        ]
+      },
+      {
+        "icon": "header-menu-i-4",
+        "title": "Шиномонтаж",
+        "list": [
+          {
+            "href": "#",
+            "text": "Ручной инструмент"
+          }
+        ]
+      }
+    ],
+    "info": {
+      "links": [
+        {
+          "href": "#",
+          "text": "О компании",
+          "icon": "info-i-1"
+        },
+        {
+          "href": "#",
+          "text": "Доставка",
+          "icon": "info-i-2"
+        },
+        {
+          "href": "#",
+          "text": "Оплата",
+          "icon": "info-i-3"
+        },
+        {
+          "href": "#",
+          "text": "Условия возврата",
+          "icon": "info-i-4"
+        },
+        {
+          "href": "#",
+          "text": "Контакты",
+          "icon": "info-i-5"
+        },
+        {
+          "href": "#",
+          "text": "Новости и события",
+          "icon": "info-i-6"
+        }
+      ],
+      "social": [
+        {
+          "href": "#",
+          "icon": "social-vk"
+        },
+        {
+          "href": "#",
+          "icon": "social-fb"
+        },
+        {
+          "href": "#",
+          "icon": "social-inst"
+        },
+        {
+          "href": "#",
+          "icon": "social-youtube"
+        }
+      ]
+    }
+  }
 }

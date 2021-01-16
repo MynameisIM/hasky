@@ -198,6 +198,7 @@ $parent: header;
     padding-left: rem(10);
 
     @media (min-width: $portrait) {
+      position: relative;
       height: 100%;
       width: 43.5%;
       padding-left: rem(20);
@@ -214,6 +215,7 @@ $parent: header;
   }
 
   @include element($parent, 'main') {
+    position: relative;
     display: flex;
     align-items: center;
     height: rem(85);
@@ -442,6 +444,30 @@ $parent: header;
         @media (min-width: 1600px) {
           top: rem(42);
         }
+      }
+    }
+
+    &.open {
+      span {
+        &:nth-child(1) {
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%) rotate(45deg);
+        }
+
+        &:nth-child(2) {
+          display: none;
+        }
+
+        &:nth-child(3) {
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%) rotate(-45deg);
+        }
+      }
+
+      @include element($parent, 'hamburger-text') {
+        display: none;
       }
     }
   }

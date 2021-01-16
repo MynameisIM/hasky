@@ -1,0 +1,199 @@
+$parent: header-menu;
+
+@include block($parent) {
+  position: absolute;
+  display: none;
+  width: 100%;
+  height: calc(100vh - 182px);
+  top: 100%;
+  left: 0;
+  overflow-y: auto;
+
+  &.open {
+    display: flex;
+  }
+
+  @media (min-width: $portrait) {
+    height: calc(100vh - 150px);
+  }
+
+  @include element($parent, 'link-item-wrapper') {
+    display: flex;
+    align-items: center;
+    padding: 0 rem(13);
+
+    span {
+      font-weight: 500;
+      font-size: rem(18);
+      line-height: rem(21);
+      color: $white;
+
+      @media (min-width: $desktop) {
+        font-size: rem(24);
+        line-height: rem(28);
+      }
+    }
+
+    svg {
+      width: rem(42);
+      height: rem(42);
+      margin-right: rem(20);
+
+      @media (min-width: $desktop) {
+        margin-right: rem(30);
+      }
+    }
+
+    @media (min-width: $desktop) {
+      padding: 0 rem(45);
+    }
+  }
+
+  @include element($parent, 'links-box') {
+    background-color: $c07;
+    padding: rem(10) 0;
+
+    @media (min-width: $desktop) {
+      padding: rem(22) 0 rem(10);
+    }
+  }
+
+  @include element($parent, 'link') {
+    font-weight: 500;
+    font-size: rem(14);
+    line-height: rem(16);
+    color: $white;
+    padding: rem(8) 0 rem(8) rem(61);
+
+    &:hover {
+      background-color: $a1;
+    }
+
+    @media (min-width: $desktop) {
+      font-size: rem(16);
+      line-height: rem(18);
+      padding: rem(9) 0 rem(9) rem(115);
+    }
+  }
+
+  @include element($parent, 'link-item') {
+    padding: rem(15) 0;
+
+    @media (min-width: $desktop) {
+      padding: rem(24) 0;
+    }
+
+    &.active {
+      @include element($parent, 'link-item-dropdown') {
+        display: flex;
+        flex-direction: column;
+        padding: rem(6) 0 0 0;
+
+        @media (min-width: $desktop) {
+          padding: rem(39) 0 0 0;
+        }
+      }
+
+      @media (min-width: $desktop) {
+        background-color: $c67;
+      }
+    }
+  }
+
+  @include element($parent, 'link-item-dropdown') {
+    display: none;
+  }
+
+  @include element($parent, 'info-box') {
+    background-color: $a1;
+    padding: rem(30) 0 rem(20);
+
+    @media (min-width: $desktop) {
+      position: relative;
+      padding: rem(30) 0;
+    }
+  }
+
+  @include element($parent, 'info-links') {
+    display: flex;
+    flex-wrap: wrap;
+    padding: rem(10) rem(13) 0;
+
+    @media (min-width: $desktop) {
+      padding: rem(10) rem(30) rem(3) rem(50);
+    }
+  }
+
+  @include element($parent, 'info-link') {
+    display: flex;
+    align-items: center;
+    width: 50%;
+    margin-bottom: rem(40);
+
+    span {
+      max-width: rem(90);
+      font-weight: 500;
+      font-size: rem(14);
+      line-height: rem(16);
+      color: $white;
+
+      @media (min-width: $desktop) {
+        max-width: 100%;
+        font-size: rem(16);
+        line-height: rem(18);
+      }
+    }
+
+    svg {
+      width: rem(30);
+      height: rem(30);
+      margin-right: rem(12);
+    }
+  }
+
+  @include element($parent, 'copyright-box') {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: rem(4);
+    padding: 0 rem(20);
+
+    @media (min-width: $desktop) {
+      padding: 0 rem(57);
+    }
+  }
+
+  @include element($parent, 'copyright') {
+    display: inline-flex;
+    align-self: flex-start;
+    font-size: rem(12);
+    line-height: rem(14);
+    color: $white;
+    margin-bottom: rem(12);
+  }
+
+  @include element($parent, 'social-box') {
+    display: flex;
+    padding: 0 rem(20);
+
+    @media (min-width: $desktop) {
+      justify-content: flex-end;
+      margin-top: rem(-47);
+      padding: 0 rem(38);
+    }
+  }
+
+  @include element($parent, 'social') {
+    width: rem(24);
+    height: rem(24);
+    margin-right: rem(40);
+
+    &:last-of-type {
+      margin-right: 0;
+    }
+
+    span {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}

@@ -1,0 +1,27 @@
+include ../../../core/svg
+
+mixin header-menu(data)
+  .header-menu
+    .header-menu__container
+      ul.header-menu__links-box
+        each item in data.links
+          li.header-menu__link-item
+            .header-menu__link-item-wrapper
+              +svg(item.icon)
+              span= item.title
+            .header-menu__link-item-dropdown
+              each link in item.list
+                a.header-menu__link(href=link.href)= link.text
+      .header-menu__info-box
+        .header-menu__info-links
+          each il in data.info.links
+            a.header-menu__info-link(href=il.href)
+              +svg(il.icon)
+              span= il.text
+        .header-menu__copyright-box
+          a.header-menu__copyright(href='#') Политика конфиденциальности
+          a.header-menu__copyright(href='#') Правила сайта
+        .header-menu__social-box
+          each link in data.info.social
+            a.header-menu__social(href=link.href)
+              +svg(link.icon)
