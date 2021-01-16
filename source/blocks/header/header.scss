@@ -252,6 +252,10 @@ $parent: header;
       width: 42%;
       height: rem(45);
     }
+
+    @media (min-width: $desktop-1440) {
+      width: 65%;
+    }
   }
 
   @include element($parent, 'search') {
@@ -260,6 +264,7 @@ $parent: header;
     line-height: rem(16);
     color: $ac;
     border-bottom: 1px solid $c67;
+    padding-right: rem(45);
   }
 
   @include element($parent, 'like') {
@@ -467,6 +472,22 @@ $parent: header;
 
     @media (min-width: 1900px) {
       margin-left: rem(18);
+    }
+  }
+
+  @include element($parent, 'search-submit') {
+    position: absolute;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: rem(45);
+    height: rem(45);
+    right: 0;
+
+    svg {
+      width: rem(25);
+      height: rem(25);
+      fill: $white;
     }
   }
 }

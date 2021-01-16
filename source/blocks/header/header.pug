@@ -32,15 +32,17 @@ mixin header(data)
       .header__main-right
         .header__search-box
           input.header__search(type='text', name='search')
-        .header__like
+          button.header__search-submit(type='button')
+            +svg('search')
+        a.header__like(href='#')
           +svg('like')
           .header__btn-text 0
-        .header__compare
+        a.header__compare(href='#')
           +svg('compare')
           .header__btn-text 0
-        .header__cart
+        a.header__cart(href='#')
           +svg('cart')
           .header__btn-text 0
-        .header__login
+        a.header__login(href='#')
           +svg('login')
           .header__btn-text Логин
