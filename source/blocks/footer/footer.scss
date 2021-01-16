@@ -1,5 +1,96 @@
 $parent: footer;
 
 @include block($parent) {
-  width: 100%;
+  @include element($parent, 'copyright') {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: $black;
+    padding: rem(3) 0;
+
+    @media (min-width: $tablet) {
+      flex-direction: row;
+      justify-content: center;
+    }
+  }
+
+  @include element($parent, 'copyright-link') {
+    font-size: rem(11);
+    line-height: rem(22);
+    color: $white;
+    padding: rem(3) 0;
+
+    @media (min-width: $tablet) {
+      margin: 0 rem(20);
+    }
+
+    @media (min-width: $portrait) {
+      margin: 0 rem(45);
+    }
+  }
+
+  @include element($parent, 'copyright-text') {
+    font-size: rem(11);
+    line-height: rem(22);
+    color: $white;
+    padding: rem(3) 0;
+
+    @media (min-width: $tablet) {
+      margin: 0 rem(20);
+    }
+
+    @media (min-width: $portrait) {
+      margin: 0 rem(45);
+    }
+  }
+
+  @include element($parent, 'container') {
+    background-color: $a1;
+    padding: rem(33) rem(15) rem(30);
+  }
+
+  @include element($parent, 'logo') {
+    padding-left: rem(11);
+    margin-bottom: rem(47);
+
+    svg {
+      width: rem(271);
+      height: rem(22);
+      fill: $white;
+    }
+  }
+
+  @include element($parent, 'links-box') {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: rem(6);
+  }
+
+  @include element($parent, 'link') {
+    position: relative;
+    width: 33.33%;
+    font-weight: 500;
+    font-size: rem(12);
+    line-height: rem(21);
+    color: $white;
+    padding-left: rem(12);
+    margin-bottom: rem(21);
+
+    &::before {
+      position: absolute;
+      content: '';
+      width: rem(4);
+      height: rem(4);
+      border-radius: 50%;
+      background-color: $c07;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+
+  @include element($parent, 'mail-box') {
+    border-radius: rem(3);
+    background-color: $c23;
+  }
 }

@@ -1,27 +1,22 @@
 {
   "name": "webpack4",
   "version": "1.0.0",
-  "description": "builder for idem.agency projects",
+  "description": "none",
   "private": true,
   "dependencies": {
     "@babel/polyfill": "^7.10.4",
     "axios": "^0.18.0",
     "body-scroll-lock": "^2.6.4",
-    "choices.js": "^9.0.1",
     "custom-event-polyfill": "^1.0.7",
     "es6-promise-polyfill": "^1.2.0",
-    "google-maps": "^3.3.0",
     "lazysizes": "^5.1.2",
     "mm-jsr": "^1.1.6",
-    "nouislider": "^14.6.0",
     "object-fit-images": "^3.2.4",
     "perfect-scrollbar": "^1.5.0",
     "rangeslider-pure": "^0.4.11",
     "svgxuse": "^1.2.6",
     "swiper": "^6.0.0",
-    "vanilla-rangeslider": "^1.0.0",
-    "vanilla-text-mask": "^5.1.1",
-    "youtube-player": "^5.5.2"
+    "vanilla-text-mask": "^5.1.1"
   },
   "devDependencies": {
     "@babel/core": "^7.7.2",
@@ -74,6 +69,6 @@
     "builder",
     "idem"
   ],
-  "author": "Alexander Gogolev",
-  "license": "ISC"
+  "author": "none",
+  "license": "none"
 }

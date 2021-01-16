@@ -2,4 +2,21 @@ include ../../core/svg
 
 mixin footer(data)
   footer.footer
-    .footer__container footer
+    .footer__container
+      .footer__logo
+        +svg('logo')
+      .footer__box
+        .footer__links-box
+          each link in data.links
+            a.footer__link(href=link.href)= link.text
+        .footer__mail-box
+          +svg('email')
+          .footer__mail-title Подпишись на рассылку
+          .footer__mail-text Не пропустите щедрые розыгрыши, крутые события и новости
+          button.footer__mail-submit(type='button') Подписаться
+    .footer__copyright
+      each cr in data.copyright
+        if cr.href
+          a.footer__copyright-link(href=cr.href)= cr.text
+        else
+          .footer__copyright-text= cr.text
