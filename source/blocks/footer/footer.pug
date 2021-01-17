@@ -14,6 +14,28 @@ mixin footer(data)
           .footer__mail-title Подпишись на рассылку
           .footer__mail-text Не пропустите щедрые розыгрыши, крутые события и новости
           button.footer__mail-submit(type='button') Подписаться
+            span
+        .footer__contacts
+          a.footer__contacts-phone.footer__contacts-phone--main(href='tel:88003504217') 8 800 350-42-17
+          .footer__contacts-box
+            a.footer__contacts-phone.footer__contacts-phone--without-icon(href='tel:89378879930') 8 937 887-99-30
+            a.footer__contacts-phone(href='#')
+              +svg('footer-viber')
+            a.footer__contacts-phone(href='#')
+              +svg('footer-whatsapp')
+          .footer__contacts-time
+            span 08:00 - 17:00 (MSK) в будние дни
+            span 09:00 - 14:00 (MSK) в выходные и праздничные дни
+          a.footer__contacts-mail(href='mailto:sales@haskyy-tools.ru') Sales@haskyy-tools.ru
+          .footer__social-box
+            a.footer__social(href='#')
+              +svg('footer-vk')
+            a.footer__social(href='#')
+              +svg('footer-fb')
+            a.footer__social(href='#')
+              +svg('footer-inst')
+            a.footer__social(href='#')
+              +svg('footer-youtube')
     .footer__copyright
       each cr in data.copyright
         if cr.href
