@@ -3,13 +3,13 @@ extends ../layouts/main.pug
 include ../blocks/first-screen/first-screen
 include ../blocks/about/about
 include ../blocks/sections/sections
+include ../blocks/goods/goods
 
 block vars
   - var indexPage = require('../data/indexPage.json');
 
 block content
-  each part in indexPage.blocks
-    if (part.name === 'firstScreen')
-      +first-screen()
-      +about()
-      +sections()
+  +first-screen()
+  +about()
+  +sections()
+  +goods(indexPage.goods)

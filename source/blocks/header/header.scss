@@ -283,6 +283,8 @@ $parent: header;
     }
 
     svg {
+      fill: $white;
+
       @media (min-width: $portrait) {
         width: rem(30);
         height: rem(30);
@@ -304,6 +306,8 @@ $parent: header;
     }
 
     svg {
+      fill: $white;
+
       @media (min-width: $portrait) {
         width: rem(23);
         height: rem(29);

@@ -1,0 +1,28 @@
+include ../../core/svg
+
+mixin goods(data)
+  .goods
+    .goods__container
+      .goods__title Все инструменты
+      .goods__box
+         each card in data.cards
+           .goods__card
+             .goods__card-tag= card.tag
+             .goods__card-image
+               img(src=card.src, alt='alt')
+             .goods__card-title= card.title
+             .goods__card-article Артикул:
+               span= card.article
+             .goods__card-price-box
+               span.goods__card-price= card.price
+               span.goods__card-price.goods__card-price--old= card.oldPrice
+             .goods__card-buttons
+               button.goods__card-button.goods__card-button--one-click(type='button') Купить в 1 клик
+               button.goods__card-button.goods__card-button--add(type='button') Добавить в корзину
+               .goods__card-hidden-buttons
+                 button.goods__cards-hidden-button(type='button')
+                   +svg('like')
+                 button.goods__cards-hidden-button(type='button')
+                   +svg('compare')
+                 button.goods__cards-hidden-button(type='button')
+                   +svg('eye')

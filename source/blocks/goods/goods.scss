@@ -1,0 +1,269 @@
+$parent: goods;
+
+@include block($parent) {
+  padding: rem(20) 0;
+
+  @include element($parent, 'container') {
+    padding: 0 rem(8);
+
+    @media (min-width: $tablet) {
+      padding: 0 rem(16);
+    }
+
+    @media (min-width: $desktop) {
+      padding: 0 rem(55);
+    }
+
+    @media (min-width: 1900px) {
+      padding: 0 rem(106);
+    }
+  }
+
+  @include element($parent, 'title') {
+    font-weight: 700;
+    font-size: rem(36);
+    line-height: rem(41);
+    color: $c41;
+    text-align: center;
+    margin-bottom: rem(21);
+
+    @media (min-width: $tablet) {
+      font-size: rem(48);
+      line-height: rem(55);
+      margin-bottom: rem(54);
+    }
+
+    @media (min-width: $desktop) {
+      font-size: rem(64);
+      line-height: rem(74);
+      margin-bottom: rem(40);
+    }
+  }
+
+  @include element($parent, 'box') {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  @include element($parent, 'card-tag') {
+    position: absolute;
+    font-size: rem(14);
+    line-height: rem(16);
+    color: $white;
+    background-color: $c07;
+    padding: rem(5) rem(15);
+    top: rem(7);
+    right: rem(4);
+
+    @media (min-width: $tablet) {
+      top: rem(18);
+      right: rem(20);
+    }
+  }
+
+  @include element($parent, 'card-image') {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: rem(125);
+    margin-bottom: rem(11);
+
+    img {
+      max-width: 100%;
+      margin: 0 auto;
+
+      @media (min-width: $tablet) {
+        width: 100%;
+      }
+    }
+
+    @media (min-width: $tablet) {
+      height: rem(200);
+    }
+
+    @media (min-width: $portrait) {
+      height: rem(288);
+    }
+  }
+
+  @include element($parent, 'card-title') {
+    max-height: rem(48);
+    min-height: rem(48);
+    font-weight: 500;
+    font-size: rem(14);
+    line-height: rem(16);
+    color: $c0f;
+    padding: 0 rem(4);
+    margin-bottom: rem(9);
+    overflow: hidden;
+
+    @media (min-width: $tablet) {
+      max-height: rem(55);
+      min-height: rem(55);
+      font-size: rem(16);
+      line-height: rem(18);
+      padding: 0 rem(10);
+    }
+
+    @media (min-width: $desktop) {
+      font-size: rem(20);
+      line-height: rem(23);
+      margin-bottom: 0;
+    }
+  }
+
+  @include element($parent, 'card-article') {
+    font-size: rem(14);
+    line-height: rem(16);
+    color: $c41;
+    padding: 0 rem(4);
+    margin-bottom: rem(7);
+
+    span {
+      padding-left: rem(4);
+    }
+
+    @media (min-width: $tablet) {
+      padding: 0 rem(10);
+    }
+
+    @media (min-width: $desktop) {
+      margin-bottom: rem(10);
+    }
+  }
+
+  @include element($parent, 'card-price-box') {
+    display: flex;
+    align-items: center;
+    padding: 0 rem(2);
+    margin-bottom: rem(13);
+
+    @media (min-width: $tablet) {
+      padding: 0 rem(10);
+      margin-bottom: rem(33);
+    }
+
+    @media (min-width: $desktop) {
+      margin-bottom: rem(32);
+    }
+  }
+
+  @include element($parent, 'card-price') {
+    font-weight: 700;
+    font-size: rem(24);
+    line-height: rem(28);
+    color: $ff;
+
+    @include modifier($parent, 'old') {
+      font-weight: 400;
+      font-size: rem(14);
+      line-height: rem(16);
+      color: $c3e;
+      text-decoration: line-through;
+      margin-left: auto;
+    }
+  }
+
+  @include element($parent, 'card-buttons') {
+    @media (min-width: $portrait) {
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
+
+  @include element($parent, 'card-button') {
+    width: 100%;
+    height: rem(42);
+    font-weight: 500;
+    font-size: rem(14);
+    line-height: rem(16);
+    border: 1px solid $c07;
+
+    @media (min-width: $portrait) {
+      width: calc(50% - 4px);
+    }
+
+    @include modifier($parent, 'one-click') {
+      color: $c07;
+      margin-bottom: rem(5);
+    }
+
+    @include modifier($parent, 'add') {
+      background-color: $c07;
+      color: $white;
+
+      @media (min-width: $tablet) {
+        margin-left: auto;
+      }
+    }
+  }
+
+  @include element($parent, 'card-hidden-buttons') {
+    position: absolute;
+    width: calc(100% + 2px);
+    display: flex;
+    justify-content: space-between;
+    left: -1px;
+    opacity: 0;
+    background-color: $white;
+    border: 1px solid $e2;
+    border-top: none;
+    bottom: rem(-18);
+    padding: rem(5);
+
+    @media (min-width: $tablet) {
+      padding: rem(10);
+      bottom: rem(-33);
+    }
+
+    @media (min-width: $desktop) {
+      bottom: rem(-18);
+    }
+  }
+
+  @include element($parent, 'cards-hidden-button') {
+    padding: 0 rem(10);
+
+    svg {
+      width: rem(20);
+      height: rem(20);
+      fill: $c7d;
+    }
+  }
+
+  @include element($parent, 'card') {
+    position: relative;
+    width: calc(50% - 8px);
+    padding: rem(36) rem(8) rem(14);
+    border: 1px solid $e2;
+    margin: 0 rem(4) rem(8);
+    transition: transform 0.25s linear;
+    background-color: $white;
+
+    &:hover {
+      transform: scale(1.08);
+      z-index: 1;
+
+      @include element($parent, 'card-hidden-buttons') {
+        opacity: 1;
+      }
+    }
+
+    @media (min-width: $tablet) {
+      width: calc(33.33% - 8px);
+      padding: rem(36) rem(12) rem(8);
+      margin: 0 rem(4) rem(16);
+    }
+
+    @media (min-width: $desktop) {
+      width: calc(25% - 16px);
+      padding: rem(36) rem(12) rem(18);
+      margin: 0 rem(8) rem(16);
+    }
+
+    @media (min-width: 1900px) {
+      width: calc(25% - 30px);
+      margin: 0 rem(15) rem(16);
+    }
+  }
+}

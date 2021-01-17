@@ -2,6 +2,15 @@ $parent: sections;
 
 @include block($parent) {
   background-color: $ea;
+  margin-bottom: rem(50);
+
+  @media (min-width: $tablet) {
+    margin-bottom: rem(78);
+  }
+
+  @media (min-width: $desktop) {
+    margin-bottom: rem(47);
+  }
 
   @include element($parent, 'container') {
     @media (min-width: $tablet) {
