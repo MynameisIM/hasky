@@ -1,0 +1,128 @@
+$parent: sections;
+
+@include block($parent) {
+  background-color: $ea;
+
+  @include element($parent, 'container') {
+    @media (min-width: $tablet) {
+      padding: 0 rem(20);
+    }
+
+    @media (min-width: $desktop) {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    @media (min-width: 1900px) {
+      padding: 0 rem(78);
+    }
+  }
+
+  @include element($parent, 'image-box') {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      font-family: 'object-fit: cover;';
+    }
+
+    &::after {
+      position: absolute;
+      content: '';
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      transition: opacity 0.25s linear;
+      background-color: rgba(7, 118, 250, 0.22);
+    }
+  }
+
+  @include element($parent, 'title') {
+    position: absolute;
+    width: rem(252);
+    height: rem(60);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 500;
+    font-size: rem(20);
+    line-height: rem(23);
+    color: $c29;
+    top: 0;
+    right: 0;
+    background-color: $ea;
+    box-shadow: rem(-17) rem(12) 0 $c07;
+    transition: box-shadow 0.25s linear;
+
+    span {
+      margin-top: rem(-10);
+    }
+  }
+
+  @include element($parent, 'button') {
+    position: absolute;
+    width: rem(144);
+    height: rem(37);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: rem(11);
+    line-height: rem(13);
+    bottom: 20px;
+    right: 20px;
+    color: $white;
+    background-color: $c39;
+    opacity: 0;
+    transition: opacity 0.25s linear;
+
+    &::after {
+      position: absolute;
+      content: '';
+      width: rem(10);
+      height: rem(10);
+      border-bottom: 2px solid $white;
+      border-right: 2px solid $white;
+      transform: rotate(-45deg) translateY(-50%);
+      top: 47%;
+      right: rem(15);
+    }
+  }
+
+  @include element($parent, 'item') {
+    position: relative;
+    display: block;
+    height: rem(320);
+    margin-bottom: rem(20);
+    transition: box-shadow 0.25s linear;
+
+    @media (min-width: $desktop) {
+      width: calc(33.33% - 82px);
+      margin: 0 rem(41);
+    }
+
+    &:hover {
+      box-shadow: 0 rem(50) rem(30) rgba(0, 0, 0, 0.2);
+
+      @include element($parent, 'image-box') {
+        &::after {
+          opacity: 0;
+        }
+      }
+
+      @include element($parent, 'button') {
+        opacity: 1;
+      }
+
+      @include element($parent, 'title') {
+        box-shadow: 0 0 0 $c07;
+      }
+    }
+  }
+}

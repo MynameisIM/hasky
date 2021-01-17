@@ -2,6 +2,7 @@ extends ../layouts/main.pug
 
 include ../blocks/first-screen/first-screen
 include ../blocks/about/about
+include ../blocks/sections/sections
 
 block vars
   - var indexPage = require('../data/indexPage.json');
@@ -11,3 +12,4 @@ block content
     if (part.name === 'firstScreen')
       +first-screen()
       +about()
+      +sections()

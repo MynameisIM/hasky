@@ -1,13 +1,13 @@
 $parent: about;
 
 @include block($parent) {
-  background-color: $e5;
+  background-color: $ea;
   padding-bottom: rem(30);
 
   @media (min-width: $tablet) {
     display: flex;
     align-items: flex-start;
-    padding-bottom: rem(82);
+    padding-bottom: rem(78);
   }
 
   @include element($parent, 'image') {
