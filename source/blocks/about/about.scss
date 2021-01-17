@@ -1,0 +1,109 @@
+$parent: about;
+
+@include block($parent) {
+  background-color: $e5;
+  padding-bottom: rem(30);
+
+  @media (min-width: $tablet) {
+    display: flex;
+    align-items: flex-start;
+    padding-bottom: rem(82);
+  }
+
+  @include element($parent, 'image') {
+    position: relative;
+    padding-top: 56%;
+
+    @media (min-width: $tablet) {
+      width: 35%;
+      height: rem(260);
+      padding-top: 0;
+    }
+
+    @media (min-width: $desktop) {
+      height: rem(400);
+    }
+
+    @media (min-width: $desktop-1440) {
+      width: 43%;
+    }
+
+    img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+
+      @media (min-width: $tablet) {
+        position: static;
+        object-fit: cover;
+        font-family: 'object-fit: cover;';
+      }
+    }
+  }
+
+  @include element($parent, 'text-box') {
+    @media (min-width: $tablet) {
+      width: 65%;
+      padding-left: rem(25);
+    }
+
+    @media (min-width: $portrait) {
+      padding-left: rem(65);
+    }
+
+    @media (min-width: $desktop-1440) {
+      width: 40%;
+    }
+  }
+
+  @include element($parent, 'title') {
+    max-width: rem(375);
+    font-weight: 700;
+    font-size: rem(36);
+    line-height: rem(41);
+    color: $c41;
+    text-align: center;
+    margin: 0 auto rem(14);
+
+    @media (min-width: $tablet) {
+      font-size: rem(48);
+      line-height: 1.2;
+      max-width: 100%;
+      text-align: left;
+    }
+
+    @media (min-width: $portrait) {
+      font-size: rem(60);
+      line-height: rem(69);
+    }
+
+    @media (min-width: $desktop) {
+      font-size: rem(72);
+      line-height: rem(83);
+      margin-bottom: rem(33);
+    }
+  }
+
+  @include element($parent, 'text') {
+    font-size: rem(14);
+    line-height: rem(22);
+    color: $c29;
+    text-align: center;
+
+    @media (min-width: $tablet) {
+      text-align: left;
+    }
+
+    @media (min-width: $portrait) {
+      font-size: rem(18);
+      line-height: rem(28);
+    }
+
+    @media (min-width: $desktop) {
+      font-size: rem(24);
+      line-height: rem(38);
+    }
+  }
+}
