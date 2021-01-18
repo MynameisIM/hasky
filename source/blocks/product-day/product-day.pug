@@ -1,0 +1,35 @@
+include ../../core/svg
+
+mixin product-day()
+  .product-day
+    .product-day__title Товар дня
+    .product-day__container
+      .product-day__image
+        img(src='/assets/images/product-day.jpg')
+      .product-day__main
+        .product-day__main-image
+          img(src='/assets/images/goods-1.png')
+        .product-day__main-info
+          .product-day__main-name Ударные торцевые головки
+          .product-day__main-article Артикул: CZAM-15
+          .product-day__main-price 6 090 ₽
+          .product-day__main-text Тема сегодняшнего разговора – ступицы и поворотные кулаки. Этот узел подвески нечасто требует внимания, но по мере проявления «усталости» лучше взяться и полностью его обновить.
+          .product-day__timer
+            button.product-day__like(type='button')
+              +svg('like')
+            button.product-day__compare(type='button')
+              +svg('compare')
+          .product-day__main-buttons
+            button.product-day__main-button.product-day__main-button--one-click(type='button') Купить в один клик
+            button.product-day__main-button.product-day__main-button--add(type='button') Добавить в корзину
+      .product-day__sale
+        .product-day__sale-header
+          span Товар со скидкой
+          span -50%
+        .product-day__sale-main
+          .product-day__sale-image
+            img(src='/assets/images/goods-1.png')
+          .product-day__sale-info
+            .product-day__sale-title Ударные торцевые головки
+            .product-day__sale-old 12 090 ₽
+            .product-day__sale-price 6 090 ₽

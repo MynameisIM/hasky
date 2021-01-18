@@ -1,0 +1,430 @@
+$parent: product-day;
+
+@include block($parent) {
+  @include element($parent, 'title') {
+    font-weight: 700;
+    font-size: rem(36);
+    line-height: rem(41);
+    color: $c41;
+    text-align: center;
+    margin-bottom: rem(32);
+
+    @media (min-width: $tablet) {
+      font-size: rem(48);
+      line-height: rem(55);
+      margin-bottom: rem(50);
+    }
+
+    @media (min-width: $desktop) {
+      font-size: rem(64);
+      line-height: rem(74);
+    }
+  }
+
+  @include element($parent, 'container') {
+    position: relative;
+    padding: rem(42) rem(28);
+
+    @media (min-width: $tablet) {
+      padding: rem(52) rem(50) rem(52) 5%;
+    }
+
+    @media (min-width: $portrait) {
+      padding: rem(52) rem(50) rem(52) 17%;
+    }
+
+    @media (min-width: $desktop) {
+      display: flex;
+      padding: rem(34) 6.2% rem(52) 5%;
+    }
+  }
+
+  @include element($parent, 'main-image') {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: rem(23);
+    height: rem(200);
+
+    @media (min-width: $tablet) {
+      width: 42%;
+    }
+
+    @media (min-width: $desktop) {
+      width: 48%;
+      height: 100%;
+      margin-bottom: 0;
+    }
+
+    img {
+      height: 100%;
+      object-fit: contain;
+      font-family: 'object-fit: contain;';
+    }
+  }
+
+  @include element($parent, 'main-info') {
+    @media (min-width: $tablet) {
+      width: 58%;
+    }
+
+    @media (min-width: $desktop) {
+      width: 52%;
+    }
+  }
+
+  @include element($parent, 'image') {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+
+    @media (min-width: $tablet) {
+      width: 55%;
+      height: rem(556);
+    }
+
+    @media (min-width: $desktop) {
+      width: 53%;
+      height: rem(550);
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      font-family: 'object-fit: cover;';
+    }
+  }
+
+  @include element($parent, 'main') {
+    position: relative;
+    background-color: $white;
+    padding: rem(24) rem(16);
+    margin-bottom: rem(22);
+
+    @media (min-width: $tablet) {
+      display: flex;
+      box-shadow: 0 rem(24) rem(24) rgba(0, 0, 0, 0.1);
+      padding: rem(24) rem(38) rem(20) rem(16);
+      margin-bottom: rem(59);
+    }
+
+    @media (min-width: $desktop) {
+      width: 53%;
+      padding: rem(27) rem(38) rem(20) rem(16);
+      margin-left: auto;
+      margin-bottom: 0;
+    }
+  }
+
+  @include element($parent, 'sale') {
+    background-color: $white;
+    position: relative;
+
+    @media (min-width: $tablet) {
+      box-shadow: 0 rem(24) rem(24) rgba(0, 0, 0, 0.1);
+    }
+
+    @media (min-width: $desktop) {
+      width: 21.5%;
+      margin-left: rem(20);
+    }
+  }
+
+  @include element($parent, 'sale-header') {
+    background-color: $ff;
+    padding: rem(23) rem(10);
+
+    @media (min-width: $tablet) {
+      padding: rem(18) rem(10);
+    }
+
+    @media (min-width: $desktop) {
+      padding: rem(23) rem(10);
+    }
+
+    span {
+      display: block;
+      font-weight: 700;
+      font-size: rem(24);
+      line-height: rem(28);
+      color: $white;
+      text-align: center;
+
+      @media (min-width: $tablet) {
+        font-size: rem(36);
+        line-height: rem(41);
+      }
+
+      @media (min-width: $desktop) {
+        font-size: rem(24);
+        line-height: rem(28);
+      }
+    }
+  }
+
+  @include element($parent, 'main-name') {
+    font-weight: 700;
+    font-size: rem(18);
+    line-height: rem(21);
+    color: $c0f;
+    margin-bottom: rem(9);
+
+    @media (min-width: $tablet) {
+      font-size: rem(24);
+      line-height: rem(28);
+      margin-bottom: rem(12);
+    }
+
+    @media (min-width: $desktop) {
+      font-size: rem(36);
+      line-height: rem(41);
+    }
+  }
+
+  @include element($parent, 'main-article') {
+    font-size: rem(13);
+    line-height: rem(15);
+    color: $c41;
+    margin-bottom: rem(8);
+
+    @media (min-width: $tablet) {
+      margin-bottom: rem(15);
+    }
+  }
+
+  @include element($parent, 'main-price') {
+    font-weight: 700;
+    font-size: rem(36);
+    line-height: rem(41);
+    color: $c07;
+    margin-bottom: rem(8);
+
+    @media (min-width: $tablet) {
+      margin-bottom: rem(15);
+    }
+
+    @media (min-width: $desktop) {
+      margin-bottom: rem(10);
+    }
+  }
+
+  @include element($parent, 'main-text') {
+    font-size: rem(14);
+    line-height: rem(18);
+    color: $c0f;
+    margin-bottom: rem(7);
+
+    @media (min-width: $tablet) {
+      width: 65%;
+      margin-bottom: rem(47);
+    }
+
+    @media (min-width: $desktop) {
+      width: 100%;
+      font-size: rem(16);
+      line-height: rem(21);
+      margin-bottom: rem(25);
+    }
+  }
+
+  @include element($parent, 'main-buttons') {
+    @media (min-width: $tablet) {
+      display: flex;
+    }
+  }
+
+  @include element($parent, 'main-button') {
+    position: relative;
+    width: 100%;
+    height: rem(60);
+    font-weight: 500;
+    font-size: rem(16);
+    line-height: rem(18);
+    border: 1px solid $c07;
+    text-align: left;
+    padding: 0 rem(26);
+
+    &::after {
+      position: absolute;
+      content: '';
+      width: rem(10);
+      height: rem(10);
+      border-bottom: 2px solid $white;
+      border-right: 2px solid $white;
+      top: 50%;
+      right: rem(20);
+      transform: translateY(-50%) rotate(-45deg);
+
+      @media (min-width: $tablet) {
+        content: none;
+      }
+
+      @media (min-width: $portrait) {
+        content: '';
+      }
+    }
+
+    @media (min-width: $tablet) {
+      width: calc(50% - 10px);
+      padding: 0 rem(10);
+    }
+
+    @media (min-width: $portrait) {
+      width: calc(50% - 4px);
+      padding: 0 rem(26);
+    }
+
+    @include modifier($parent, 'one-click') {
+      color: $c07;
+      margin-bottom: rem(15);
+
+      &::after {
+        border-color: $c07;
+      }
+
+      @media (min-width: $tablet) {
+        margin-right: auto;
+        margin-bottom: 0;
+      }
+    }
+
+    @include modifier($parent, 'add') {
+      background-color: $c07;
+      color: $white;
+
+      @media (min-width: $tablet) {
+        margin-left: auto;
+      }
+    }
+  }
+
+  @include element($parent, 'timer') {
+    height: rem(60);
+    background-color: #ededed;
+    margin-bottom: rem(23);
+
+    @media (min-width: $tablet) {
+      display: flex;
+      margin-bottom: rem(39);
+    }
+
+    @media (min-width: $desktop) {
+      margin-bottom: rem(32);
+    }
+  }
+
+  @include element($parent, 'sale-main') {
+    padding: rem(20) rem(20) rem(5);
+
+    @media (min-width: $tablet) {
+      display: flex;
+      align-items: center;
+      padding: rem(20) rem(20) rem(30);
+    }
+
+    @media (min-width: $desktop) {
+      flex-direction: column;
+      padding: rem(20);
+    }
+  }
+
+  @include element($parent, 'sale-info') {
+    @media (min-width: $tablet) {
+      width: 50%;
+      margin-left: auto;
+    }
+
+    @media (min-width: $desktop) {
+      width: 100%;
+    }
+  }
+
+  @include element($parent, 'sale-image') {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: rem(230);
+    margin-bottom: rem(21);
+
+    @media (min-width: $tablet) {
+      width: 50%;
+      height: rem(225);
+      margin-bottom: 0;
+    }
+
+    @media (min-width: $desktop) {
+      width: 90%;
+      height: rem(210);
+      margin-bottom: rem(26);
+    }
+
+    img {
+      height: 100%;
+    }
+  }
+
+  @include element($parent, 'sale-title') {
+    font-weight: 500;
+    font-size: rem(20);
+    line-height: rem(23);
+    text-align: center;
+    margin-bottom: rem(15);
+  }
+
+  @include element($parent, 'sale-old') {
+    font-size: rem(18);
+    line-height: rem(21);
+    text-align: center;
+    color: $c3e;
+    text-decoration: line-through;
+    margin-bottom: rem(6);
+  }
+
+  @include element($parent, 'sale-price') {
+    font-weight: 700;
+    font-size: rem(36);
+    line-height: rem(41);
+    color: $c07;
+    text-align: center;
+  }
+
+  @include element($parent, 'like') {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    width: rem(60);
+    height: rem(60);
+    margin-left: auto;
+
+    svg {
+      width: rem(20);
+      height: rem(20);
+      fill: #343434;
+    }
+
+    @media (min-width: $tablet) {
+      display: inline-flex;
+    }
+  }
+
+  @include element($parent, 'compare') {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    width: rem(60);
+    height: rem(60);
+
+    svg {
+      width: rem(20);
+      height: rem(20);
+      fill: #343434;
+    }
+
+    @media (min-width: $tablet) {
+      display: inline-flex;
+    }
+  }
+}
