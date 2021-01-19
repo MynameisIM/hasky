@@ -1,7 +1,7 @@
 $parent: first-screen;
 
 @include block($parent) {
-  @include element($white, 'thumbs-buttons') {
+  @include element($parent, 'thumbs-buttons') {
     display: none;
 
     @media (min-width: $tablet) {
@@ -11,7 +11,7 @@ $parent: first-screen;
     }
   }
 
-  @include element($white, 'thumbs-info') {
+  @include element($parent, 'thumbs-info') {
     display: none;
 
     @media (min-width: $tablet) {
