@@ -1,5 +1,57 @@
 $parent: first-screen;
 
 @include block($parent) {
-  width: 100%;
+  @include element($white, 'thumbs-buttons') {
+    display: none;
+
+    @media (min-width: $tablet) {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  @include element($white, 'thumbs-info') {
+    display: none;
+
+    @media (min-width: $tablet) {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    span {
+      @media (min-width: $tablet) {
+        font-weight: 700;
+        font-size: rem(18);
+        line-height: rem(21);
+      }
+    }
+  }
+
+  @include element($parent, 'thumbs-more') {
+    position: relative;
+    font-size: rem(11);
+    line-height: rem(13);
+
+    &::after {
+      position: absolute;
+      content: '';
+      width: rem(10);
+      height: rem(10);
+      border-bottom: 2px solid $white;
+      border-right: 2px solid $white;
+      top: 50%;
+      right: rem(20);
+      transform: translateY(-50%) rotate(-45deg);
+
+      @media (min-width: $tablet) {
+        content: none;
+      }
+
+      @media (min-width: $portrait) {
+        content: '';
+      }
+    }
+  }
 }
