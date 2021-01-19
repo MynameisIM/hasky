@@ -1,30 +1,48 @@
 $parent: first-screen;
 
 @include block($parent) {
+  @include element($parent, 'main-container') {
+    @media (min-width: $desktop) {
+      width: 60%;
+    }
+  }
+
   @include element($parent, 'thumbs-buttons') {
     display: none;
 
     @media (min-width: $tablet) {
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
+      width: 20%;
+      min-width: 20%;
+      background-color: $c39;
+      margin: rem(40) 0 rem(15);
     }
   }
 
-  @include element($parent, 'thumbs-info') {
+  @include element($parent, 'main-slide-text') {
     display: none;
 
     @media (min-width: $tablet) {
       display: flex;
-      justify-content: center;
-      align-items: center;
+      flex-direction: column;
+      margin-bottom: rem(10);
+    }
+
+    @media (min-width: $desktop) {
+      margin-bottom: 0;
     }
 
     span {
       @media (min-width: $tablet) {
-        font-weight: 700;
-        font-size: rem(18);
-        line-height: rem(21);
+        font-weight: 500;
+        font-size: rem(14);
+        line-height: rem(16);
+        color: $c39;
+        text-transform: uppercase;
+        margin-bottom: rem(17);
       }
     }
   }
@@ -33,6 +51,9 @@ $parent: first-screen;
     position: relative;
     font-size: rem(11);
     line-height: rem(13);
+    background-color: $c39;
+    color: $white;
+    padding: rem(12) rem(48);
 
     &::after {
       position: absolute;
@@ -51,6 +72,309 @@ $parent: first-screen;
 
       @media (min-width: $portrait) {
         content: '';
+      }
+    }
+  }
+
+  @include element($parent, 'thumbs-slide') {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: rem(182);
+    background-color: $c39;
+    transition: transform 0.25s linear;
+    padding: 0 rem(5) rem(14);
+
+    @media (min-width: $desktop) {
+      height: rem(200);
+    }
+
+    &.swiper-slide-active {
+      transform: scale(1.15);
+      border-radius: rem(3);
+      box-shadow: rem(5) rem(5) rem(10) rgba(0, 0, 0, 0.3);
+
+      @include element($parent, 'thumbs-info-text') {
+        display: block;
+      }
+
+      @include element($parent, 'thumbs-slide-image') {
+        transform: translateY(-35px);
+      }
+    }
+  }
+
+  @include element($parent, 'thumbs-container') {
+    padding: 0 23%;
+
+    @media (min-width: $tablet) {
+      width: 60%;
+      overflow: hidden;
+      padding: rem(40) 20% rem(15);
+    }
+  }
+
+  @include element($parent, 'thumbs-slide-image') {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 80%;
+    min-height: 80%;
+    width: 80%;
+    height: 80%;
+    transition: transform 0.25s linear;
+
+    img {
+      max-width: 100%;
+      max-height: 100%;
+    }
+  }
+
+  @include element($parent, 'thumbs-slide-title') {
+    font-weight: 500;
+    font-size: rem(12);
+    line-height: rem(16);
+    color: $white;
+    text-align: center;
+    margin-bottom: rem(5);
+  }
+
+  @include element($parent, 'thumbs-slide-price') {
+    font-weight: 700;
+    font-size: rem(21);
+    line-height: rem(28);
+    color: $white;
+    text-align: center;
+  }
+
+  @include element($parent, 'main-slide') {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    height: rem(348);
+    padding: rem(15) rem(17) rem(154);
+    overflow: hidden;
+
+    @media (min-width: $tablet) {
+      height: rem(582);
+      padding: rem(15) rem(39) rem(128);
+    }
+
+    @media (min-width: $desktop) {
+      height: rem(699);
+      padding: rem(15) rem(44) rem(112);
+    }
+  }
+
+  @include element($parent, 'main-slide-image') {
+    position: absolute;
+    width: 55%;
+    top: rem(26);
+    right: 0;
+
+    img {
+      width: 100%;
+    }
+
+    @media (min-width: $tablet) {
+      width: 50%;
+      top: 50%;
+      left: 50%;
+      right: auto;
+      transform: translate(-50%, -50%);
+    }
+
+    @media (min-width: $desktop) {
+      top: 55%;
+    }
+  }
+
+  @include element($parent, 'main-slide-title') {
+    font-weight: 500;
+    font-size: rem(14);
+    line-height: 1;
+    color: $c39;
+    text-transform: uppercase;
+  }
+
+  @include element($parent, 'main-slide-type') {
+    font-weight: 500;
+    font-size: rem(12);
+    line-height: rem(14);
+    color: $c39;
+    text-transform: uppercase;
+    margin-bottom: rem(30);
+
+    @media (min-width: $tablet) {
+      font-weight: 700;
+      font-size: rem(33);
+      line-height: rem(38);
+      margin-bottom: rem(15);
+    }
+  }
+
+  @include element($parent, 'main-slide-link') {
+    font-weight: 500;
+    font-size: rem(18);
+    line-height: rem(21);
+    color: $white;
+    background-color: $c07;
+    text-transform: uppercase;
+    padding: rem(14) rem(40);
+
+    @media (min-width: $tablet) {
+      padding: rem(20) rem(66);
+    }
+  }
+
+  @include element($parent, 'main-buttons') {
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    bottom: rem(100);
+    padding: 0 rem(17);
+    pointer-events: none;
+    z-index: 1;
+
+    @media (min-width: $tablet) {
+      width: auto;
+      flex-direction: column;
+      right: 4%;
+      bottom: rem(116);
+    }
+
+    @media (min-width: $desktop) {
+      flex-direction: row;
+      right: 0;
+      bottom: rem(135);
+    }
+  }
+
+  @include element($parent, 'main-button') {
+    position: relative;
+    width: rem(144);
+    height: rem(37);
+    background-color: $c39;
+    pointer-events: auto;
+
+    &::after {
+      position: absolute;
+      content: '';
+      width: rem(10);
+      height: rem(10);
+      border-bottom: 2px solid $white;
+      border-right: 2px solid $white;
+      transform: rotate(-45deg) translateY(-50%);
+      top: 47%;
+      right: rem(15);
+    }
+
+    @include modifier($parent, 'prev') {
+      &::after {
+        top: 25%;
+        right: auto;
+        left: rem(15);
+        transform: rotate(135deg) translateY(-50%);
+      }
+
+      @media (min-width: $tablet) {
+        margin-bottom: rem(11);
+      }
+
+      @media (min-width: $desktop) {
+        margin-right: rem(10);
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  @include element($parent, 'thumbs-box') {
+    @media (min-width: $tablet) {
+      display: flex;
+    }
+  }
+
+  @include element($parent, 'thumbs-info-text') {
+    display: none;
+  }
+
+  @include element($parent, 'thumbs-info') {
+    display: none;
+
+    @media (min-width: $tablet) {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      width: 20%;
+      min-width: 20%;
+      background-color: $c07;
+      margin: rem(40) 0 rem(15);
+      padding: rem(35) rem(10) rem(16) rem(43);
+    }
+
+    span {
+      @media (min-width: $tablet) {
+        font-weight: 700;
+        font-size: rem(18);
+        line-height: rem(21);
+        color: $white;
+        text-transform: uppercase;
+        margin-bottom: rem(30);
+      }
+
+      @media (min-width: $desktop) {
+        font-size: rem(24);
+        line-height: rem(28);
+      }
+    }
+  }
+
+  @include element($parent, 'thumbs-button') {
+    position: relative;
+    width: rem(110);
+    height: rem(30);
+    background-color: $c39;
+    pointer-events: auto;
+
+    &::after {
+      position: absolute;
+      content: '';
+      width: rem(10);
+      height: rem(10);
+      border-bottom: 2px solid $white;
+      border-right: 2px solid $white;
+      transform: rotate(-45deg) translateY(-50%);
+      top: 47%;
+      right: rem(15);
+    }
+
+    @include modifier($parent, 'prev') {
+      background-color: $a1;
+
+      &::after {
+        top: 25%;
+        right: auto;
+        left: rem(15);
+        transform: rotate(135deg) translateY(-50%);
+      }
+    }
+
+    @include modifier($parent, 'next') {
+      background-color: $c07;
+
+      @media (min-width: $tablet) {
+        margin-bottom: rem(11);
+      }
+
+      &::after {
+        top: 45%;
+        left: auto;
+        right: rem(15);
+        transform: rotate(-45deg) translateY(-50%);
       }
     }
   }
