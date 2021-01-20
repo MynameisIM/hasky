@@ -358,6 +358,7 @@ $parent: header;
     width: rem(49);
     height: rem(49);
     display: none;
+    cursor: pointer;
 
     @media (min-width: $portrait) {
       display: inline-flex;
@@ -372,6 +373,14 @@ $parent: header;
         height: rem(24);
       }
     }
+  }
+
+  @include element($parent, 'login-button') {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
   }
 
   @media (min-width: $portrait) {
@@ -520,6 +529,254 @@ $parent: header;
       width: rem(25);
       height: rem(25);
       fill: $white;
+    }
+  }
+
+  @include element($parent, 'login-dropdown') {
+    position: absolute;
+    display: none;
+    min-width: rem(338);
+    background-color: $white;
+    top: calc(100% + 27px);
+    right: 0;
+    box-shadow: 0 rem(8) rem(16) rgba(0, 0, 0, 0.1);
+    padding: rem(10) 0 rem(5);
+
+    &.open {
+      display: block;
+    }
+  }
+
+  @include element($parent, 'cart-button') {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    cursor: pointer;
+  }
+
+  @include element($parent, 'cart-dropdown') {
+    position: absolute;
+    display: none;
+    min-width: rem(338);
+    background-color: $white;
+    top: calc(100% + 27px);
+    right: 0;
+    box-shadow: 0 rem(8) rem(16) rgba(0, 0, 0, 0.1);
+    padding: rem(10) 0 rem(5);
+
+    &.open {
+      display: block;
+    }
+  }
+
+  @include element($parent, 'login-dropdown-links') {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: rem(5);
+    padding: 0 rem(16);
+  }
+
+  @include element($parent, 'login-dropdown-link') {
+    font-size: rem(13);
+    line-height: 1.2;
+    color: $c39;
+    padding: rem(8) 0;
+  }
+
+  @include element($parent, 'login-dropdown-search-box') {
+    background-color: #f1f1f1;
+    padding: rem(7) rem(16) rem(21);
+
+    span {
+      display: inline-block;
+      font-size: rem(13);
+      line-height: rem(15);
+      color: #7e7e7e;
+      margin-bottom: rem(8);
+    }
+  }
+
+  @include element($parent, 'login-dropdown-search') {
+    position: relative;
+
+    input {
+      width: 100%;
+      height: rem(35);
+      border: 1px solid #e4e4e4;
+      background-color: $white;
+      padding: 0 rem(35) 0 rem(10);
+
+      &::placeholder {
+        font-size: rem(12);
+        line-height: rem(14);
+        color: #b2b2b2;
+      }
+    }
+
+    button {
+      position: absolute;
+      width: rem(35);
+      height: rem(35);
+      top: 0;
+      right: 0;
+
+      &::before {
+        position: absolute;
+        content: '';
+        width: rem(10);
+        height: rem(10);
+        border-bottom: 2px solid $c07;
+        border-right: 2px solid $c07;
+        top: 50%;
+        right: rem(18);
+        transform: translateY(-50%) rotate(-45deg);
+      }
+    }
+  }
+
+  @include element($parent, 'login-dropdown-buttons') {
+    display: flex;
+    padding: rem(7) rem(8);
+  }
+
+  @include element($parent, 'cart-dropdown-buttons') {
+    display: flex;
+    padding: rem(7) rem(8);
+  }
+
+  @include element($parent, 'login-dropdown-button') {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    height: rem(48);
+    border-radius: rem(4);
+    border: 1px solid $c07;
+    padding: 0 rem(11);
+
+    span {
+      font-size: rem(13);
+      line-height: rem(15);
+      color: $c07;
+    }
+
+    @include modifier($parent, 'sign-up') {
+      margin-right: rem(2);
+    }
+
+    @include modifier($parent, 'auth') {
+      justify-content: flex-end;
+      background-color: $c07;
+
+      span {
+        color: $white;
+        margin-right: rem(12);
+      }
+    }
+  }
+
+  @include element($parent, 'cart-dropdown-button') {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    height: rem(48);
+    border-radius: rem(4);
+    border: 1px solid $c07;
+    padding: 0 rem(11);
+
+    span {
+      font-size: rem(13);
+      line-height: rem(15);
+      color: $c07;
+    }
+
+    @include modifier($parent, 'sign-up') {
+      margin-right: rem(2);
+    }
+
+    @include modifier($parent, 'auth') {
+      justify-content: flex-end;
+      background-color: $c07;
+
+      span {
+        color: $white;
+        margin-right: rem(12);
+      }
+    }
+  }
+
+  @include element($parent, 'cart-dropdown-item') {
+    position: relative;
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+    font-size: rem(12);
+    line-height: rem(14);
+    color: #0f0f0f;
+    padding: rem(7);
+    background-color: $white;
+    transition: transform 0.25s, box-shadow 0.25s linear;
+
+    &:hover {
+      transform: scale(1.05);
+      box-shadow: 0 rem(4) rem(4) rgba(0, 0, 0, 0.1);
+
+      @include element($parent, 'cart-dropdown-item-remove') {
+        opacity: 1;
+      }
+    }
+  }
+
+  @include element($parent, 'cart-dropdown-item-image') {
+    width: rem(75);
+    height: rem(63);
+    margin-right: rem(8);
+
+    img {
+      width: 100%;
+    }
+  }
+
+  @include element($parent, 'cart-dropdown-item-name') {
+    width: 40%;
+    margin-right: rem(11);
+  }
+
+  @include element($parent, 'cart-dropdown-item-count') {
+    width: rem(30);
+    margin-right: rem(10);
+  }
+
+  @include element($parent, 'cart-dropdown-item-price') {
+    width: rem(54);
+  }
+
+  @include element($parent, 'cart-dropdown-item-remove') {
+    position: absolute;
+    width: rem(10);
+    height: rem(10);
+    opacity: 0;
+    right: rem(4);
+    top: 50%;
+    transform: translateY(-50%);
+
+    &::before,
+    &::after {
+      position: absolute;
+      content: '';
+      width: rem(10);
+      height: 1px;
+      background-color: $black;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(45deg);
+    }
+
+    &::after {
+      transform: translate(-50%, -50%) rotate(-45deg);
     }
   }
 }

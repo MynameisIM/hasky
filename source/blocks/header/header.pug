@@ -42,9 +42,59 @@ mixin header(data)
         a.header__compare(href='#')
           +svg('compare')
           .header__btn-text 0
-        a.header__cart(href='#')
+        .header__cart
+          .header__cart-button(data-e-parent)
           +svg('cart')
           .header__btn-text 0
-        a.header__login(href='#')
+          .header__cart-dropdown(data-e-dropdown)
+            .header__cart-dropdown-list
+              .header__cart-dropdown-item
+                .header__cart-dropdown-item-image
+                  img(src='/assets/images/first-1.png', alt='alt')
+                .header__cart-dropdown-item-name Ударные торцевые головки название товара в две строки
+                .header__cart-dropdown-item-count x
+                  span 11
+                .header__cart-dropdown-item-price 14 000 Р
+                button.header__cart-dropdown-item-remove(type='button')
+              .header__cart-dropdown-item
+                .header__cart-dropdown-item-image
+                  img(src='/assets/images/first-1.png', alt='alt')
+                .header__cart-dropdown-item-name Ударные торцевые головки название товара в две строки
+                .header__cart-dropdown-item-count x
+                  span 11
+                .header__cart-dropdown-item-price 14 000 Р
+                button.header__cart-dropdown-item-remove(type='button')
+              .header__cart-dropdown-item
+                .header__cart-dropdown-item-image
+                  img(src='/assets/images/first-1.png', alt='alt')
+                .header__cart-dropdown-item-name Ударные торцевые головки название товара в две строки
+                .header__cart-dropdown-item-count x
+                  span 11
+                .header__cart-dropdown-item-price 14 000 Р
+                button.header__cart-dropdown-item-remove(type='button')
+            .header__cart-dropdown-buttons
+              button.header__cart-dropdown-button.header__cart-dropdown-button--sign-up(type='button')
+                span Регистрация
+              button.header__cart-dropdown-button.header__cart-dropdown-button--auth(type='button')
+                span Авторизация
+                +svg('login')
+        .header__login
+          .header__login-button(data-e-parent)
           +svg('login')
           .header__btn-text Логин
+          .header__login-dropdown(data-e-dropdown)
+            .header__login-dropdown-links
+              a.header__login-dropdown-link(href='#') Заказы
+              a.header__login-dropdown-link(href='#') Список избранного
+              a.header__login-dropdown-link(href='#') Список сравнения
+            .header__login-dropdown-search-box
+              span Отследить заказ
+              .header__login-dropdown-search
+                input(type='text', name='order_search', placeholder='Номер заказа')
+                button(type='button', name='order_search_submit')
+            .header__login-dropdown-buttons
+              button.header__login-dropdown-button.header__login-dropdown-button--sign-up(type='button')
+                span Регистрация
+              button.header__login-dropdown-button.header__login-dropdown-button--auth(type='button')
+                span Авторизация
+                +svg('login')
