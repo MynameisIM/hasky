@@ -5,6 +5,13 @@ export default class Header {
     const list = [].slice.call(parent.querySelectorAll('.header-menu__link-item'));
     const page = document.querySelector('.page');
     const dropdowns = [].slice.call(parent.querySelectorAll('[data-e-parent]'));
+    const geo = {
+      btn: parent.querySelector('.header__geo'),
+      drop: parent.querySelector('.header__geo-dropdown'),
+      close: parent.querySelector('.header__geo-dropdown-close'),
+      search: parent.querySelector('.header__geo-search'),
+      searchClear: parent.querySelector('.header__geo-search-clear'),
+    };
 
     if (hamburger && menu) {
       hamburger.addEventListener('click', () => {
@@ -43,6 +50,22 @@ export default class Header {
           });
         }
       });
+    }
+
+    if (geo.btn && geo.drop && geo.close) {
+      geo.btn.addEventListener('click', () => {
+        geo.drop.classList.add('open');
+      });
+
+      geo.close.addEventListener('click', () => {
+        geo.drop.classList.remove('open');
+      });
+
+      if (geo.search && geo.searchClear) {
+        geo.searchClear.addEventListener('click', () => {
+          geo.search.value = '';
+        });
+      }
     }
   }
 }
