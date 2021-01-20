@@ -1,5 +1,6 @@
 include ../blocks/header/header.pug
 include ../blocks/footer/footer.pug
+include ../blocks/popup/popup.pug
 
 -
   loadAssets = function(file) {
@@ -42,6 +43,33 @@ html(lang='ru')
       if (footerData)
         +footer(footerData)
     .popup-layout
+      +popup({
+        id: 'popup-subscribe',
+        title: 'Подписка на рассылку',
+        inputs: [
+          {
+            name: 'subscribe',
+            placeholder: 'Ваш email',
+            type: 'email'
+          }
+        ],
+        submit: 'Подписаться'
+      })
+      +popup({
+        id: 'popup-callback',
+        title: 'Заказать обратный звонок',
+        inputs: [
+          {
+            name: 'name',
+            placeholder: 'Ваше имя'
+          },
+          {
+            name: 'phone',
+            placeholder: 'Ваш номер телефона'
+          }
+        ],
+        submit: 'Заказать обратный звонок'
+      })
     block inits
     each js in htmlWebpackPlugin.files.js
       script(type='text/javascript', src=js, async, defer)

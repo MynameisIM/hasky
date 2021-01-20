@@ -1,0 +1,102 @@
+$parent: popup;
+
+@include block($parent) {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  z-index: 10;
+
+  &.open {
+    display: flex;
+  }
+
+  @include element($parent, 'layout') {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(57, 85, 121, 0.83);
+  }
+
+  @include element($parent, 'content') {
+    position: relative;
+    width: 100%;
+    max-width: rem(406);
+    background-color: $white;
+    border-radius: rem(3);
+    padding: rem(25) rem(38);
+
+    @media (min-width: $tablet) {
+      width: rem(406);
+    }
+  }
+
+  @include element($parent, 'close') {
+    position: absolute;
+    width: rem(25);
+    height: rem(25);
+    padding: rem(5);
+    top: rem(7);
+    right: rem(7);
+
+    &::before,
+    &::after {
+      position: absolute;
+      content: '';
+      width: rem(17);
+      height: 2px;
+      background-color: #bbbbc0;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(45deg);
+    }
+
+    &::after {
+      transform: translate(-50%, -50%) rotate(-45deg);
+    }
+  }
+
+  @include element($parent, 'title') {
+    font-weight: 500;
+    font-size: rem(20);
+    line-height: rem(23);
+    color: #0f0f0f;
+    margin-bottom: rem(30);
+  }
+
+  @include element($parent, 'input') {
+    width: 100%;
+    height: rem(50);
+    border: 1px solid #b3b3b3;
+    border-radius: rem(4);
+    padding: 0 rem(15);
+
+    &::placeholder {
+      font-weight: 500;
+      font-size: rem(14);
+      line-height: rem(16);
+      color: #bfbfc5;
+    }
+
+    &.error {
+      border-color: #ff2834;
+    }
+  }
+
+  @include element($parent, 'group') {
+    margin-bottom: rem(15);
+  }
+
+  @include element($parent, 'submit') {
+    font-size: rem(13);
+    line-height: rem(15);
+    color: $white;
+    border-radius: rem(4);
+    background-color: $c07;
+    padding: rem(16) rem(62);
+  }
+}

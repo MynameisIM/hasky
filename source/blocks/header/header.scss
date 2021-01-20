@@ -1,7 +1,9 @@
 $parent: header;
 
 @include block($parent) {
+  position: relative;
   width: 100%;
+  z-index: 2;
 
   @include element($parent, 'top') {
     background-color: $e5;

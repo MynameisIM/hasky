@@ -3,11 +3,14 @@ export default class Header {
     const hamburger = parent.querySelector('.header__hamburger');
     const menu = parent.querySelector('.header-menu');
     const list = [].slice.call(parent.querySelectorAll('.header-menu__link-item'));
+    const page = document.querySelector('.page');
 
     if (hamburger && menu) {
       hamburger.addEventListener('click', () => {
         hamburger.classList.toggle('open');
         menu.classList.toggle('open');
+        page.classList.toggle('menu');
+        document.body.classList.toggle('overflow');
       });
     }
 

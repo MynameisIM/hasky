@@ -9,7 +9,7 @@ mixin header(data)
           +svg('pin')
           span г. Ульяновск
         a.header__phone(href='tel:88003504217') 8 800 350 4217
-        button.header__callback(type='button') Заказать обратный звонок
+        button.header__callback(type='button', data-popup='popup-callback') Заказать обратный звонок
       .header__top-links
         .header__links
           each item in data.links

@@ -1,0 +1,11 @@
+mixin popup(data)
+  .popup(id=data.id)
+    .popup__layout
+    .popup__content
+      button.popup__close(type='button')
+      .popup__title= data.title
+      form.popup__form.form(action=data.action, method='get', data-url='/ajax/test.json')
+        each input in data.inputs
+          .popup__group
+            input.popup__input(type=(input.type || 'text'), name=input.name, placeholder=input.placeholder)
+        button.popup__submit(type='submit')= data.submit
