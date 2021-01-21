@@ -2,6 +2,7 @@ import FirstScreen from '@/blocks/first-screen/first-screen';
 import Header from '@/blocks/header/header';
 import Popup from '@/blocks/popup/popup';
 import Form from '@/blocks/form/form';
+import Request from '@/blocks/request/request';
 
 require('./index.scss');
 
@@ -71,3 +72,5 @@ const mins = document.querySelector('.core-timer [data-t-minutes]');
 window.onload = setTimer();
 setInterval(setTimer, 1000);
 /* eslint-enable */
+
+new Request();

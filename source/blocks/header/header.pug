@@ -56,14 +56,14 @@ mixin header(data)
             +svg('search')
         a.header__like(href='#')
           +svg('like')
-          .header__btn-text 0
+          .header__btn-text(data-header-like) 0
         a.header__compare(href='#')
           +svg('compare')
-          .header__btn-text 0
+          .header__btn-text(data-header-compare) 0
         .header__cart
           .header__cart-button(data-e-parent)
           +svg('cart')
-          .header__btn-text 0
+          .header__btn-text(data-header-basket) 0
           .header__cart-dropdown(data-e-dropdown)
             .header__cart-dropdown-list
               .header__cart-dropdown-item

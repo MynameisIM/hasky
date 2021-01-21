@@ -1,12 +1,12 @@
 include ../../core/svg
 
 mixin goods(data)
-  .goods
+  .goods(data-compare='ajax/addCompare.php', data-likes='ajax/addFavorites.php', data-basket='ajax/addBasket.php')
     .goods__container
       .goods__title Все инструменты
       .goods__box
-         each card in data.cards
-           .goods__card
+         each card, index in data.cards
+           .goods__card(data-id='goods-'+index, data-good)
              .goods__card-tag= card.tag
              .goods__card-image
                img(src=card.src, alt='alt')
@@ -18,11 +18,11 @@ mixin goods(data)
                span.goods__card-price.goods__card-price--old= card.oldPrice
              .goods__card-buttons
                button.goods__card-button.goods__card-button--one-click(type='button') Купить в 1 клик
-               button.goods__card-button.goods__card-button--add(type='button') Добавить в корзину
+               button.goods__card-button.goods__card-button--add(type='button', data-button-basket) Добавить в корзину
                .goods__card-hidden-buttons
-                 button.goods__cards-hidden-button(type='button')
+                 button.goods__cards-hidden-button(type='button', data-button-like)
                    +svg('like')
-                 button.goods__cards-hidden-button(type='button')
+                 button.goods__cards-hidden-button(type='button', data-button-compare)
                    +svg('compare')
                  button.goods__cards-hidden-button(type='button')
                    +svg('eye')

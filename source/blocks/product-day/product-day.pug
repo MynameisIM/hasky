@@ -1,12 +1,12 @@
 include ../../core/svg
 
 mixin product-day()
-  .product-day
+  .product-day(data-compare='ajax/addCompare.php', data-likes='ajax/addFavorites.php', data-basket='ajax/addBasket.php')
     .product-day__title Товар дня
     .product-day__container
       .product-day__image
         img(src='/assets/images/product-day.jpg')
-      .product-day__main
+      .product-day__main(data-good, data-id='product-of-the-day')
         .product-day__main-image
           img(src='/assets/images/goods-1.png')
         .product-day__main-info
@@ -28,13 +28,13 @@ mixin product-day()
               .core-timer__item
                 .core-timer__item-value(data-t-seconds) 0
                 .core-timer__item-text секунд
-            button.product-day__like(type='button')
+            button.product-day__like(type='button', data-button-like)
               +svg('like')
-            button.product-day__compare(type='button')
+            button.product-day__compare(type='button', data-button-compare)
               +svg('compare')
           .product-day__main-buttons
             button.product-day__main-button.product-day__main-button--one-click(type='button') Купить в один клик
-            button.product-day__main-button.product-day__main-button--add(type='button') Добавить в корзину
+            button.product-day__main-button.product-day__main-button--add(type='button', data-button-basket) Добавить в корзину
       .product-day__sale
         .product-day__sale-header
           span Товар со скидкой
