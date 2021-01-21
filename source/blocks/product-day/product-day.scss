@@ -303,7 +303,6 @@ $parent: product-day;
 
   @include element($parent, 'timer') {
     height: rem(60);
-    background-color: #ededed;
     margin-bottom: rem(23);
 
     @media (min-width: $tablet) {
@@ -313,6 +312,37 @@ $parent: product-day;
 
     @media (min-width: $desktop) {
       margin-bottom: rem(32);
+    }
+
+    .core-timer {
+      display: flex;
+
+      &__item {
+        position: relative;
+        width: rem(60);
+        height: rem(60);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin-right: rem(20);
+        background-color: #ededed;
+        border-radius: rem(4);
+      }
+
+      &__item-value {
+        font-weight: 500;
+        font-size: rem(36);
+        line-height: rem(44);
+        color: #41536a;
+      }
+
+      &__item-text {
+        font-weight: 500;
+        font-size: rem(10);
+        line-height: rem(12);
+        color: #41536a;
+      }
     }
   }
 
@@ -405,7 +435,7 @@ $parent: product-day;
       fill: #343434;
     }
 
-    @media (min-width: $tablet) {
+    @media (min-width: $portrait) {
       display: inline-flex;
     }
   }
@@ -423,7 +453,7 @@ $parent: product-day;
       fill: #343434;
     }
 
-    @media (min-width: $tablet) {
+    @media (min-width: $portrait) {
       display: inline-flex;
     }
   }
