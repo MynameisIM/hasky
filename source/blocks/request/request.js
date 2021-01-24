@@ -1,4 +1,4 @@
-// import Axios from 'axios';
+import Axios from 'axios';
 
 export default class Request {
   constructor() {
@@ -22,7 +22,15 @@ export default class Request {
 
             if (likeBtn) {
               likeBtn.addEventListener('click', () => {
-                console.log(card.dataset.id, likeBtn, ajax, result);
+                const data = {
+                  id: card.dataset.id,
+                };
+                Axios.post(ajax, data).then((response) => {
+                  console.log(response, likeBtn, result);
+                  let count = parseInt(result.textContent, 10);
+                  // eslint-disable-next-line
+                  result.textContent = count += 1;
+                });
               });
             }
           });
