@@ -50,10 +50,20 @@ mixin header(data)
           +svg('logo')
         +header-menu(data.menu)
       .header__main-right
-        .header__search-box
+        form.header__search-box(action='/ajax/search.html', method='post')
           input.header__search(type='text', name='search')
           button.header__search-submit(type='button')
             +svg('search')
+          .header__search-list
+            a.header__search-list-item(href='#')
+              img(src='/assets/images/first-1.png', alt='alt')
+              span Ударные торцевые головки название товара в две строки
+            a.header__search-list-item(href='#')
+              img(src='/assets/images/first-1.png', alt='alt')
+              span Ударные торцевые головки название товара в две строки
+            a.header__search-list-item(href='#')
+              img(src='/assets/images/first-1.png', alt='alt')
+              span Ударные торцевые головки название товара в две строки
         a.header__like(href='#')
           +svg('like')
           .header__btn-text(data-header-like) 0

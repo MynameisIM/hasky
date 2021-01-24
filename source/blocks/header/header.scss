@@ -263,6 +263,42 @@ $parent: header;
     }
   }
 
+  @include element($parent, 'search-list') {
+    position: absolute;
+    width: 100%;
+    top: 100%;
+    left: 0;
+    box-shadow: 0 rem(8) rem(16) rgba(0, 0, 0, 0.1);
+  }
+
+  @include element($parent, 'search-list-item') {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: rem(58);
+    padding: 10px 8px;
+    background-color: $white;
+    transition: color 0.25s linear;
+
+    img {
+      width: rem(47);
+      height: rem(39);
+      margin-right: rem(20);
+    }
+
+    span {
+      font-size: rem(12);
+      line-height: rem(14);
+      color: #0f0f0f;
+    }
+
+    &:hover {
+      span {
+        color: $c07;
+      }
+    }
+  }
+
   @include element($parent, 'search') {
     width: 100%;
     font-size: rem(14);

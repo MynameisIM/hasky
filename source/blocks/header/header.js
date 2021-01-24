@@ -1,3 +1,5 @@
+import Axios from 'axios';
+
 export default class Header {
   constructor(parent) {
     const hamburger = parent.querySelector('.header__hamburger');
@@ -5,6 +7,9 @@ export default class Header {
     const list = [].slice.call(parent.querySelectorAll('.header-menu__link-item'));
     const page = document.querySelector('.page');
     const dropdowns = [].slice.call(parent.querySelectorAll('[data-e-parent]'));
+    const searchForm = parent.querySelector('.header__search-box');
+    const search = parent.querySelector('.header__search');
+    const searchBox = parent.querySelector('.header__search-list');
     const geo = {
       btn: parent.querySelector('.header__geo'),
       drop: parent.querySelector('.header__geo-dropdown'),
@@ -66,6 +71,33 @@ export default class Header {
           geo.search.value = '';
         });
       }
+    }
+
+    if (searchForm && search) {
+      searchForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const data = {
+          value: search.value,
+        };
+        Axios.get(searchForm.action, data).then((response) => {
+          if (response && response.data) {
+            searchBox.innerHTML = '';
+            searchBox.insertAdjacentHTML('afterbegin', response.data);
+          }
+        });
+      });
+
+      search.addEventListener('input', () => {
+        const data = {
+          value: search.value,
+        };
+        Axios.get(searchForm.action, data).then((response) => {
+          if (response && response.data) {
+            searchBox.innerHTML = '';
+            searchBox.insertAdjacentHTML('afterbegin', response.data);
+          }
+        });
+      });
     }
   }
 }
