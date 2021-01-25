@@ -159,6 +159,7 @@ p {
   line-height: rem(41);
   color: $c41;
   padding: 0 rem(18);
+  margin-bottom: rem(10);
 
   @media (min-width: $tablet) {
     font-size: rem(64);

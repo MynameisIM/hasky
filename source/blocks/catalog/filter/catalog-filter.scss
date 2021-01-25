@@ -1,0 +1,124 @@
+$parent: catalog-filter;
+
+@include block($parent) {
+  width: rem(277);
+  background-color: $white;
+  border-radius: rem(4);
+  padding: rem(13) rem(20) rem(15);
+  display: none;
+
+  @include element($parent, 'title') {
+    font-size: rem(18);
+    line-height: rem(21);
+    color: $c07;
+  }
+
+  @include element($parent, 'header') {
+    display: flex;
+    align-items: center;
+    margin-bottom: rem(30);
+
+    @media (min-width: $tablet) {
+      display: none;
+    }
+  }
+
+  @include element($parent, 'close') {
+    position: relative;
+    width: rem(19);
+    height: rem(19);
+    margin-right: rem(20);
+
+    &::before,
+    &::after {
+      position: absolute;
+      content: '';
+      width: rem(25);
+      height: rem(2);
+      background-color: $c07;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(45deg);
+    }
+
+    &::after {
+      transform: translate(-50%, -50%) rotate(-45deg);
+    }
+  }
+
+  @include element($parent, 'form-reset') {
+    width: rem(222);
+    height: rem(41);
+    font-weight: 500;
+    font-size: rem(14);
+    line-height: rem(20);
+    color: $c07;
+    text-transform: uppercase;
+    border: 1px solid #e5e5e5;
+    border-radius: 1px;
+  }
+
+  @include element($parent, 'form-group') {
+    border-bottom: 1px solid #e5e5e5;
+
+    &:last-of-type {
+      border-bottom: none;
+    }
+  }
+
+  @include element($parent, 'form-title') {
+    position: relative;
+    font-size: rem(12);
+    line-height: rem(18);
+    color: #333;
+  }
+
+  @include element($parent, 'form-box') {
+    input {
+      display: none;
+
+      &:checked + label {
+        box-shadow: 0 0 rem(8) rgba(0, 0, 0, 0.25);
+      }
+    }
+  }
+
+  @include element($parent, 'form-label') {
+    @include modifier($parent, 'color') {
+      display: inline-flex;
+      width: rem(32);
+      height: rem(32);
+      border-radius: 50%;
+      border: 3px solid $white;
+      margin-right: rem(5);
+
+      &.red {
+        background-color: #f45151;
+      }
+
+      &.green {
+        background-color: #57c769;
+      }
+
+      &.blue {
+        background-color: #4a72d9;
+      }
+
+      &.purple {
+        background-color: #cd59c1;
+      }
+
+      &.yellow {
+        background-color: #d8dc10;
+      }
+
+      &.blue-light {
+        background-color: #0b82f0;
+      }
+
+      &.black {
+        background-color: #302e2e;
+      }
+    }
+  }
+}

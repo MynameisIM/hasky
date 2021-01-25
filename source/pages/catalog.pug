@@ -2,6 +2,7 @@ extends ../layouts/main.pug
 
 include ../blocks/breadcrumbs/breadcrumbs
 include ../blocks/catalog/category/catalog-category
+include ../blocks/catalog/filter/catalog-filter
 
 block vars
   - var indexPage = require('../data/catalogPage.json');
@@ -23,4 +24,5 @@ block content
     button.catalog__category-button(type='button') Категории
     .catalog__aside
       +catalog-category()
+      +catalog-filter()
     .catalog__main

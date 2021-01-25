@@ -1,0 +1,33 @@
+mixin catalog-filter()
+  .catalog-filter
+    .catalog-filter__header
+      button.catalog-filter__close(type='button')
+      .catalog-filter__title Фильтры
+    form.catalog-filter__form(action='/', method='post')
+      .catalog-filter__form-group
+        .catalog-filter__form-title Розничная цена
+        .catalog-filter__form-box
+      .catalog-filter__form-group
+        .catalog-filter__form-title Оптовая цена
+        .catalog-filter__form-box
+      .catalog-filter__form-group
+        .catalog-filter__form-title Тип
+        .catalog-filter__form-box
+      .catalog-filter__form-group
+        .catalog-filter__form-title По цветам
+        .catalog-filter__form-box
+          input(type='radio', name='catalog_color', id='catalog_color_1', checked)
+          label.catalog-filter__form-label.catalog-filter__form-label--color.red(for='catalog_color_1')
+          input(type='radio', name='catalog_color', id='catalog_color_2')
+          label.catalog-filter__form-label.catalog-filter__form-label--color.green(for='catalog_color_2')
+          input(type='radio', name='catalog_color', id='catalog_color_3')
+          label.catalog-filter__form-label.catalog-filter__form-label--color.blue(for='catalog_color_3')
+          input(type='radio', name='catalog_color', id='catalog_color_4')
+          label.catalog-filter__form-label.catalog-filter__form-label--color.purple(for='catalog_color_4')
+          input(type='radio', name='catalog_color', id='catalog_color_5')
+          label.catalog-filter__form-label.catalog-filter__form-label--color.yellow(for='catalog_color_5')
+          input(type='radio', name='catalog_color', id='catalog_color_6')
+          label.catalog-filter__form-label.catalog-filter__form-label--color.blue-light(for='catalog_color_6')
+          input(type='radio', name='catalog_color', id='catalog_color_7')
+          label.catalog-filter__form-label.catalog-filter__form-label--color.black(for='catalog_color_7')
+      button.catalog-filter__form-reset(type='reset') СБРОСИТЬ

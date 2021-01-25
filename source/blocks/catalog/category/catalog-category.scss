@@ -1,7 +1,11 @@
 $parent: catalog-category;
 
 @include block($parent) {
+  width: rem(277);
   background-color: $white;
+  border-radius: rem(4);
+  padding: rem(13) rem(20) rem(15);
+  display: none;
 
   @include element($parent, 'title') {
     font-size: rem(18);
@@ -12,6 +16,7 @@ $parent: catalog-category;
   @include element($parent, 'header') {
     display: flex;
     align-items: center;
+    margin-bottom: rem(30);
 
     @media (min-width: $tablet) {
       display: none;
@@ -28,8 +33,8 @@ $parent: catalog-category;
     &::after {
       position: absolute;
       content: '';
-      width: rem(20);
-      height: rem(3);
+      width: rem(25);
+      height: rem(2);
       background-color: $c07;
       top: 50%;
       left: 50%;
@@ -52,12 +57,19 @@ $parent: catalog-category;
   }
 
   @include element($parent, 'link') {
+    display: block;
     font-size: rem(14);
     line-height: rem(24);
     color: #808080;
+    padding: 0 rem(25);
   }
 
   @include element($parent, 'dropdown') {
     display: none;
+    padding: rem(5) 0;
+  }
+
+  @include element($parent, 'item-title') {
+    padding: rem(11) rem(5);
   }
 }

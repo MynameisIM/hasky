@@ -1,6 +1,8 @@
 $parent: catalog;
 
 @include block($parent) {
+  padding: 0 rem(18) rem(40);
+
   @include element($parent, 'category-button') {
     width: 100%;
     height: rem(42);
