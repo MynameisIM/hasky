@@ -1,0 +1,4 @@
+mixin breadcrumbs(data)
+  .breadcrumbs
+    each item in data
+      a.breadcrumbs__item(href=item.href, class=item.current ? 'current' : '')= item.text

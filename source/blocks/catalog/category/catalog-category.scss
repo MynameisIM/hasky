@@ -1,0 +1,63 @@
+$parent: catalog-category;
+
+@include block($parent) {
+  background-color: $white;
+
+  @include element($parent, 'title') {
+    font-size: rem(18);
+    line-height: rem(21);
+    color: $c07;
+  }
+
+  @include element($parent, 'header') {
+    display: flex;
+    align-items: center;
+
+    @media (min-width: $tablet) {
+      display: none;
+    }
+  }
+
+  @include element($parent, 'close') {
+    position: relative;
+    width: rem(19);
+    height: rem(19);
+    margin-right: rem(20);
+
+    &::before,
+    &::after {
+      position: absolute;
+      content: '';
+      width: rem(20);
+      height: rem(3);
+      background-color: $c07;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(45deg);
+    }
+
+    &::after {
+      transform: translate(-50%, -50%) rotate(-45deg);
+    }
+  }
+
+  @include element($parent, 'item-title') {
+    font-size: rem(18);
+    line-height: rem(21);
+    color: #808080;
+
+    &.active {
+      color: $c07;
+    }
+  }
+
+  @include element($parent, 'link') {
+    font-size: rem(14);
+    line-height: rem(24);
+    color: #808080;
+  }
+
+  @include element($parent, 'dropdown') {
+    display: none;
+  }
+}

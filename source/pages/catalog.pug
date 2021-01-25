@@ -1,0 +1,26 @@
+extends ../layouts/main.pug
+
+include ../blocks/breadcrumbs/breadcrumbs
+include ../blocks/catalog/category/catalog-category
+
+block vars
+  - var indexPage = require('../data/catalogPage.json');
+
+block content
+  +breadcrumbs([
+    {
+      href: "#",
+      text: "Главная"
+    },
+    {
+      href: "#",
+      text: "Каталог",
+      current: true
+    }
+  ])
+  h1.title Каталог
+  .catalog
+    button.catalog__category-button(type='button') Категории
+    .catalog__aside
+      +catalog-category()
+    .catalog__main

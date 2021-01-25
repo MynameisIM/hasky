@@ -1,0 +1,13 @@
+$parent: catalog;
+
+@include block($parent) {
+  @include element($parent, 'category-button') {
+    width: 100%;
+    height: rem(42);
+    font-weight: 500;
+    font-size: rem(14);
+    line-height: rem(16);
+    color: $c07;
+    border: 1px solid $c07;
+  }
+}
