@@ -1,6 +1,7 @@
 include ../blocks/header/header.pug
 include ../blocks/footer/footer.pug
 include ../blocks/popup/popup.pug
+include ../blocks/popup/buy/popup-buy.pug
 
 -
   loadAssets = function(file) {
@@ -71,6 +72,10 @@ html(lang='ru')
           }
         ],
         submit: 'Заказать обратный звонок'
+      })
+      +popup-buy({
+        title: 'БЫСТРАЯ ПОКУПКА',
+        id: 'popup-buy'
       })
     block inits
     each js in htmlWebpackPlugin.files.js
