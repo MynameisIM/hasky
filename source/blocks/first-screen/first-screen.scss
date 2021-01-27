@@ -268,10 +268,6 @@ $parent: first-screen;
       flex-direction: row;
       right: 0;
       bottom: rem(135);
-
-      &:hover {
-        background-color: $c07;
-      }
     }
   }
 
@@ -279,8 +275,8 @@ $parent: first-screen;
     position: relative;
     width: rem(144);
     height: rem(37);
-    background-color: $c39;
     pointer-events: auto;
+    background-color: $c39;
 
     &::after {
       position: absolute;
@@ -309,6 +305,12 @@ $parent: first-screen;
       @media (min-width: $desktop) {
         margin-right: rem(10);
         margin-bottom: 0;
+      }
+    }
+
+    @media (min-width: $desktop) {
+      &:hover {
+        background-color: $c07;
       }
     }
   }
