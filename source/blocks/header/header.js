@@ -10,6 +10,7 @@ export default class Header {
     const searchForm = parent.querySelector('.header__search-box');
     const search = parent.querySelector('.header__search');
     const searchBox = parent.querySelector('.header__search-list');
+    const dropLinks = [].slice.call(parent.querySelectorAll('.header-menu__link-item-dropdown'));
     const geo = {
       btn: parent.querySelector('.header__geo'),
       drop: parent.querySelector('.header__geo-dropdown'),
@@ -34,11 +35,13 @@ export default class Header {
 
         if (title && dropdown) {
           title.addEventListener('click', () => {
+            dropLinks.forEach(dl => dl.removeAttribute('style'));
             if (item.classList.contains('active')) {
               item.classList.remove('active');
             } else {
               list.forEach(l => l.classList.remove('active'));
               item.classList.add('active');
+              dropdown.style.height = `${dropdown.scrollHeight}px`;
             }
           });
         }
@@ -91,12 +94,17 @@ export default class Header {
         const data = {
           value: search.value,
         };
-        Axios.get(searchForm.action, data).then((response) => {
-          if (response && response.data) {
-            searchBox.innerHTML = '';
-            searchBox.insertAdjacentHTML('afterbegin', response.data);
-          }
-        });
+
+        if (search.value) {
+          Axios.get(searchForm.action, data).then((response) => {
+            if (response && response.data) {
+              searchBox.innerHTML = '';
+              searchBox.insertAdjacentHTML('afterbegin', response.data);
+            }
+          });
+        } else {
+          searchBox.innerHTML = '';
+        }
       });
     }
   }

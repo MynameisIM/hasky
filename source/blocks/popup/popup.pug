@@ -4,7 +4,7 @@ mixin popup(data)
     .popup__content
       button.popup__close(type='button')
       .popup__title= data.title
-      form.popup__form.form(action=data.action, method='get', data-url='/ajax/test.json')
+      form.popup__form.form(action=data.action, method='post', data-url=data.url)
         each input in data.inputs
           .popup__group
             input.popup__input(type=(input.type || 'text'), name=input.name, placeholder=input.placeholder)

@@ -51,6 +51,10 @@ $parent: header;
     @media (min-width: 1600px) {
       margin-left: auto;
     }
+
+    &:hover {
+      text-decoration: underline;
+    }
   }
 
   @include element($parent, 'top-geo') {
@@ -158,6 +162,12 @@ $parent: header;
       @media (min-width: $desktop) {
         display: inline-flex;
         align-items: center;
+      }
+    }
+
+    &:hover {
+      span {
+        text-decoration: underline;
       }
     }
   }
@@ -551,6 +561,10 @@ $parent: header;
     @media (min-width: 1900px) {
       margin-left: rem(18);
     }
+
+    &:hover {
+      text-decoration: underline;
+    }
   }
 
   @include element($parent, 'search-submit') {
@@ -620,6 +634,10 @@ $parent: header;
     line-height: 1.2;
     color: $c39;
     padding: rem(8) 0;
+
+    &:hover {
+      text-decoration: underline;
+    }
   }
 
   @include element($parent, 'login-dropdown-search-box') {
@@ -767,6 +785,12 @@ $parent: header;
     }
   }
 
+  @include element($parent, 'cart-dropdown-item-link') {
+    display: inline-flex;
+    align-items: center;
+    color: #0f0f0f;
+  }
+
   @include element($parent, 'cart-dropdown-item-image') {
     width: rem(75);
     height: rem(63);
@@ -778,7 +802,7 @@ $parent: header;
   }
 
   @include element($parent, 'cart-dropdown-item-name') {
-    width: 40%;
+    width: rem(130);
     margin-right: rem(11);
   }
 

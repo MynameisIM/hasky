@@ -3,7 +3,8 @@ mixin blog()
     .blog__title Блог
     .blog__container
       .blog__main
-        img(src='/assets/images/blog.jpg', alt='alt')
+        .blog__main-image
+          img(src='/assets/images/blog-2.jpg', alt='alt')
         .blog__main-content
           .blog__main-header
             span.blog__main-header-text 15.12.2020
@@ -14,14 +15,14 @@ mixin blog()
       .blog__list
         a.blog__list-item(href='#')
           span.blog__list-image
-            img(src='/assets/images/blog.jpg', alt='alt')
+            img(src='/assets/images/blog-2.jpg', alt='alt')
           span.blog__list-item-text
             span 15.12.2020
             span Администратор
           span.blog__list-title Как улучшить проходимость Нивы
         a.blog__list-item(href='#')
           span.blog__list-image
-            img(src='/assets/images/blog.jpg', alt='alt')
+            img(src='/assets/images/blog-2.jpg', alt='alt')
           span.blog__list-item-text
             span 15.12.2020
             span Администратор

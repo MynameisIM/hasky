@@ -45,6 +45,7 @@ html(lang='ru')
     .popup-layout
       +popup({
         id: 'popup-subscribe',
+        url: '/ajax/subscribe.php',
         title: 'Подписка на рассылку',
         inputs: [
           {
@@ -57,6 +58,7 @@ html(lang='ru')
       })
       +popup({
         id: 'popup-callback',
+        url: '/ajax/callBack.php',
         title: 'Заказать обратный звонок',
         inputs: [
           {

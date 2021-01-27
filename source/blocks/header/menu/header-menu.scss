@@ -49,6 +49,12 @@ $parent: header-menu;
     @media (min-width: $desktop) {
       padding: 0 rem(45);
     }
+
+    &:hover {
+      span {
+        text-decoration: underline;
+      }
+    }
   }
 
   @include element($parent, 'links-box') {
@@ -90,6 +96,7 @@ $parent: header-menu;
         display: flex;
         flex-direction: column;
         padding: rem(6) 0 0 0;
+        transition: height 0.25s linear;
 
         @media (min-width: $desktop) {
           padding: rem(39) 0 0 0;
@@ -103,7 +110,8 @@ $parent: header-menu;
   }
 
   @include element($parent, 'link-item-dropdown') {
-    display: none;
+    height: 0;
+    overflow: hidden;
   }
 
   @include element($parent, 'info-box') {

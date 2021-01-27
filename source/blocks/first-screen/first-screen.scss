@@ -1,6 +1,18 @@
 $parent: first-screen;
 
 @include block($parent) {
+  @media (min-width: $tablet) {
+    margin-bottom: rem(50);
+  }
+
+  @media (min-width: $portrait) {
+    margin-bottom: rem(80);
+  }
+
+  @media (min-width: 1900px) {
+    margin-bottom: rem(130);
+  }
+
   @include element($parent, 'main-container') {
     @media (min-width: $desktop) {
       width: 60%;
@@ -18,7 +30,7 @@ $parent: first-screen;
       width: 20%;
       min-width: 20%;
       background-color: $c39;
-      margin: rem(40) 0 rem(15);
+      margin: rem(55) 0 rem(15);
     }
   }
 
@@ -53,7 +65,11 @@ $parent: first-screen;
     line-height: rem(13);
     background-color: $c39;
     color: $white;
-    padding: rem(12) rem(48);
+    padding: rem(12) rem(30);
+
+    @media (min-width: $portrait) {
+      padding: rem(12) rem(48);
+    }
 
     &::after {
       position: absolute;
@@ -100,7 +116,7 @@ $parent: first-screen;
       }
 
       @include element($parent, 'thumbs-slide-image') {
-        transform: translateY(-35px);
+        transform: translateY(-30px);
       }
     }
   }
@@ -111,7 +127,7 @@ $parent: first-screen;
     @media (min-width: $tablet) {
       width: 60%;
       overflow: hidden;
-      padding: rem(40) 20% rem(15);
+      padding: rem(55) 20% rem(15);
     }
   }
 
@@ -239,6 +255,7 @@ $parent: first-screen;
     padding: 0 rem(17);
     pointer-events: none;
     z-index: 1;
+    transition: background-color 0.25s linear;
 
     @media (min-width: $tablet) {
       width: auto;
@@ -251,6 +268,10 @@ $parent: first-screen;
       flex-direction: row;
       right: 0;
       bottom: rem(135);
+
+      &:hover {
+        background-color: $c07;
+      }
     }
   }
 
@@ -312,18 +333,27 @@ $parent: first-screen;
       width: 20%;
       min-width: 20%;
       background-color: $c07;
-      margin: rem(40) 0 rem(15);
+      margin: rem(55) 0 rem(15);
+      padding: rem(35) rem(10) rem(16) rem(25);
+    }
+
+    @media (min-width: $portrait) {
       padding: rem(35) rem(10) rem(16) rem(43);
     }
 
     span {
       @media (min-width: $tablet) {
         font-weight: 700;
-        font-size: rem(18);
+        font-size: rem(14);
         line-height: rem(21);
         color: $white;
         text-transform: uppercase;
         margin-bottom: rem(30);
+      }
+
+      @media (min-width: $portrait) {
+        font-size: rem(18);
+        line-height: rem(21);
       }
 
       @media (min-width: $desktop) {

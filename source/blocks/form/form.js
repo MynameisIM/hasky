@@ -21,16 +21,8 @@ export default class Form {
 
         if (errors.length === 0) {
           const data = new window.FormData(parent);
-          Axios.get(parent.getAttribute('data-url'), {
-            params: {
-              data,
-            },
-          }).then((response) => {
-            if (response && response.data) {
-              if (response.data.success) {
-                Popup.close();
-              }
-            }
+          Axios.post(parent.getAttribute('data-url'), data).then(() => {
+            Popup.close();
           });
         }
       });

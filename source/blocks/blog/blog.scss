@@ -37,18 +37,43 @@ $parent: blog;
       padding: rem(33) rem(35) rem(29) rem(75);
       margin-bottom: rem(75);
     }
+  }
+
+  @include element($parent, 'main-image') {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: 15%;
+    transition: filter 0.25s linear;
+
+    @media (min-width: $tablet) {
+      right: 13%;
+    }
 
     img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      font-family: 'object-fit: cover;';
+    }
+
+    &::after {
       position: absolute;
+      content: '';
       width: 100%;
       height: 100%;
       top: 0;
-      right: 15%;
-      object-fit: cover;
-      font-family: 'object-fit: cover;';
+      left: 0;
+      transition: opacity 0.25s linear;
+      background-color: rgba(7, 118, 250, 0.45);
+    }
 
-      @media (min-width: $tablet) {
-        right: 13%;
+    &:hover {
+      filter: blur(1px);
+
+      &::after {
+        opacity: 0;
       }
     }
   }
@@ -168,6 +193,16 @@ $parent: blog;
     @media (min-width: $desktop) {
       margin-bottom: rem(50);
     }
+
+    &:hover {
+      @include element($parent, 'list-image') {
+        filter: blur(1px);
+
+        &::after {
+          opacity: 0;
+        }
+      }
+    }
   }
 
   @include element($parent, 'list-item-text') {
@@ -222,12 +257,24 @@ $parent: blog;
     height: 100%;
     top: 0;
     left: 0;
+    transition: filter 0.25s linear;
 
     img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       font-family: 'object-fit: cover;';
+    }
+
+    &::after {
+      position: absolute;
+      content: '';
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      transition: opacity 0.25s linear;
+      background-color: rgba(7, 118, 250, 0.45);
     }
   }
 

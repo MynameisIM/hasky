@@ -11,5 +11,9 @@ $parent: catalog;
     line-height: rem(16);
     color: $c07;
     border: 1px solid $c07;
+
+    @media (min-width: $tablet) {
+      display: none;
+    }
   }
 }

@@ -7,6 +7,7 @@ export default class FirstScreen {
     const slides = [].slice.call(parent.querySelectorAll('.first-screen__main-slide'));
     const thumbOptions = {
       slidesPerView: 1,
+      loopedSlides: 2,
       watchSlidesProgress: true,
       watchSlidesVisibility: true,
       loop: true,
@@ -15,16 +16,13 @@ export default class FirstScreen {
         prevEl: parent.querySelector('.first-screen__thumbs-button--prev'),
       },
     };
-    const thumbSw = new Swiper(thumbSlider, thumbOptions);
+    new Swiper(thumbSlider, thumbOptions);
     const options = {
       navigation: {
         nextEl: parent.querySelector('.first-screen__main-button--next'),
         prevEl: parent.querySelector('.first-screen__main-button--prev'),
       },
       loop: true,
-      thumbs: {
-        swiper: thumbSw,
-      },
     };
     new Swiper(container, options);
     const setFontSize = (c, tb) => {

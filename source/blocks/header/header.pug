@@ -52,18 +52,9 @@ mixin header(data)
       .header__main-right
         form.header__search-box(action='/ajax/search.html', method='post')
           input.header__search(type='text', name='search')
-          button.header__search-submit(type='button')
+          button.header__search-submit(type='submit')
             +svg('search')
           .header__search-list
-            a.header__search-list-item(href='#')
-              img(src='/assets/images/first-1.png', alt='alt')
-              span Ударные торцевые головки название товара в две строки
-            a.header__search-list-item(href='#')
-              img(src='/assets/images/first-1.png', alt='alt')
-              span Ударные торцевые головки название товара в две строки
-            a.header__search-list-item(href='#')
-              img(src='/assets/images/first-1.png', alt='alt')
-              span Ударные торцевые головки название товара в две строки
         a.header__like(href='#')
           +svg('like')
           .header__btn-text(data-header-like) 0
@@ -77,25 +68,28 @@ mixin header(data)
           .header__cart-dropdown(data-e-dropdown)
             .header__cart-dropdown-list
               .header__cart-dropdown-item
-                .header__cart-dropdown-item-image
-                  img(src='/assets/images/first-1.png', alt='alt')
-                .header__cart-dropdown-item-name Ударные торцевые головки название товара в две строки
+                a.header__cart-dropdown-item-link(href='#')
+                  .header__cart-dropdown-item-image
+                    img(src='/assets/images/first-1.png', alt='alt')
+                  .header__cart-dropdown-item-name Ударные торцевые головки название товара в две строки
                 .header__cart-dropdown-item-count x
                   span 11
                 .header__cart-dropdown-item-price 14 000 Р
                 button.header__cart-dropdown-item-remove(type='button')
               .header__cart-dropdown-item
-                .header__cart-dropdown-item-image
-                  img(src='/assets/images/first-1.png', alt='alt')
-                .header__cart-dropdown-item-name Ударные торцевые головки название товара в две строки
+                a.header__cart-dropdown-item-link(href='#')
+                  .header__cart-dropdown-item-image
+                    img(src='/assets/images/first-1.png', alt='alt')
+                  .header__cart-dropdown-item-name Ударные торцевые головки название товара в две строки
                 .header__cart-dropdown-item-count x
                   span 11
                 .header__cart-dropdown-item-price 14 000 Р
                 button.header__cart-dropdown-item-remove(type='button')
               .header__cart-dropdown-item
-                .header__cart-dropdown-item-image
-                  img(src='/assets/images/first-1.png', alt='alt')
-                .header__cart-dropdown-item-name Ударные торцевые головки название товара в две строки
+                a.header__cart-dropdown-item-link(href='#')
+                  .header__cart-dropdown-item-image
+                    img(src='/assets/images/first-1.png', alt='alt')
+                  .header__cart-dropdown-item-name Ударные торцевые головки название товара в две строки
                 .header__cart-dropdown-item-count x
                   span 11
                 .header__cart-dropdown-item-price 14 000 Р

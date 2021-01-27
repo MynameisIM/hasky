@@ -1,6 +1,12 @@
 $parent: product-day;
 
 @include block($parent) {
+  margin-bottom: rem(42);
+
+  @media (min-width: $tablet) {
+    margin-bottom: 0;
+  }
+
   @include element($parent, 'title') {
     font-weight: 700;
     font-size: rem(36);
