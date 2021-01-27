@@ -272,10 +272,6 @@ $parent: product-day;
       right: rem(20);
       transform: translateY(-50%) rotate(-45deg);
 
-      @media (min-width: $tablet) {
-        content: none;
-      }
-
       @media (min-width: $portrait) {
         content: '';
       }
