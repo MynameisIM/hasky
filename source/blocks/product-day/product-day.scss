@@ -53,6 +53,10 @@ $parent: product-day;
     height: rem(200);
 
     @media (min-width: $tablet) {
+      width: 35%;
+    }
+
+    @media (min-width: $portrait) {
       width: 42%;
     }
 
@@ -71,6 +75,10 @@ $parent: product-day;
 
   @include element($parent, 'main-info') {
     @media (min-width: $tablet) {
+      width: 65%;
+    }
+
+    @media (min-width: $portrait) {
       width: 58%;
     }
 
