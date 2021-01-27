@@ -34,4 +34,38 @@ $parent: popup-buy;
       max-width: rem(712);
     }
   }
+
+  @include element($parent, 'header') {
+    display: flex;
+    border-bottom: 1px solid #dbdbdb;
+  }
+
+  @include element($parent, 'title') {
+    font-size: rem(20);
+    line-height: rem(29);
+    color: #333;
+    text-transform: uppercase;
+  }
+
+  @include element($parent, 'close') {
+    position: relative;
+    width: rem(29);
+    height: rem(29);
+
+    &::before,
+    &::after {
+      position: absolute;
+      content: '';
+      width: rem(10);
+      height: rem(2);
+      background-color: #dbdbdb;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(45deg);
+    }
+
+    &::after {
+      transform: translate(-50%, -50%) rotate(-45deg);
+    }
+  }
 }
