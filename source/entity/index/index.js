@@ -74,3 +74,45 @@ setInterval(setTimer, 1000);
 /* eslint-enable */
 
 new Request();
+
+if (!window.PAGE_DATA) {
+  window.PAGE_DATA = {};
+  window.PAGE_DATA.cities = [
+    {
+      id: 1,
+      title: 'Ульяновск',
+    },
+    {
+      id: 2,
+      title: 'Москва',
+    },
+    {
+      id: 3,
+      title: 'Екатеринбург',
+    },
+    {
+      id: 4,
+      title: 'Нижний Новгород',
+    },
+    {
+      id: 5,
+      title: 'Ростов-на-Дону',
+    },
+    {
+      id: 6,
+      title: 'Самара',
+    },
+    {
+      id: 7,
+      title: 'Санкт-Петербург',
+    },
+    {
+      id: 8,
+      title: 'Уфа',
+    },
+    {
+      id: 9,
+      title: 'Челябинск',
+    },
+  ];
+}

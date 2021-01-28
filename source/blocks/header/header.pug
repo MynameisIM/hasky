@@ -8,24 +8,25 @@ mixin header(data)
         .header__geo-box
           .header__geo(role='button')
             +svg('pin')
-            span г. Ульяновск
+            span г.
+              span Ульяновск
           .header__geo-dropdown
             button.header__geo-dropdown-close(type='button')
             .header__geo-title Выберите город
-            .header__geo-search-box
+            form.header__geo-search-box(action='/ajax/searchLocation.php', method='post')
               input.header__geo-search(type='text', name='geo_search', placeholder='Ваш город')
               button.header__geo-search-clear(type='button')
+            form.header__geo-search-hidden(action='/ajax/setCity.php', method='post')
             .header__geo-links
-              a.header__geo-link.current(href='#') Ульяновск
-              a.header__geo-link(href='#') Москва
-              a.header__geo-link(href='#') Екатеринбург
-              a.header__geo-link(href='#') Нижний Новгород
-              a.header__geo-link(href='#') Ростов-на-Дону
-              a.header__geo-link(href='#') Самара
-              a.header__geo-link(href='#') Санкт-Петербург
-              a.header__geo-link(href='#') Уфа
-              a.header__geo-link(href='#') Челябинск
-
+              .header__geo-link.current(data-id='1', data-city) Ульяновск
+              .header__geo-link(data-id='2', data-city) Москва
+              .header__geo-link(data-id='3', data-city) Екатеринбург
+              .header__geo-link(data-id='4', data-city) Нижний Новгород
+              .header__geo-link(data-id='5', data-city) Ростов-на-Дону
+              .header__geo-link(data-id='6', data-city) Самара
+              .header__geo-link(data-id='7', data-city) Санкт-Петербург
+              .header__geo-link(data-id='8', data-city) Уфа
+              .header__geo-link(data-id='9', data-city) Челябинск
         a.header__phone(href='tel:88003504217') 8 800 350 4217
         button.header__callback(type='button', data-popup='popup-callback') Заказать обратный звонок
       .header__top-links
@@ -50,7 +51,7 @@ mixin header(data)
           +svg('logo')
         +header-menu(data.menu)
       .header__main-right
-        form.header__search-box(action='/ajax/search.html', method='post')
+        form.header__search-box(action='/ajax/search.php', method='post')
           input.header__search(type='text', name='search')
           button.header__search-submit(type='submit')
             +svg('search')

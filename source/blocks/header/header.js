@@ -11,6 +11,11 @@ export default class Header {
     const search = parent.querySelector('.header__search');
     const searchBox = parent.querySelector('.header__search-list');
     const dropLinks = [].slice.call(parent.querySelectorAll('.header-menu__link-item-dropdown'));
+    const citySearch = parent.querySelector('.header__geo-search');
+    const cityForm = parent.querySelector('.header__geo-search-box');
+    const geoLinksBox = parent.querySelector('.header__geo-links');
+    const hiddenSearch = parent.querySelector('.header__geo-search-hidden');
+    const citySpan = parent.querySelector('.header__geo span span');
     const geo = {
       btn: parent.querySelector('.header__geo'),
       drop: parent.querySelector('.header__geo-dropdown'),
@@ -25,6 +30,60 @@ export default class Header {
         menu.classList.toggle('open');
         page.classList.toggle('menu');
         document.body.classList.toggle('overflow');
+      });
+    }
+
+    document.addEventListener('click', (e) => {
+      if (e.target.classList.contains('page')) {
+        hamburger.classList.remove('open');
+        menu.classList.remove('open');
+        page.classList.remove('menu');
+        document.body.classList.remove('overflow');
+      }
+    });
+
+    if (citySearch) {
+      const template = obj => `<div class="header__geo-link" data-id="${obj.id}" data-city>${obj.title}</div>`;
+      citySearch.addEventListener('input', () => {
+        const data = {
+          value: citySearch.value,
+        };
+        if (citySearch.value) {
+          Axios.post(cityForm.action, data).then((response) => {
+            if (response && response.data) {
+              geoLinksBox.innerHTML = '';
+
+              if (response.data.cities && response.data.cities.length > 0) {
+                response.data.cities.forEach((city) => {
+                  const t = template(city);
+                  geoLinksBox.insertAdjacentHTML('afterbegin', t);
+                });
+              }
+            }
+          });
+        } else if (window.PAGE_DATA && window.PAGE_DATA.cities) {
+          geoLinksBox.innerHTML = '';
+          window.PAGE_DATA.cities.forEach((city) => {
+            const t = template(city);
+            geoLinksBox.insertAdjacentHTML('afterbegin', t);
+          });
+        }
+      });
+    }
+
+    if (geoLinksBox && hiddenSearch) {
+      geoLinksBox.addEventListener('click', (e) => {
+        if (e.target.hasAttribute('data-city')) {
+          const data = {
+            id: e.target.dataset.id,
+            title: e.target.textContent,
+          };
+          Axios.post(hiddenSearch.action, data);
+          if (citySpan) {
+            citySpan.innerHTML = e.target.textContent;
+            geo.drop.classList.remove('open');
+          }
+        }
       });
     }
 
@@ -82,7 +141,7 @@ export default class Header {
         const data = {
           value: search.value,
         };
-        Axios.get(searchForm.action, data).then((response) => {
+        Axios.post(searchForm.action, data).then((response) => {
           if (response && response.data) {
             searchBox.innerHTML = '';
             searchBox.insertAdjacentHTML('afterbegin', response.data);
@@ -96,7 +155,7 @@ export default class Header {
         };
 
         if (search.value) {
-          Axios.get(searchForm.action, data).then((response) => {
+          Axios.post(searchForm.action, data).then((response) => {
             if (response && response.data) {
               searchBox.innerHTML = '';
               searchBox.insertAdjacentHTML('afterbegin', response.data);

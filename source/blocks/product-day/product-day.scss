@@ -61,7 +61,8 @@ $parent: product-day;
     }
 
     @media (min-width: $desktop) {
-      width: 48%;
+      align-items: flex-start;
+      width: 35%;
       height: 100%;
       margin-bottom: 0;
     }
@@ -70,6 +71,11 @@ $parent: product-day;
       height: 100%;
       object-fit: contain;
       font-family: 'object-fit: contain;';
+
+      @media (min-width: $desktop) {
+        width: 100%;
+        height: auto;
+      }
     }
   }
 
@@ -83,7 +89,7 @@ $parent: product-day;
     }
 
     @media (min-width: $desktop) {
-      width: 52%;
+      width: 65%;
     }
   }
 
@@ -126,10 +132,14 @@ $parent: product-day;
     }
 
     @media (min-width: $desktop) {
-      width: 53%;
+      width: 57%;
       padding: rem(27) rem(38) rem(20) rem(16);
       margin-left: auto;
       margin-bottom: 0;
+    }
+
+    @media (min-width: $desktop-1440) {
+      width: 53%;
     }
   }
 

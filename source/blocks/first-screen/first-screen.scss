@@ -93,6 +93,7 @@ $parent: first-screen;
   }
 
   @include element($parent, 'thumbs-slide') {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -129,6 +130,15 @@ $parent: first-screen;
       overflow: hidden;
       padding: rem(55) 20% rem(15);
     }
+  }
+
+  @include element($parent, 'thumbs-slide-link') {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
   }
 
   @include element($parent, 'thumbs-slide-image') {
