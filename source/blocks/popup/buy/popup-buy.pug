@@ -1,12 +1,13 @@
 mixin popup-buy(data)
-  .popup-buy(id=data.id)
+  .popup-buy.popup(id=data.id)
     .popup-buy__layout
     .popup-buy__content
       .popup-buy__header
         .popup-buy__title=data.title
-        button.popup-buy__close(type='button')
+        button.popup-buy__close.popup__close(type='button')
       .popup-buy__main
         .popup-buy__main-image
+          img(src="/assets/images/first-1.png", alt="alt")
         .popup-buy__main-text-box
           .popup-buy__main-title Ударные торцевые головки название товара в две строки
           .popup-buy__main-text Набор инструментов предназначен для синхронизации коленвала и распредвала двигателей автомобилей VAG: Audi, Seat, Skoda, Volkswagen. Набор также используется для установки фаз ГРМ при сборке мотора, замене цепи ГРМ.
