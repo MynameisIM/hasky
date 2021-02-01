@@ -7,7 +7,7 @@ mixin goods(data)
       .goods__box
          each card, index in data.cards
            .goods__card(data-id='goods-'+index, data-good)
-             .goods__card-tag= card.tag
+             .goods__card-tag(class=card.tagSale ? 'persent': '')= card.tag
              .goods__card-image
                img(src=card.src, alt='alt')
              .goods__card-title= card.title

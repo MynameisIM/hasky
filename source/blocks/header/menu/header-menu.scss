@@ -11,12 +11,14 @@ $parent: header-menu;
   transition: transform 0.25s linear;
   z-index: -1;
   transform: translateY(-100%);
-  opacity: 0;
 
   &.open {
-    opacity: 1;
     z-index: -1;
     transform: translateY(0);
+  }
+
+  &.opacity {
+    opacity: 0;
   }
 
   @media (min-width: $portrait) {
@@ -164,6 +166,12 @@ $parent: header-menu;
       height: rem(30);
       margin-right: rem(12);
     }
+
+    &:hover {
+      span {
+        text-decoration: underline;
+      }
+    }
   }
 
   @include element($parent, 'copyright-box') {
@@ -184,6 +192,10 @@ $parent: header-menu;
     line-height: rem(14);
     color: $white;
     margin-bottom: rem(12);
+
+    &:hover {
+      text-decoration: underline;
+    }
   }
 
   @include element($parent, 'social-box') {

@@ -24,6 +24,10 @@ export default class Header {
       searchClear: parent.querySelector('.header__geo-search-clear'),
     };
 
+    setTimeout(() => {
+      menu.classList.remove('opacity');
+    }, 500);
+
     if (hamburger && menu) {
       hamburger.addEventListener('click', () => {
         hamburger.classList.toggle('open');

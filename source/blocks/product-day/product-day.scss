@@ -144,6 +144,7 @@ $parent: product-day;
   }
 
   @include element($parent, 'sale') {
+    display: block;
     background-color: $white;
     position: relative;
 
@@ -190,6 +191,7 @@ $parent: product-day;
   }
 
   @include element($parent, 'main-name') {
+    display: block;
     font-weight: 700;
     font-size: rem(18);
     line-height: rem(21);
@@ -219,20 +221,33 @@ $parent: product-day;
     }
   }
 
+  @include element($parent, 'main-price-box') {
+    display: flex;
+    align-items: center;
+    padding-bottom: rem(8);
+
+    @media (min-width: $tablet) {
+      padding-bottom: rem(15);
+    }
+
+    @media (min-width: $desktop) {
+      padding-bottom: rem(10);
+    }
+  }
+
+  @include element($parent, 'main-price-old') {
+    font-size: rem(18);
+    line-height: rem(21);
+    color: #3e5875;
+    text-decoration: line-through;
+  }
+
   @include element($parent, 'main-price') {
     font-weight: 700;
     font-size: rem(36);
     line-height: rem(41);
     color: $c07;
-    margin-bottom: rem(8);
-
-    @media (min-width: $tablet) {
-      margin-bottom: rem(15);
-    }
-
-    @media (min-width: $desktop) {
-      margin-bottom: rem(10);
-    }
+    margin-right: rem(30);
   }
 
   @include element($parent, 'main-text') {

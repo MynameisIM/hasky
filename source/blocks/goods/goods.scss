@@ -59,6 +59,10 @@ $parent: goods;
       top: rem(18);
       right: rem(20);
     }
+
+    &.persent {
+      background-color: #ff2834;
+    }
   }
 
   @include element($parent, 'card-image') {
@@ -161,6 +165,10 @@ $parent: goods;
       color: $c3e;
       text-decoration: line-through;
       margin-left: auto;
+
+      @media (min-width: 375px) {
+        margin-left: rem(20);
+      }
     }
   }
 
