@@ -119,6 +119,11 @@ p {
 
   &__wrap {
     flex: 1 0 auto;
+    padding-top: rem(182);
+
+    @media (min-width: $portrait) {
+      padding-top: rem(150);
+    }
   }
 
   &.menu {

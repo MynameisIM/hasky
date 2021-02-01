@@ -2,7 +2,7 @@ mixin blog()
   .blog
     .blog__title Блог
     .blog__container
-      .blog__main
+      a.blog__main(href='#')
         .blog__main-image
           img(src='/assets/images/blog-2.jpg', alt='alt')
         .blog__main-content
@@ -11,7 +11,7 @@ mixin blog()
             span.blog__main-header-text Администратор
           .blog__main-title Какие поворотные кулаки лучше ставить на Ниву
           .blog__main-text Тема сегодняшнего разговора – ступицы и поворотные кулаки. Этот узел подвески нечасто требует внимания, но по мере проявления «усталости» лучше взяться и полностью его обновить.
-          a.blog__main-link(href='#') Перейти
+          span.blog__main-link Перейти
       .blog__list
         a.blog__list-item(href='#')
           span.blog__list-image

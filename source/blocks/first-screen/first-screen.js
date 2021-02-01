@@ -8,24 +8,14 @@ export default class FirstScreen {
     const thumbOptions = {
       slidesPerView: 1,
       loopedSlides: 2,
-      watchSlidesProgress: true,
-      watchSlidesVisibility: true,
       loop: true,
       navigation: {
         nextEl: parent.querySelector('.first-screen__thumbs-button--next'),
         prevEl: parent.querySelector('.first-screen__thumbs-button--prev'),
       },
     };
-    new Swiper(thumbSlider, thumbOptions);
-    const options = {
-      navigation: {
-        nextEl: parent.querySelector('.first-screen__main-button--next'),
-        prevEl: parent.querySelector('.first-screen__main-button--prev'),
-      },
-      loop: true,
-    };
-    new Swiper(container, options);
     const setFontSize = (c, tb) => {
+      tb.classList.add('init');
       let dFont = parseInt(getComputedStyle(tb)['font-size'], 10);
       if (tb.offsetWidth >= c.offsetWidth) {
         tb.removeAttribute('style');
@@ -36,11 +26,32 @@ export default class FirstScreen {
         dFont += 1;
       }
     };
+    new Swiper(thumbSlider, thumbOptions);
+    const options = {
+      navigation: {
+        nextEl: parent.querySelector('.first-screen__main-button--next'),
+        prevEl: parent.querySelector('.first-screen__main-button--prev'),
+      },
+      loop: true,
+      on: {
+        slideChange() {
+          this.slides.forEach((slide) => {
+            const tb = slide.querySelector('.first-screen__main-slide-title:not(.init)');
+            if (tb) {
+              setFontSize(slide, tb);
+            }
+          });
+        },
+      },
+    };
+    new Swiper(container, options);
 
     if (slides.length > 0) {
       slides.forEach((slide) => {
         const text = slide.querySelector('.first-screen__main-slide-title');
-        setFontSize(slide, text);
+        if (!text.classList.contains('init')) {
+          setFontSize(slide, text);
+        }
 
         window.addEventListener('resize', setFontSize.bind(this, slide, text));
       });

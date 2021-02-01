@@ -44,6 +44,8 @@ $parent: about;
   }
 
   @include element($parent, 'text-box') {
+    padding: 0 rem(15);
+
     @media (min-width: $tablet) {
       width: 65%;
       padding-left: rem(25);

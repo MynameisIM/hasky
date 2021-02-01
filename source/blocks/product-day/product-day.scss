@@ -363,6 +363,14 @@ $parent: product-day;
         margin-right: rem(20);
         background-color: #ededed;
         border-radius: rem(4);
+
+        &:last-of-type {
+          span {
+            &:last-of-type {
+              color: $c07;
+            }
+          }
+        }
       }
 
       &__item-value {
