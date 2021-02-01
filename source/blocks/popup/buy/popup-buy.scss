@@ -116,6 +116,10 @@ $parent: popup-buy;
       border: 1px solid #e5e5e5;
       margin-bottom: rem(14);
       padding: 0 rem(10);
+
+      &.error {
+        border-color: #ff2834;
+      }
     }
   }
 

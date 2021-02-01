@@ -76,7 +76,7 @@ module.exports = (env, argv) => {
     }, {}),
     output: {
       filename: './assets/scripts/[name].bundle.js',
-      chunkFilename: './assets/scripts/chunk/[id]-[hash].chunk.js',
+      chunkFilename: './assets/scripts/chunk/js.chunk.js',
       path: path.resolve(__dirname, 'dist'),
       publicPath: '/'
     },
