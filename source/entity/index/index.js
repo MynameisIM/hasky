@@ -3,6 +3,7 @@ import Header from '@/blocks/header/header';
 import Popup from '@/blocks/popup/popup';
 import Form from '@/blocks/form/form';
 import Request from '@/blocks/request/request';
+import Counter from '@/blocks/counter/counter';
 
 require('./index.scss');
 
@@ -26,6 +27,9 @@ Array.from(document.querySelectorAll('[data-popup]'))
       });
     }
   });
+
+Array.from(document.querySelectorAll('.counter'))
+  .forEach(block => block && new Counter(block));
 
 /* eslint-disable */
 const curren = document.querySelector('.core-timer').getAttribute('data-end').split(',').map(n => +n);
