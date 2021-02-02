@@ -1,0 +1,49 @@
+$parent: counter;
+
+@include block($parent) {
+  display: inline-flex;
+  background-color: #f2f2f2;
+  border: 1px solid #e7e7e7;
+  border-radius: 2px;
+
+  @include element($parent, 'button') {
+    position: relative;
+    width: rem(40);
+    height: rem(40);
+
+    &::before,
+    &::after {
+      position: absolute;
+      content: '';
+      width: rem(9);
+      height: 1px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #333;
+    }
+
+    &::after {
+      transform: translate(-50%, -50%) rotate(90deg);
+    }
+
+    &[data-decr] {
+      &::before {
+        content: none;
+      }
+
+      &::after {
+        transform: translate(-50%, -50%);
+      }
+    }
+  }
+
+  @include element($parent, 'input') {
+    width: calc(100% - 80px);
+    height: rem(40);
+    text-align: center;
+    font-size: rem(18);
+    line-height: rem(21);
+    color: #333;
+  }
+}

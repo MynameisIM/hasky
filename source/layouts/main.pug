@@ -2,6 +2,7 @@ include ../blocks/header/header.pug
 include ../blocks/footer/footer.pug
 include ../blocks/popup/popup.pug
 include ../blocks/popup/buy/popup-buy.pug
+include ../blocks/popup/fast/popup-fast.pug
 
 -
   loadAssets = function(file) {
@@ -76,6 +77,10 @@ html(lang='ru')
       +popup-buy({
         title: 'БЫСТРАЯ ПОКУПКА',
         id: 'popup-buy'
+      })
+      +popup-fast({
+        title: 'Быстрый просмотр товаров',
+        id: 'popup-fast'
       })
     block inits
     each js in htmlWebpackPlugin.files.js

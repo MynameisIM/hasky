@@ -6,10 +6,16 @@ $parent: popup-buy;
   height: 100%;
   display: none;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   top: 0;
   left: 0;
   z-index: 10;
+  overflow: auto;
+
+  @media (min-width: $tablet) {
+    align-items: center;
+    overflow: visible;
+  }
 
   &.open {
     display: flex;
@@ -79,20 +85,35 @@ $parent: popup-buy;
     color: #333;
     text-transform: uppercase;
     margin-bottom: rem(15);
+    text-align: center;
+
+    @media (min-width: $tablet) {
+      text-align: left;
+    }
   }
 
   @include element($parent, 'main-text') {
     font-size: rem(13);
     line-height: rem(20);
     color: #333;
+    text-align: center;
+
+    @media (min-width: $tablet) {
+      text-align: left;
+    }
   }
 
   @include element($parent, 'main') {
     display: flex;
+    flex-direction: column;
     align-items: center;
     border-bottom: 1px solid #c7c7c7;
     padding: rem(25) 0 rem(15);
     margin-bottom: rem(29);
+
+    @media (min-width: $tablet) {
+      flex-direction: row;
+    }
   }
 
   @include element($parent, 'main-image') {
@@ -104,8 +125,12 @@ $parent: popup-buy;
   }
 
   @include element($parent, 'main-text-box') {
-    width: 65%;
-    padding-left: rem(8);
+    width: 90%;
+
+    @media (min-width: $tablet) {
+      width: 65%;
+      padding-left: rem(8);
+    }
   }
 
   @include element($parent, 'form-group') {

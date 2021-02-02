@@ -1,0 +1,306 @@
+$parent: popup-fast;
+
+@include block($parent) {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  display: none;
+  justify-content: center;
+  align-items: flex-start;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  overflow: auto;
+
+  @media (min-width: $tablet) {
+    align-items: center;
+    overflow: visible;
+  }
+
+  &.open {
+    display: flex;
+  }
+
+  @include element($parent, 'layout') {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(57, 85, 121, 0.83);
+  }
+
+  @include element($parent, 'content') {
+    position: relative;
+    width: 100%;
+    max-width: rem(406);
+    background-color: $white;
+    border-radius: rem(3);
+    padding: rem(7) rem(25) rem(25) rem(15);
+
+    @media (min-width: $tablet) {
+      max-width: rem(712);
+    }
+  }
+
+  @include element($parent, 'header') {
+    display: flex;
+    border-bottom: 1px solid #dbdbdb;
+    margin-bottom: rem(14);
+  }
+
+  @include element($parent, 'title') {
+    font-size: rem(20);
+    line-height: rem(29);
+    color: #333;
+    text-transform: uppercase;
+    padding-bottom: rem(3);
+  }
+
+  @include element($parent, 'close') {
+    position: relative;
+    width: rem(29);
+    height: rem(29);
+    margin-left: auto;
+    top: 3px;
+    right: -3px;
+
+    &::before,
+    &::after {
+      position: absolute;
+      content: '';
+      width: rem(10);
+      height: rem(2);
+      background-color: #dbdbdb;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(45deg);
+    }
+
+    &::after {
+      transform: translate(-50%, -50%) rotate(-45deg);
+    }
+  }
+
+  @include element($parent, 'goods-title') {
+    font-size: rem(18);
+    line-height: rem(21);
+    color: #333;
+    margin-bottom: rem(17);
+    text-transform: uppercase;
+  }
+
+  @include element($parent, 'goods-text') {
+    font-size: rem(13);
+    line-height: rem(20);
+    color: #333;
+  }
+
+  @include element($parent, 'text') {
+    padding: 0 rem(5) 0 rem(15);
+  }
+
+  @include element($parent, 'main') {
+    display: flex;
+    padding-bottom: rem(20);
+  }
+
+  @include element($parent, 'main-slider-box') {
+    width: 50%;
+    flex: 1 0 50%;
+    max-width: 50%;
+  }
+
+  @include element($parent, 'main-info-box') {
+    width: 50%;
+    flex: 1 0 50%;
+    max-width: 50%;
+  }
+
+  @include element($parent, 'main-info') {
+    box-shadow: 0 rem(4) rem(16) rgba(0, 0, 0, 0.15);
+    border-radius: rem(3);
+    padding: rem(20) rem(10) rem(8);
+    margin-bottom: rem(5);
+  }
+
+  @include element($parent, 'price') {
+    font-weight: bold;
+    font-size: rem(20);
+    line-height: rem(29);
+    color: #ff2834;
+    margin-right: rem(14);
+
+    @include modifier($parent, 'old') {
+      font-weight: 400;
+      font-size: rem(14);
+      line-height: rem(20);
+      color: #808080;
+      text-decoration: line-through;
+    }
+  }
+
+  @include element($parent, 'buttons') {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: rem(12);
+
+    .elem {
+      width: calc(50% - 4px);
+    }
+  }
+
+  @include element($parent, 'availability-box') {
+    display: flex;
+    align-items: center;
+    margin-bottom: rem(7);
+  }
+
+  @include element($parent, 'availability-text') {
+    font-weight: 500;
+    font-size: rem(12);
+    line-height: rem(14);
+    color: #666;
+    margin-right: rem(15);
+  }
+
+  @include element($parent, 'availability') {
+    display: inline-flex;
+
+    span {
+      width: rem(10);
+      height: rem(10);
+      margin-right: rem(4);
+      background-color: #f2f2f2;
+
+      &.green {
+        background-color: #6aa84f;
+      }
+    }
+  }
+
+  @include element($parent, 'price-container') {
+    display: flex;
+    align-items: center;
+    margin-bottom: rem(14);
+  }
+
+  @include element($parent, 'price-box') {
+    border: 1px solid #dfdfdf;
+    border-radius: 2px;
+    padding: rem(5);
+    margin-bottom: rem(24);
+  }
+
+  @include element($parent, 'price-box-title') {
+    font-weight: 500;
+    font-size: rem(13);
+    line-height: rem(16);
+    color: #505050;
+    margin-bottom: rem(5);
+  }
+
+  @include element($parent, 'price-line') {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: rem(31);
+    border-top: 1px solid #e5e5e5;
+
+    span {
+      font-weight: 600;
+      font-size: rem(11);
+      line-height: rem(19);
+      color: #666;
+
+      &:last-of-type {
+        font-size: rem(12);
+        line-height: rem(21);
+        color: #4794eb;
+      }
+    }
+  }
+
+  @include element($parent, 'price-header') {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    span {
+      font-weight: 500;
+      font-size: rem(11);
+      line-height: rem(19);
+      color: #606060;
+    }
+  }
+
+  @include element($parent, 'button') {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: rem(45);
+    border: 1px solid #0776fa;
+    border-radius: 2px;
+
+    svg {
+      width: rem(24);
+      height: rem(24);
+      margin-right: rem(8);
+    }
+
+    span {
+      font-weight: 500;
+      font-size: rem(11);
+      line-height: rem(13);
+      color: #4794eb;
+      text-transform: uppercase;
+    }
+  }
+
+  @include element($parent, 'button-add') {
+    height: rem(40);
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    background: #0776fa;
+    border-radius: rem(2);
+
+    span {
+      font-weight: 600;
+      font-size: rem(12);
+      line-height: rem(18);
+      color: $white;
+    }
+
+    svg {
+      width: rem(20);
+      height: rem(20);
+      fill: $white;
+      margin-right: rem(10);
+    }
+  }
+
+  @include element($parent, 'footer') {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  @include element($parent, 'footer-button') {
+    display: inline-flex;
+    align-items: center;
+    padding: rem(10) rem(5);
+
+    svg {
+      width: rem(20);
+      height: rem(20);
+      fill: #808080;
+      margin-right: rem(8);
+    }
+
+    span {
+      font-size: rem(11);
+      line-height: rem(13);
+      color: #333;
+    }
+  }
+}
