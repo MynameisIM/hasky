@@ -19,9 +19,9 @@ export default class Popup {
   }
 
   static close() {
-    const open = document.querySelector('.popup.open');
-    if (open) {
-      open.classList.remove('open');
+    const opens = [].slice.call(document.querySelectorAll('.popup.open'));
+    if (opens.length > 0) {
+      opens.forEach(open => open.classList.remove('open'));
       document.body.classList.remove('overflow');
     }
   }

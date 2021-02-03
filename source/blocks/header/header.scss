@@ -1,14 +1,13 @@
 $parent: header;
 
 @include block($parent) {
-  position: fixed;
   width: 100%;
-  top: 0;
-  left: 0;
   z-index: 2;
 
   @include element($parent, 'top') {
+    position: relative;
     background-color: $e5;
+    z-index: 3;
 
     @media (min-width: $portrait) {
       display: flex;
@@ -234,6 +233,7 @@ $parent: header;
     display: flex;
     align-items: center;
     height: rem(85);
+    z-index: 2;
 
     @media (min-width: $portrait) {
       height: rem(103);

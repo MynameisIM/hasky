@@ -119,11 +119,6 @@ p {
 
   &__wrap {
     flex: 1 0 auto;
-    padding-top: rem(182);
-
-    @media (min-width: $portrait) {
-      padding-top: rem(150);
-    }
   }
 
   &.menu {
@@ -138,6 +133,32 @@ p {
       left: 0;
       background-color: rgba(57, 85, 121, 0.83);
       z-index: 1;
+    }
+  }
+
+  &--fixed {
+    .page__wrap {
+      padding-top: rem(85);
+
+      @media (min-width: $tablet) {
+        padding-top: rem(103);
+      }
+    }
+
+    .header .header__main {
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      z-index: 10;
+    }
+
+    .header-menu {
+      height: calc(100vh - 85px);
+
+      @media (min-width: $portrait) {
+        height: calc(100vh - 103px);
+      }
     }
   }
 }

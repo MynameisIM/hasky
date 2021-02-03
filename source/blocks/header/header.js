@@ -170,5 +170,24 @@ export default class Header {
         }
       });
     }
+
+    const setClass = () => {
+      if (window.innerWidth <= 1023) {
+        if (window.pageYOffset < 96) {
+          page.classList.remove('page--fixed');
+        } else {
+          page.classList.add('page--fixed');
+        }
+      } else if (window.innerWidth >= 1024) {
+        if (window.pageYOffset < 47) {
+          page.classList.remove('page--fixed');
+        } else {
+          page.classList.add('page--fixed');
+        }
+      }
+    };
+
+    window.addEventListener('scroll', setClass);
+    window.addEventListener('resize', setClass);
   }
 }
