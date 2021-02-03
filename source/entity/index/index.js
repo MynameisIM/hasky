@@ -4,6 +4,7 @@ import Popup from '@/blocks/popup/popup';
 import Form from '@/blocks/form/form';
 import Request from '@/blocks/request/request';
 import Counter from '@/blocks/counter/counter';
+import PopupFast from '../../blocks/popup/fast/popup-fast';
 
 require('./index.scss');
 
@@ -30,6 +31,9 @@ Array.from(document.querySelectorAll('[data-popup]'))
 
 Array.from(document.querySelectorAll('.counter'))
   .forEach(block => block && new Counter(block));
+
+Array.from(document.querySelectorAll('.popup-fast'))
+  .forEach(block => block && new PopupFast(block));
 
 /* eslint-disable */
 const curren = document.querySelector('.core-timer').getAttribute('data-end').split(',').map(n => +n);
