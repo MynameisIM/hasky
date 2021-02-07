@@ -52,6 +52,7 @@ $parent: popup-buy;
     color: #333;
     text-transform: uppercase;
     padding-bottom: rem(3);
+    border-bottom: 2px solid $c07;
   }
 
   @include element($parent, 'close') {

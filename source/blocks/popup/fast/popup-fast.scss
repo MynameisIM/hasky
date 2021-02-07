@@ -53,6 +53,8 @@ $parent: popup-fast;
     color: #333;
     text-transform: uppercase;
     padding-bottom: rem(3);
+    border-bottom: 2px solid $c07;
+    margin-bottom: -1px;
   }
 
   @include element($parent, 'close') {

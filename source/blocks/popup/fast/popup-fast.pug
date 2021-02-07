@@ -2,13 +2,13 @@ include ../../../core/svg
 include ../../counter/counter
 
 mixin popup-fast(data)
-  .popup-fast.popup(id=data.id)
+  .popup-fast.popup(id=data.id, data-likes="ajax/addFavorites.php", data-compare="ajax/addCompare.php")
     .popup-fast__layout
     .popup-fast__content
       .popup-fast__header
         .popup-fast__title=data.title
         button.popup-fast__close.popup__close(type='button')
-      .popup-fast__main
+      .popup-fast__main(data-good, data-id='2')
         .popup-fast__main-slider-box
           .popup-fast__main-slider.swiper-container
             .popup-fast__main-wrapper.swiper-wrapper
@@ -62,7 +62,7 @@ mixin popup-fast(data)
             button.popup-fast__footer-button(type='button', data-button-like)
               +svg('like')
               span Избранное
-            button.popup-fast__footer-button(type='button')
+            button.popup-fast__footer-button(type='button', data-button-compare)
               +svg('compare')
               span Сравнение
             button.popup-fast__footer-button(type='button')
