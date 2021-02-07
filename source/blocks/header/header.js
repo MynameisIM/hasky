@@ -1,4 +1,5 @@
 import Axios from 'axios';
+import { throttle } from '../../base/script/debounce';
 
 export default class Header {
   constructor(parent) {
@@ -153,21 +154,26 @@ export default class Header {
         });
       });
 
+      const sendFunc = (data, url, sb) => {
+        if (search.value) {
+          Axios.post(url, data).then((response) => {
+            if (response && response.data) {
+              sb.innerHTML = '';
+              sb.insertAdjacentHTML('afterbegin', response.data);
+            }
+          });
+        } else {
+          sb.innerHTML = '';
+        }
+      };
+
       search.addEventListener('input', () => {
         const data = {
           value: search.value,
         };
 
-        if (search.value) {
-          Axios.post(searchForm.action, data).then((response) => {
-            if (response && response.data) {
-              searchBox.innerHTML = '';
-              searchBox.insertAdjacentHTML('afterbegin', response.data);
-            }
-          });
-        } else {
-          searchBox.innerHTML = '';
-        }
+        const a = throttle(sendFunc.bind(this, data, searchForm.action, searchBox), 1000);
+        a();
       });
     }
 
