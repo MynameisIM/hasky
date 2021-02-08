@@ -161,9 +161,9 @@ export default class Header {
         });
       });
 
-      const sendFunc = (data, url, sb) => {
+      const sendFunc = (url, sb) => {
         if (search.value) {
-          Axios.post(url, data).then((response) => {
+          Axios.post(url, { value: search.value }).then((response) => {
             if (response && response.data) {
               sb.innerHTML = '';
               sb.insertAdjacentHTML('afterbegin', response.data);
@@ -173,15 +173,10 @@ export default class Header {
           sb.innerHTML = '';
         }
       };
-      let data = {};
 
-      const a = throttle(sendFunc.bind(this, data, searchForm.action, searchBox), 1000);
+      const a = throttle(sendFunc.bind(this, searchForm.action, searchBox), 1000);
 
       search.addEventListener('input', () => {
-        data = {
-          value: search.value,
-        };
-
         a();
       });
     }
