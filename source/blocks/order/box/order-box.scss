@@ -1,0 +1,97 @@
+$parent: order-box;
+
+@include block($parent) {
+  background: #fff;
+  box-shadow: 0 0 16px rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+
+  @include element($parent, 'title') {
+    font-size: rem(14);
+    color: #5c5c5c;
+    text-transform: uppercase;
+    padding: rem(22) rem(24) rem(24);
+  }
+
+  @include element($parent, 'line') {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 rem(25) rem(20);
+
+    span {
+      &:first-of-type {
+        font-size: rem(13);
+        line-height: rem(15);
+        color: #717171;
+      }
+    }
+
+    @include modifier($parent, 'nalog') {
+      padding-bottom: rem(12);
+    }
+  }
+
+  @include element($parent, 'right') {
+    font-weight: 500;
+    font-size: rem(14);
+    color: #5c5c5c;
+  }
+
+  @include element($parent, 'form') {
+    background-color: #f2f2f2;
+    padding: rem(8) rem(27) rem(12);
+
+    input {
+      width: 100%;
+      height: rem(37);
+      background: #fff;
+      border: 1px solid #e5e5e5;
+      border-radius: rem(3);
+      padding: 0 rem(103) 0 rem(11);
+
+      &::placeholder {
+        font-weight: 500;
+        font-size: rem(12);
+        line-height: rem(18);
+        color: #a6a6a6;
+      }
+    }
+
+    button {
+      position: absolute;
+      width: rem(103);
+      height: 100%;
+      font-weight: 500;
+      font-size: rem(14);
+      line-height: rem(20);
+      color: #fff;
+      background-color: #41536a;
+      border-radius: 0 rem(3) rem(3) 0;
+      top: 0;
+      right: 0;
+    }
+  }
+
+  @include element($parent, 'form-box') {
+    position: relative;
+  }
+
+  @include element($parent, 'footer') {
+    display: flex;
+    justify-content: space-between;
+    padding: rem(18) rem(24);
+
+    span {
+      &:first-of-type {
+        font-size: rem(12);
+        color: #5c5c5c;
+        text-transform: uppercase;
+      }
+    }
+  }
+
+  @include element($parent, 'footer-total') {
+    font-weight: bold;
+    font-size: rem(16);
+    color: #5c5c5c;
+  }
+}

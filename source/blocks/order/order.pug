@@ -1,0 +1,16 @@
+include ../order/box/order-box
+
+mixin order(data)
+  .order
+    .order__main
+      .order__box
+        .order__box-header
+          .order__box-title ДОСТАВКА
+      .order__box
+        .order__box-header
+          .order__box-title ПОКУПАТЕЛЬ
+      .order__box
+        .order__box-header
+          .order__box-title СПОСОБЫ ОПЛАТЫ
+    .order__aside
+      +order-box()

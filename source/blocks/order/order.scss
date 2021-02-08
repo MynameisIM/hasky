@@ -1,0 +1,17 @@
+$parent: order;
+
+@include block($parent) {
+  @include element($parent, 'box-title') {
+    display: inline-flex;
+    font-size: rem(18);
+    line-height: rem(21);
+    color: #333;
+    text-transform: uppercase;
+    border-bottom: 2px solid $c07;
+    margin-bottom: -1px;
+  }
+
+  @include element($parent, 'header') {
+    border: 1px solid #e5e5e5;
+  }
+}

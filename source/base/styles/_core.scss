@@ -161,6 +161,10 @@ p {
       }
     }
   }
+
+  &--order {
+    background-color: #fff;
+  }
 }
 
 .overflow {
@@ -191,6 +195,19 @@ p {
   @media (min-width: $tablet) {
     font-size: rem(64);
     line-height: rem(74);
+  }
+
+  &--order-page {
+    font-weight: 500;
+    font-size: rem(18);
+    line-height: rem(21);
+    color: #333;
+
+    @media (min-width: $tablet) {
+      font-weight: 400;
+      font-size: rem(22);
+      line-height: rem(25);
+    }
   }
 }
 
