@@ -39,7 +39,7 @@ Array.from(document.querySelectorAll('.popup-fast'))
 const curren = document.querySelector('.core-timer').getAttribute('data-end').split(',').map(n => +n);
 function setTimer() {
   let timeLeft = getTimeLeft(curren[0], curren[1], curren[2], curren[3], curren[4], curren[5], 0);
-  days.innerHTML = timeLeft[0] < 10 ? `0${timeLeft[1]}`: timeLeft[1];
+  days.innerHTML = timeLeft[0] < 10 ? `0${timeLeft[0]}`: timeLeft[0];
   hrs.innerHTML = timeLeft[1] < 10 ? `0${timeLeft[1]}`: timeLeft[1];
   mins.innerHTML = timeLeft[2] < 10 ? `0${timeLeft[2]}`: timeLeft[2];
   seconds.innerHTML = timeLeft[3] < 10 ? `<span>0</span><span>${timeLeft[3]}</span>`: `<span>${String(timeLeft[3]).split('')[0]}</span><span>${String(timeLeft[3]).split('')[1]}</span>`;
