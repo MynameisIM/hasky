@@ -56,7 +56,7 @@ const getTimeLeft = (year, month, day, hour, minute, second, milisecond) => {
 
   const currentDate = new Date();
 
-  const expectedDate = new Date(year, month, day, hour, minute, second, milisecond);
+  const expectedDate = new Date(year, month - 1, day, hour, minute, second, milisecond);
 
   const timeLeft = expectedDate.getTime() - currentDate.getTime();
 
