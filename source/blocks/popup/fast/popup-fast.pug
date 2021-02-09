@@ -2,13 +2,13 @@ include ../../../core/svg
 include ../../counter/counter
 
 mixin popup-fast(data)
-  .popup-fast.popup(id=data.id)
+  .popup-fast.popup(id=data.id, data-likes="ajax/addFavorites.php", data-compare="ajax/addCompare.php")
     .popup-fast__layout
     .popup-fast__content
       .popup-fast__header
         .popup-fast__title=data.title
         button.popup-fast__close.popup__close(type='button')
-      .popup-fast__main
+      .popup-fast__main(data-good, data-id='2')
         .popup-fast__main-slider-box
           .popup-fast__main-slider.swiper-container
             .popup-fast__main-wrapper.swiper-wrapper
@@ -59,15 +59,15 @@ mixin popup-fast(data)
                 +svg('tap')
                 span КУПИТЬ В 1 КЛИК
           .popup-fast__footer
-            button.popup-fast__footer-button(type='button')
+            button.popup-fast__footer-button(type='button', data-button-like)
               +svg('like')
               span Избранное
-            button.popup-fast__footer-button(type='button')
+            button.popup-fast__footer-button(type='button', data-button-compare)
               +svg('compare')
               span Сравнение
-            button.popup-fast__footer-button(type='button')
-              +svg('share')
-              span Поделиться
+            //button.popup-fast__footer-button(type='button')
+            //  +svg('share')
+            //  span Поделиться
       .popup-fast__text
         .popup-fast__goods-title Ударные торцевые головки название товара в две строки
         .popup-fast__goods-text Набор инструментов предназначен для синхронизации коленвала и распредвала двигателей автомобилей VAG: Audi, Seat, Skoda, Volkswagen. Набор также используется для установки фаз ГРМ при сборке мотора, замене цепи ГРМ.

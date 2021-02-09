@@ -3,7 +3,9 @@ export default class Popup {
     const close = parent.querySelector('.popup__close');
 
     document.addEventListener('click', (ev) => {
-      if (ev.target === close || ev.target.classList.contains('popup__layout')) {
+      if (ev.target === close || ev.target.classList.contains('popup__layout')
+        || ev.target.classList.contains('popup-fast__layout')
+        || ev.target.classList.contains('popup-buy__layout')) {
         parent.classList.remove('open');
         document.body.classList.remove('overflow');
       }

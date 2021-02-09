@@ -1,0 +1,21 @@
+mixin order-box()
+  .order-box
+    .order-box__title ВАШ ЗАКАЗ:
+    .order-box__line
+      span 1 шт.
+      span.order-box__right 59 560 Р
+    .order-box__line
+      span Доставка
+      span.order-box__right 48 Р
+    .order-box__line.order-box__line--nalog
+      span Налоги
+    .order-box__line
+      span НДС 0% (включено)
+      span.order-box__right 0 Р
+    form.order-box__form
+      .order-box__form-box
+        input(type='text', name='promo', placeholder='Промокод')
+        button Применить
+    .order-box__footer
+      span СУММА ЗАКАЗА
+      span.order-box__footer-total 61 343 Р

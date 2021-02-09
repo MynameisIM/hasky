@@ -1,4 +1,5 @@
 import Axios from 'axios';
+import { throttle } from '../../base/script/debounce';
 
 export default class Header {
   constructor(parent) {
@@ -114,10 +115,17 @@ export default class Header {
     if (dropdowns.length > 0) {
       dropdowns.forEach((el) => {
         const dd = el.parentElement.querySelector('[data-e-dropdown]');
+        const box = el.parentElement.querySelector('.header__cart-dropdown-list');
 
         if (dd) {
           el.addEventListener('click', () => {
-            dd.classList.toggle('open');
+            if (el.classList.contains('header__cart-button')) {
+              if (box && box.childElementCount > 0) {
+                dd.classList.toggle('open');
+              }
+            } else {
+              dd.classList.toggle('open');
+            }
           });
         }
       });
@@ -153,21 +161,23 @@ export default class Header {
         });
       });
 
-      search.addEventListener('input', () => {
-        const data = {
-          value: search.value,
-        };
-
+      const sendFunc = (url, sb) => {
         if (search.value) {
-          Axios.post(searchForm.action, data).then((response) => {
+          Axios.post(url, { value: search.value }).then((response) => {
             if (response && response.data) {
-              searchBox.innerHTML = '';
-              searchBox.insertAdjacentHTML('afterbegin', response.data);
+              sb.innerHTML = '';
+              sb.insertAdjacentHTML('afterbegin', response.data);
             }
           });
         } else {
-          searchBox.innerHTML = '';
+          sb.innerHTML = '';
         }
+      };
+
+      const a = throttle(sendFunc.bind(this, searchForm.action, searchBox), 1000);
+
+      search.addEventListener('input', () => {
+        a();
       });
     }
 

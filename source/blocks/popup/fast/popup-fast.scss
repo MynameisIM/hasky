@@ -53,6 +53,8 @@ $parent: popup-fast;
     color: #333;
     text-transform: uppercase;
     padding-bottom: rem(3);
+    border-bottom: 2px solid $c07;
+    margin-bottom: -1px;
   }
 
   @include element($parent, 'close') {
@@ -306,13 +308,13 @@ $parent: popup-fast;
 
   @include element($parent, 'footer') {
     display: flex;
-    justify-content: space-between;
   }
 
   @include element($parent, 'footer-button') {
     display: inline-flex;
     align-items: center;
     padding: rem(10) rem(5);
+    margin-right: rem(25);
 
     svg {
       width: rem(20);
