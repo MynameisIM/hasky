@@ -75,6 +75,7 @@ const getTimeLeft = (year, month, day, hour, minute, second, milisecond) => {
     return [ daysLeft, hrsLeft, minsLeft, secondsLeft];
 
   } else {
+    block.classList.add('hide');
     return ['X', 'X', 'X', 'X'];
   }
 };
@@ -87,6 +88,7 @@ const hrs = document.querySelector('.core-timer [data-t-hours]');
 const hrsT = document.querySelector('.core-timer [data-t-hours-text]');
 const mins = document.querySelector('.core-timer [data-t-minutes]');
 const minsT = document.querySelector('.core-timer [data-t-minutes-text]');
+const block = document.getElementById('product-of-the-day');
 
 window.onload = setTimer();
 setInterval(setTimer, 1000);

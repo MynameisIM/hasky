@@ -156,7 +156,7 @@ $parent: goods;
     font-weight: 700;
     font-size: rem(24);
     line-height: rem(28);
-    color: $ff;
+    color: $c41;
 
     @include modifier($parent, 'old') {
       font-weight: 400;
@@ -169,6 +169,10 @@ $parent: goods;
       @media (min-width: 375px) {
         margin-left: rem(20);
       }
+    }
+
+    &.sale {
+      color: $ff;
     }
   }
 

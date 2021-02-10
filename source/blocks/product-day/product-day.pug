@@ -1,7 +1,7 @@
 include ../../core/svg
 
 mixin product-day()
-  .product-day(data-compare='ajax/addCompare.php', data-likes='ajax/addFavorites.php', data-basket='/ajax/addBasket.php')
+  .product-day(data-compare='ajax/addCompare.php', data-likes='ajax/addFavorites.php', data-basket='/ajax/addBasket.php', id='product-of-the-day')
     .product-day__title Товар дня
     .product-day__container
       .product-day__image
@@ -17,7 +17,7 @@ mixin product-day()
             .product-day__main-price-old 8 090 ₽
           .product-day__main-text Тема сегодняшнего разговора – ступицы и поворотные кулаки. Этот узел подвески нечасто требует внимания, но по мере проявления «усталости» лучше взяться и полностью его обновить.
           .product-day__timer
-            .core-timer(data-end='2021,2,17,0,0,0')
+            .core-timer(data-end='2021,2,17,19,34,0')
               .core-timer__item
                 .core-timer__item-value(data-t-days) 0
                 .core-timer__item-text(data-t-days-text) дня

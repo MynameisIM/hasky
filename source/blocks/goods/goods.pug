@@ -14,7 +14,7 @@ mixin goods(data)
              .goods__card-article Артикул:
                span= card.article
              .goods__card-price-box
-               span.goods__card-price= card.price
+               span.goods__card-price.sale= card.price
                span.goods__card-price.goods__card-price--old= card.oldPrice
              .goods__card-buttons
                button.goods__card-button.goods__card-button--one-click(type='button') Купить в 1 клик
