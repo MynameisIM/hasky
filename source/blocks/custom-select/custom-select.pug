@@ -1,0 +1,5 @@
+mixin custom-select(items, nameClass)
+  .custom-select(class=nameClass)
+    select.custom-select__select
+      each item in items
+        option.custom-select__option(value=item.value, selected=item.selected) #{item.text}

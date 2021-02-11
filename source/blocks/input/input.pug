@@ -1,0 +1,4 @@
+mixin core-input(data, classMod)
+  .core-input(class=classMod || '')
+    input(type='text', name=data.name, value=data.value || '')
+    label=data.label || ''
