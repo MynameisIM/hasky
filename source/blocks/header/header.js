@@ -17,6 +17,8 @@ export default class Header {
     const geoLinksBox = parent.querySelector('.header__geo-links');
     const hiddenSearch = parent.querySelector('.header__geo-search-hidden');
     const citySpan = parent.querySelector('.header__geo span span');
+    const basketContainer = parent.querySelector('.header__cart-dropdown-list');
+    const basketCount = parent.querySelector('[data-header-basket]');
     const geo = {
       btn: parent.querySelector('.header__geo'),
       drop: parent.querySelector('.header__geo-dropdown'),
@@ -199,5 +201,39 @@ export default class Header {
 
     window.addEventListener('scroll', setClass);
     window.addEventListener('resize', setClass);
+
+    if (basketContainer) {
+      window.addEventListener('getBaskedData', (e) => {
+        if (e.detail && e.detail.basket) {
+          basketContainer.innerHTML = '';
+          const basketData = e.detail.basket;
+          const { count } = e.detail;
+
+          if (basketData.length > 0) {
+            basketData.forEach((goods) => {
+              basketContainer.insertAdjacentHTML('beforeend', this.constructor.basketItemTemplate(goods));
+            });
+          }
+
+          if (count && basketCount) {
+            basketCount.innerHTML = count;
+          }
+        }
+      });
+    }
+  }
+
+  static basketItemTemplate(obj) {
+    return `<div class="header__cart-dropdown-item">
+              <a class="header__cart-dropdown-item-link" href="${obj.url || '#'}">
+                  <div class="header__cart-dropdown-item-image">
+                      <img src="${obj.picture || ''}" alt="alt">
+                  </div>
+                  <div class="header__cart-dropdown-item-name">${obj.name || ''}</div>
+              </a>
+              <div class="header__cart-dropdown-item-count">x<span>${obj.quantity || 0}</span></div>
+              <div class="header__cart-dropdown-item-price">${obj.summ || 0}₽</div>
+              <button class="header__cart-dropdown-item-remove" type="button"></button>
+            </div>`;
   }
 }
