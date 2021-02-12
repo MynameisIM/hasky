@@ -1,6 +1,8 @@
 $parent: order;
 
 @include block($parent) {
+  display: flex;
+
   @include element($parent, 'box-title') {
     display: inline-flex;
     font-size: rem(18);
@@ -11,7 +13,34 @@ $parent: order;
     margin-bottom: -1px;
   }
 
-  @include element($parent, 'header') {
-    border: 1px solid #e5e5e5;
+  @include element($parent, 'box-header') {
+    border-bottom: 1px solid #e5e5e5;
+    margin-bottom: rem(20);
   }
+
+  @include element($parent, 'form-group') {
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    margin: 0 rem(-8);
+  }
+
+  @include element($parent, 'form-item') {
+    padding: 0 rem(8) rem(16);
+  }
+
+  @include element($parent, 'submit') {
+    width: 100%;
+    height: rem(57);
+    font-weight: bold;
+    font-size: rem(18);
+    line-height: rem(26);
+    color: $white;
+    background-color: $c07;
+    border-radius: 3px;
+  }
+}
+
+.page {
+  background-color: $white;
 }

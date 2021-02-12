@@ -1,0 +1,21 @@
+$parent: textarea;
+
+@include block($parent) {
+  width: 100%;
+
+  textarea {
+    width: 100%;
+    height: rem(160);
+    padding: rem(12);
+    font-size: rem(14);
+    color: $black;
+    border-radius: 3px;
+    border: 1px solid #e5e5e5;
+
+    &::placeholder {
+      font-size: 14px;
+      line-height: 1;
+      color: #898989;
+    }
+  }
+}

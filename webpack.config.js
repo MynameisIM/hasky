@@ -249,7 +249,7 @@ module.exports = (env, argv) => {
       ],
     },
     devServer: {
-      host: 'localhost',
+      host: '0.0.0.0',
       watchContentBase: true,
       port: 9001,
       open: true,

@@ -3,6 +3,10 @@ $parent: product-day;
 @include block($parent) {
   margin-bottom: rem(42);
 
+  &.hide {
+    display: none;
+  }
+
   @media (min-width: $tablet) {
     margin-bottom: 0;
   }

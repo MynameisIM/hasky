@@ -2,6 +2,8 @@ import Header from '@/blocks/header/header';
 import Popup from '@/blocks/popup/popup';
 import Form from '@/blocks/form/form';
 import Request from '@/blocks/request/request';
+import CustomSelect from '@/blocks/custom-select/custom-select';
+import CoreInput from '@/blocks/input/input';
 
 require('./order.scss');
 
@@ -22,6 +24,14 @@ Array.from(document.querySelectorAll('[data-popup]'))
       });
     }
   });
+
+[].slice.call(document.querySelectorAll('.custom-select')).forEach((item) => {
+  if (item) {
+    new CustomSelect(item);
+  }
+});
+
+new CoreInput();
 
 /* eslint-disable */
 

@@ -1,4 +1,9 @@
 include ../order/box/order-box
+include ../input/input
+include ../radio/radio
+include ../textarea/textarea
+include ../checkbox/checkbox
+include ../custom-select/custom-select
 
 mixin order(data)
   .order
@@ -6,11 +11,144 @@ mixin order(data)
       .order__box
         .order__box-header
           .order__box-title ДОСТАВКА
+        .order__form-group
+          .order__form-item
+            +core-input({ name: 'city', label: 'Город' }, 'core-input--city')
+          .order__form-item
+            +custom-select([{
+              text: 'Город',
+              value: 'default'
+            },
+            {
+              text: 'Россия',
+              value: 'rus',
+              selected: true
+            },
+            {
+              text: 'Не Россия',
+              value: 'notrus'
+            },
+            {
+              text: 'Германия',
+              value: 'german'
+            }])
+        .order__form-group
+          .order__form-item
+            +radio({
+              name: 'delivery_type',
+              value: '1',
+              label: 'Самовывоз - от 10 Р',
+              id: 'delivery_type_1'
+            }, '')
+          .order__form-item
+            +radio({
+              name: 'delivery_type',
+              value: '2',
+              label: 'Курьером «до двери» 500 Р',
+              id: 'delivery_type_2'
+            }, '')
+          .order__form-item
+            +radio({
+              name: 'delivery_type',
+              value: '3',
+              label: 'Почта России (pochta.ru)&nbsp;- 48 Р',
+              id: 'delivery_type_3'
+            }, '')
+          .order__form-item
+            +radio({
+              name: 'delivery_type',
+              value: '4',
+              label: 'Обсудить с менеджером - БЕСПЛАТНО',
+              id: 'delivery_type_4'
+            }, '')
       .order__box
         .order__box-header
           .order__box-title ПОКУПАТЕЛЬ
+        .order__form-group
+          .order__form-item
+            +core-input({ name: 'address', label: 'Адрес' }, 'core-input--city')
+          .order__form-item
+            +core-input({ name: 'post_code', label: 'Почтовый индекс', value: '101000' }, 'core-input--city')
+          .order__form-item
+            +core-input({ name: 'name', label: 'Имя и фамилия' }, 'core-input--city')
+          .order__form-item
+            +core-input({ name: 'phone', label: 'Телефон' }, 'core-input--city')
+          .order__form-item
+            +core-input({ name: 'email', label: 'E-mail' }, 'core-input--city')
+          .order__form-item
+            +textarea({ name: 'comment', placeholder: 'Примечания покупателя'})
       .order__box
         .order__box-header
           .order__box-title СПОСОБЫ ОПЛАТЫ
+        .order__form-group
+          .order__form-item
+            +radio({
+              name: 'pay_type',
+              value: '1',
+              label: 'Банковская карта',
+              id: 'pay_type_1'
+            }, '')
+          .order__form-item
+            +radio({
+              name: 'pay_type',
+              value: '2',
+              label: 'Обсудить по телефону',
+              info: 'Нам менеджер позвонит вам',
+              id: 'pay_type_2'
+            }, '')
+          .order__form-item
+            +radio({
+              name: 'pay_type',
+              value: '3',
+              label: 'Выставить счет',
+              id: 'pay_type_3'
+            }, '')
+          .order__form-item
+            +radio({
+              name: 'pay_type',
+              value: '4',
+              label: 'Сбербанк',
+              info: 'Квитанция с QR-кодом для...',
+              id: 'pay_type_4'
+            }, '')
+          .order__form-item
+            +radio({
+              name: 'pay_type',
+              value: '5',
+              label: 'Yoomoney',
+              id: 'pay_type_5'
+            }, '')
+          .order__form-item
+            +radio({
+              name: 'pay_type',
+              value: '6',
+              label: 'Qiwi',
+              id: 'pay_type_6'
+            }, '')
+          .order__form-item
+            +radio({
+              name: 'pay_type',
+              value: '7',
+              label: 'WebMoney',
+              id: 'pay_type_7'
+            }, '')
+          .order__form-item
+            +radio({
+              name: 'pay_type',
+              value: '8',
+              label: 'Мобильный телефон',
+              info: 'МТС, Билайн, Мегафон',
+              id: 'pay_type_8'
+            }, '')
+      .order__box
+        .order__subscribe-box
+          +checkbox({ name: 'another_address', value: '1', id: 'another_address', label: 'Мой платежный адрес отличается от адреса доставки'}, 'checkbox--gray')
+          +checkbox({ name: 'agreement', value: '1', id: 'agreement_id', label: 'Отметьте флажок, чтобы принять <a href="#">Условия использования</a>'}, 'checkbox--dark')
+          .order__sumtitle ПОДПИШИТЕСЬ НА НАШУ РАССЫЛКУ!
+          +checkbox({ name: 'subscribe_checkbox', value: '1', id: 'subscribe_checkbox', label: 'Новости компании и уникальные скидки для подписчиков'})
+      button.order__submit
+        | Оформить заказ (
+        span 61 343
+        | Р)
     .order__aside
       +order-box()

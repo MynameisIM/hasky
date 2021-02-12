@@ -1,0 +1,76 @@
+$parent: checkbox;
+
+@include block($parent) {
+  width: 100%;
+
+  label {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: rem(40);
+    border-radius: rem(3);
+    padding-left: rem(40);
+    font-size: rem(14);
+    color: #939393;
+    cursor: pointer;
+
+    a {
+      color: #939393;
+      padding-left: 4px;
+    }
+
+    &::before {
+      position: absolute;
+      content: '';
+      width: rem(16);
+      height: rem(16);
+      top: 10px;
+      left: 10px;
+      border: 1px solid #cecece;
+      border-radius: 2px;
+      background-color: $white;
+    }
+
+    &::after {
+      position: absolute;
+      content: '';
+      left: 13px;
+      top: 14px;
+      width: 10px;
+      height: 6px;
+      border-radius: 1px;
+      border-left: 3px solid $c07;
+      border-bottom: 3px solid $c07;
+      transform: rotate(-45deg);
+      opacity: 0;
+    }
+  }
+
+  input {
+    display: none;
+
+    &:checked + label {
+      &::after {
+        opacity: 1;
+      }
+    }
+  }
+
+  @include modifier($parent, 'gray') {
+    label {
+      background-color: #f2f2f2;
+    }
+  }
+
+  @include modifier($parent, 'dark') {
+    label {
+      background-color: $c41;
+      color: $white;
+
+      a {
+        color: $white;
+      }
+    }
+  }
+}

@@ -26,10 +26,14 @@ export default class Request {
                   id: card.dataset.id,
                 };
                 Axios.post(ajax, data).then((response) => {
-                  console.log(response, likeBtn, result);
-                  let count = parseInt(result.textContent, 10);
+                  if (response && response.data && response.data.basket) {
+                    window.dispatchEvent(new window.CustomEvent('getBaskedData', { detail: { basket: response.data.basket, count: response.data.basket_count } }));
+                  }
                   // eslint-disable-next-line
-                  result.textContent = count += 1;
+                  if (!result.hasAttribute('data-header-basket')) {
+                    const count = parseInt(result.textContent, 10);
+                    result.textContent = count + 1;
+                  }
                 });
               });
             }

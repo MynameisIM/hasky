@@ -1,0 +1,4 @@
+mixin checkbox(data, classMod)
+  .checkbox(class=classMod || '')
+    input(type='checkbox', name=data.name, value=data.value, id=data.id)
+    label(for=data.id)!= data.label
