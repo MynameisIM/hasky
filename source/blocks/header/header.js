@@ -3,6 +3,7 @@ import { throttle } from '../../base/script/debounce';
 
 export default class Header {
   constructor(parent) {
+    this.parent = parent;
     const hamburger = parent.querySelector('.header__hamburger');
     const menu = parent.querySelector('.header-menu');
     const list = [].slice.call(parent.querySelectorAll('.header-menu__link-item'));
@@ -17,8 +18,8 @@ export default class Header {
     const geoLinksBox = parent.querySelector('.header__geo-links');
     const hiddenSearch = parent.querySelector('.header__geo-search-hidden');
     const citySpan = parent.querySelector('.header__geo span span');
-    const basketContainer = parent.querySelector('.header__cart-dropdown-list');
-    const basketCount = parent.querySelector('[data-header-basket]');
+    this.basketContainer = parent.querySelector('.header__cart-dropdown-list');
+    this.basketCount = parent.querySelector('[data-header-basket]');
     const geo = {
       btn: parent.querySelector('.header__geo'),
       drop: parent.querySelector('.header__geo-dropdown'),
@@ -202,24 +203,29 @@ export default class Header {
     window.addEventListener('scroll', setClass);
     window.addEventListener('resize', setClass);
 
-    if (basketContainer) {
+    if (this.basketContainer) {
       window.addEventListener('getBaskedData', (e) => {
-        if (e.detail && e.detail.basket) {
-          basketContainer.innerHTML = '';
-          const basketData = e.detail.basket;
-          const { count } = e.detail;
-
-          if (basketData.length > 0) {
-            basketData.forEach((goods) => {
-              basketContainer.insertAdjacentHTML('beforeend', this.constructor.basketItemTemplate(goods));
-            });
-          }
-
-          if (count && basketCount) {
-            basketCount.innerHTML = count;
-          }
-        }
+        this.updateCart(e);
       });
+      this.initRemoveCard();
+    }
+  }
+
+  updateCart(e) {
+    if (e.detail && e.detail.basket) {
+      this.basketContainer.innerHTML = '';
+      const basketData = e.detail.basket;
+      const { count } = e.detail;
+
+      if (basketData.length > 0) {
+        basketData.forEach((goods) => {
+          this.basketContainer.insertAdjacentHTML('beforeend', this.constructor.basketItemTemplate(goods));
+        });
+      }
+
+      if (count && this.basketCount) {
+        this.basketCount.innerHTML = count;
+      }
     }
   }
 
@@ -233,7 +239,23 @@ export default class Header {
               </a>
               <div class="header__cart-dropdown-item-count">x<span>${obj.quantity || 0}</span></div>
               <div class="header__cart-dropdown-item-price">${obj.summ || 0}₽</div>
-              <button class="header__cart-dropdown-item-remove" type="button"></button>
+              <button class="header__cart-dropdown-item-remove" type="button" data-id="${obj.id || ''}"></button>
             </div>`;
+  }
+
+  initRemoveCard() {
+    this.basketContainer.addEventListener('click', (ev) => {
+      const { target } = ev;
+      if (target.classList.contains('header__cart-dropdown-item-remove')) {
+        const data = {
+          id: target.dataset.id,
+        };
+        Axios.get('/ajax/removeBasket.php', data).then((response) => {
+          if (response && response.data && response.data.basket) {
+            window.dispatchEvent(new window.CustomEvent('getBaskedData', { detail: { basket: response.data.basket, count: response.data.basket_count } }));
+          }
+        });
+      }
+    });
   }
 }
