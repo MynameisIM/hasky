@@ -2,6 +2,43 @@ $parent: order;
 
 @include block($parent) {
   display: flex;
+  flex-direction: column;
+  padding: 0 rem(20) rem(80);
+
+  @media (min-width: $tablet) {
+    flex-direction: row;
+    padding: 0 rem(20) rem(100);
+  }
+
+  @media (min-width: $desktop) {
+    max-width: rem(1500);
+    margin: 0 auto;
+  }
+
+  @include element($parent, 'main') {
+    padding-bottom: rem(45);
+
+    @media (min-width: $tablet) {
+      width: 66%;
+      max-width: 66%;
+      padding-right: rem(20);
+    }
+
+    @media (min-width: $desktop) {
+      padding-right: rem(75);
+    }
+  }
+
+  @include element($parent, 'aside') {
+    @media (min-width: $tablet) {
+      width: 34%;
+      max-width: 34%;
+    }
+
+    @media (min-width: $desktop) {
+      padding-right: 9%;
+    }
+  }
 
   @include element($parent, 'box-title') {
     display: inline-flex;
@@ -15,7 +52,11 @@ $parent: order;
 
   @include element($parent, 'box-header') {
     border-bottom: 1px solid #e5e5e5;
-    margin-bottom: rem(20);
+    margin-bottom: rem(12);
+
+    @media (min-width: $portrait) {
+      margin-bottom: rem(20);
+    }
   }
 
   @include element($parent, 'form-group') {
@@ -26,7 +67,102 @@ $parent: order;
   }
 
   @include element($parent, 'form-item') {
+    width: 100%;
     padding: 0 rem(8) rem(16);
+
+    @include modifier($parent, 'city') {
+      @media (min-width: $tablet) {
+        width: 50%;
+      }
+
+      @media (min-width: $portrait) {
+        width: 60%;
+      }
+
+      @media (min-width: $desktop) {
+        width: 70%;
+      }
+    }
+
+    @include modifier($parent, 'country') {
+      @media (min-width: $tablet) {
+        width: 50%;
+      }
+
+      @media (min-width: $portrait) {
+        width: 40%;
+      }
+
+      @media (min-width: $desktop) {
+        width: 30%;
+      }
+    }
+
+    @include modifier($parent, 'delivery') {
+      @media (min-width: $tablet) {
+        width: 50%;
+      }
+
+      @media (min-width: $portrait) {
+        width: 25%;
+      }
+    }
+
+    @include modifier($parent, 'address') {
+      @media (min-width: $tablet) {
+        width: 66.66%;
+      }
+
+      @media (min-width: $desktop) {
+        width: 75%;
+      }
+    }
+
+    @include modifier($parent, 'post') {
+      @media (min-width: $tablet) {
+        width: 33.33%;
+      }
+
+      @media (min-width: $desktop) {
+        width: 25%;
+      }
+    }
+
+    @include modifier($parent, 'name') {
+      @media (min-width: $tablet) {
+        width: 33.33%;
+      }
+    }
+
+    @include modifier($parent, 'phone') {
+      @media (min-width: $tablet) {
+        width: 33.33%;
+      }
+    }
+
+    @include modifier($parent, 'email') {
+      @media (min-width: $tablet) {
+        width: 33.33%;
+      }
+    }
+
+    @include modifier($parent, 'pay-type') {
+      @media (min-width: $tablet) {
+        width: 50%;
+      }
+
+      @media (min-width: $portrait) {
+        width: 33.33%;
+      }
+
+      @media (min-width: $desktop) {
+        width: 25%;
+      }
+    }
+  }
+
+  @include element($parent, 'box') {
+    padding-bottom: rem(30);
   }
 
   @include element($parent, 'submit') {
@@ -38,6 +174,14 @@ $parent: order;
     color: $white;
     background-color: $c07;
     border-radius: 3px;
+  }
+
+  @include element($parent, 'subtitle') {
+    font-size: rem(18);
+    line-height: rem(21);
+    color: #333;
+    text-transform: uppercase;
+    margin-bottom: rem(10);
   }
 }
 

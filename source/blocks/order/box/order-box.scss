@@ -38,7 +38,11 @@ $parent: order-box;
 
   @include element($parent, 'form') {
     background-color: #f2f2f2;
-    padding: rem(8) rem(27) rem(12);
+    padding: rem(8) rem(15) rem(12);
+
+    @media (min-width: $desktop) {
+      padding: rem(8) rem(27) rem(12);
+    }
 
     input {
       width: 100%;

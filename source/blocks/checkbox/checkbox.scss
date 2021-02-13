@@ -3,17 +3,27 @@ $parent: checkbox;
 @include block($parent) {
   width: 100%;
 
+  @media (min-width: $portrait) {
+    max-width: rem(684);
+  }
+
   label {
     position: relative;
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
     width: 100%;
-    height: rem(40);
+    height: rem(45);
     border-radius: rem(3);
     padding-left: rem(40);
+    padding-right: rem(10);
     font-size: rem(14);
     color: #939393;
     cursor: pointer;
+
+    @media (min-width: $tablet) {
+      height: rem(40);
+    }
 
     a {
       color: #939393;
@@ -58,12 +68,16 @@ $parent: checkbox;
   }
 
   @include modifier($parent, 'gray') {
+    margin-bottom: rem(10);
+
     label {
       background-color: #f2f2f2;
     }
   }
 
   @include modifier($parent, 'dark') {
+    margin-bottom: rem(20);
+
     label {
       background-color: $c41;
       color: $white;
