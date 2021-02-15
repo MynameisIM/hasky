@@ -572,8 +572,14 @@ $parent: header;
     line-height: rem(13);
     color: $white;
     left: 50%;
-    transform: translateX(-50%);
-    bottom: rem(-13);
+    transform: translateX(-50%) !important;
+    top: auto !important;
+    bottom: 0;
+    background-color: transparent !important;
+
+    @media (min-width: 1600px) {
+      bottom: rem(-5);
+    }
   }
 
   @include element($parent, 'callback') {

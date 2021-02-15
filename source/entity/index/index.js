@@ -42,14 +42,18 @@ function declOfNum(number, words) {
 const curren = document.querySelector('.core-timer').getAttribute('data-end').split(',').map(n => +n);
 function setTimer() {
   let timeLeft = getTimeLeft(curren[0], curren[1], curren[2], curren[3], curren[4], curren[5], 0);
-  days.innerHTML = timeLeft[0] < 10 ? `0${timeLeft[0]}`: timeLeft[0];
-  daysT.innerHTML = declOfNum(timeLeft[0], ['день', 'дня', 'дней']);
-  hrs.innerHTML = timeLeft[1] < 10 ? `0${timeLeft[1]}`: timeLeft[1];
-  hrsT.innerHTML = declOfNum(timeLeft[1], ['час', 'часа', 'часов']);
-  mins.innerHTML = timeLeft[2] < 10 ? `0${timeLeft[2]}`: timeLeft[2];
-  minsT.innerHTML = declOfNum(timeLeft[2], ['минута', 'минуты', 'минут']);
-  seconds.innerHTML = timeLeft[3] < 10 ? `<span>0</span><span>${timeLeft[3]}</span>`: `<span>${String(timeLeft[3]).split('')[0]}</span><span>${String(timeLeft[3]).split('')[1]}</span>`;
-  secondsT.innerHTML = declOfNum(timeLeft[3], ['секунда', 'секнды', 'секунд']);
+  if (timeLeft) {
+    days.innerHTML = timeLeft[0] < 10 ? `0${timeLeft[0]}`: timeLeft[0];
+    daysT.innerHTML = declOfNum(timeLeft[0], ['день', 'дня', 'дней']);
+    hrs.innerHTML = timeLeft[1] < 10 ? `0${timeLeft[1]}`: timeLeft[1];
+    hrsT.innerHTML = declOfNum(timeLeft[1], ['час', 'часа', 'часов']);
+    mins.innerHTML = timeLeft[2] < 10 ? `0${timeLeft[2]}`: timeLeft[2];
+    minsT.innerHTML = declOfNum(timeLeft[2], ['минута', 'минуты', 'минут']);
+    seconds.innerHTML = timeLeft[3] < 10 ? `<span>0</span><span>${timeLeft[3]}</span>`: `<span>${String(timeLeft[3]).split('')[0]}</span><span>${String(timeLeft[3]).split('')[1]}</span>`;
+    secondsT.innerHTML = declOfNum(timeLeft[3], ['секунда', 'секнды', 'секунд']);
+  } else {
+    clearInterval(setId);
+  }
 }
 
 const getTimeLeft = (year, month, day, hour, minute, second, milisecond) => {
@@ -76,7 +80,7 @@ const getTimeLeft = (year, month, day, hour, minute, second, milisecond) => {
 
   } else {
     block.classList.add('hide');
-    return ['X', 'X', 'X', 'X'];
+    return;
   }
 };
 
@@ -91,7 +95,7 @@ const minsT = document.querySelector('.core-timer [data-t-minutes-text]');
 const block = document.getElementById('product-of-the-day');
 
 window.onload = setTimer();
-setInterval(setTimer, 1000);
+const setId = setInterval(setTimer, 1000);
 /* eslint-enable */
 
 new Request();

@@ -21,7 +21,7 @@ export default class Form {
 
         if (errors.length === 0) {
           const data = new window.FormData(parent);
-          Axios.post(parent.getAttribute('data-url'), data).then(() => {
+          Axios.post(parent.getAttribute('data-url') || parent.action, data).then(() => {
             Popup.close();
           });
         }
