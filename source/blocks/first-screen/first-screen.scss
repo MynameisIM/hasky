@@ -1,6 +1,8 @@
 $parent: first-screen;
 
 @include block($parent) {
+  position: relative;
+
   @media (min-width: $tablet) {
     margin-bottom: rem(50);
   }
@@ -423,6 +425,48 @@ $parent: first-screen;
         right: rem(15);
         transform: rotate(-45deg) translateY(-50%);
       }
+    }
+  }
+
+  @include element($parent, 'main-container-left') {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 20%;
+    height: rem(182);
+    z-index: 2;
+    cursor: pointer;
+
+    @media (min-width: $tablet) {
+      width: 19%;
+      left: 20%;
+      bottom: rem(15);
+    }
+
+    @media (min-width: $desktop) {
+      height: rem(200);
+      bottom: rem(17);
+    }
+  }
+
+  @include element($parent, 'main-container-right') {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 20%;
+    height: rem(182);
+    z-index: 2;
+    cursor: pointer;
+
+    @media (min-width: $tablet) {
+      width: 19%;
+      right: 20%;
+      bottom: rem(15);
+    }
+
+    @media (min-width: $desktop) {
+      height: rem(200);
+      bottom: rem(17);
     }
   }
 }

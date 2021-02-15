@@ -5,6 +5,8 @@ export default class FirstScreen {
     const container = parent.querySelector('.first-screen__main-container');
     const thumbSlider = parent.querySelector('.first-screen__thumbs-container');
     const slides = [].slice.call(parent.querySelectorAll('.first-screen__main-slide'));
+    const toLeft = parent.querySelector('.first-screen__main-container-left');
+    const toRight = parent.querySelector('.first-screen__main-container-right');
     const thumbOptions = {
       slidesPerView: 1,
       loopedSlides: 2,
@@ -26,7 +28,7 @@ export default class FirstScreen {
         dFont += 1;
       }
     };
-    new Swiper(thumbSlider, thumbOptions);
+    const sw = new Swiper(thumbSlider, thumbOptions);
     const options = {
       navigation: {
         nextEl: parent.querySelector('.first-screen__main-button--next'),
@@ -45,6 +47,15 @@ export default class FirstScreen {
       },
     };
     new Swiper(container, options);
+
+    if (toLeft && toRight) {
+      toLeft.addEventListener('click', () => {
+        sw.slidePrev();
+      });
+      toRight.addEventListener('click', () => {
+        sw.slideNext();
+      });
+    }
 
     if (slides.length > 0) {
       slides.forEach((slide) => {
