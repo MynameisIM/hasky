@@ -254,8 +254,12 @@ $parent: header;
       }
 
       @media (min-width: 1600px) {
-        width: rem(384);
+        width: rem(320);
         height: rem(31);
+      }
+
+      @media (min-width: 1900px) {
+        width: rem(384);
       }
     }
   }
@@ -501,6 +505,7 @@ $parent: header;
     }
 
     @media (min-width: 1600px) {
+      min-width: rem(51);
       margin-right: rem(30);
     }
 
