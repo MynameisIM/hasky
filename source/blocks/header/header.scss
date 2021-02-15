@@ -779,15 +779,30 @@ $parent: header;
     border-radius: rem(4);
     border: 1px solid $c07;
     padding: 0 rem(11);
+    text-decoration: none;
+    transition: background-color 0.25s linear;
 
     span {
       font-size: rem(13);
       line-height: rem(15);
       color: $c07;
+      transition: color 0.25s linear;
+    }
+
+    svg {
+      transition: fill 0.25s linear;
     }
 
     @include modifier($parent, 'sign-up') {
       margin-right: rem(2);
+
+      &:hover {
+        background-color: $c07;
+
+        span {
+          color: $white;
+        }
+      }
     }
 
     @include modifier($parent, 'auth') {
@@ -797,6 +812,18 @@ $parent: header;
       span {
         color: $white;
         margin-right: rem(12);
+      }
+
+      &:hover {
+        background-color: $white;
+
+        span {
+          color: $c07;
+        }
+
+        svg {
+          fill: $c07;
+        }
       }
     }
   }

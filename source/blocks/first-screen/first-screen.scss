@@ -197,7 +197,7 @@ $parent: first-screen;
     }
 
     @media (min-width: $desktop) {
-      height: rem(699);
+      height: calc(100vh - 150px);
       padding: rem(15) rem(44) rem(112);
     }
   }
