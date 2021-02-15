@@ -12,9 +12,9 @@ mixin order(data)
         .order__box-header
           .order__box-title ДОСТАВКА
         .order__form-group
-          .order__form-item
+          .order__form-item.order__form-item--city
             +core-input({ name: 'city', label: 'Город' }, 'core-input--city')
-          .order__form-item
+          .order__form-item.order__form-item--country
             +custom-select([{
               text: 'Город',
               value: 'default'
@@ -33,28 +33,28 @@ mixin order(data)
               value: 'german'
             }])
         .order__form-group
-          .order__form-item
+          .order__form-item.order__form-item--delivery
             +radio({
               name: 'delivery_type',
               value: '1',
               label: 'Самовывоз - от 10 Р',
               id: 'delivery_type_1'
             }, '')
-          .order__form-item
+          .order__form-item.order__form-item--delivery
             +radio({
               name: 'delivery_type',
               value: '2',
               label: 'Курьером «до двери» 500 Р',
               id: 'delivery_type_2'
             }, '')
-          .order__form-item
+          .order__form-item.order__form-item--delivery
             +radio({
               name: 'delivery_type',
               value: '3',
               label: 'Почта России (pochta.ru)&nbsp;- 48 Р',
               id: 'delivery_type_3'
             }, '')
-          .order__form-item
+          .order__form-item.order__form-item--delivery
             +radio({
               name: 'delivery_type',
               value: '4',
@@ -65,30 +65,30 @@ mixin order(data)
         .order__box-header
           .order__box-title ПОКУПАТЕЛЬ
         .order__form-group
-          .order__form-item
+          .order__form-item.order__form-item--address
             +core-input({ name: 'address', label: 'Адрес' }, 'core-input--city')
-          .order__form-item
+          .order__form-item.order__form-item--post
             +core-input({ name: 'post_code', label: 'Почтовый индекс', value: '101000' }, 'core-input--city')
-          .order__form-item
+          .order__form-item.order__form-item--name
             +core-input({ name: 'name', label: 'Имя и фамилия' }, 'core-input--city')
-          .order__form-item
+          .order__form-item.order__form-item--phone
             +core-input({ name: 'phone', label: 'Телефон' }, 'core-input--city')
-          .order__form-item
+          .order__form-item.order__form-item--email
             +core-input({ name: 'email', label: 'E-mail' }, 'core-input--city')
-          .order__form-item
+          .order__form-item.order__form-item--comment
             +textarea({ name: 'comment', placeholder: 'Примечания покупателя'})
       .order__box
         .order__box-header
           .order__box-title СПОСОБЫ ОПЛАТЫ
         .order__form-group
-          .order__form-item
+          .order__form-item.order__form-item--pay-type
             +radio({
               name: 'pay_type',
               value: '1',
               label: 'Банковская карта',
               id: 'pay_type_1'
             }, '')
-          .order__form-item
+          .order__form-item.order__form-item--pay-type
             +radio({
               name: 'pay_type',
               value: '2',
@@ -96,14 +96,14 @@ mixin order(data)
               info: 'Нам менеджер позвонит вам',
               id: 'pay_type_2'
             }, '')
-          .order__form-item
+          .order__form-item.order__form-item--pay-type
             +radio({
               name: 'pay_type',
               value: '3',
               label: 'Выставить счет',
               id: 'pay_type_3'
             }, '')
-          .order__form-item
+          .order__form-item.order__form-item--pay-type
             +radio({
               name: 'pay_type',
               value: '4',
@@ -111,28 +111,28 @@ mixin order(data)
               info: 'Квитанция с QR-кодом для...',
               id: 'pay_type_4'
             }, '')
-          .order__form-item
+          .order__form-item.order__form-item--pay-type
             +radio({
               name: 'pay_type',
               value: '5',
               label: 'Yoomoney',
               id: 'pay_type_5'
             }, '')
-          .order__form-item
+          .order__form-item.order__form-item--pay-type
             +radio({
               name: 'pay_type',
               value: '6',
               label: 'Qiwi',
               id: 'pay_type_6'
             }, '')
-          .order__form-item
+          .order__form-item.order__form-item--pay-type
             +radio({
               name: 'pay_type',
               value: '7',
               label: 'WebMoney',
               id: 'pay_type_7'
             }, '')
-          .order__form-item
+          .order__form-item.order__form-item--pay-type
             +radio({
               name: 'pay_type',
               value: '8',
@@ -144,7 +144,7 @@ mixin order(data)
         .order__subscribe-box
           +checkbox({ name: 'another_address', value: '1', id: 'another_address', label: 'Мой платежный адрес отличается от адреса доставки'}, 'checkbox--gray')
           +checkbox({ name: 'agreement', value: '1', id: 'agreement_id', label: 'Отметьте флажок, чтобы принять <a href="#">Условия использования</a>'}, 'checkbox--dark')
-          .order__sumtitle ПОДПИШИТЕСЬ НА НАШУ РАССЫЛКУ!
+          .order__subtitle ПОДПИШИТЕСЬ НА НАШУ РАССЫЛКУ!
           +checkbox({ name: 'subscribe_checkbox', value: '1', id: 'subscribe_checkbox', label: 'Новости компании и уникальные скидки для подписчиков'})
       button.order__submit
         | Оформить заказ (
