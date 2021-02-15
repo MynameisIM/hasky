@@ -6,8 +6,8 @@ include ../checkbox/checkbox
 include ../custom-select/custom-select
 
 mixin order(data)
-  .order
-    .order__main
+  .order.common-container
+    .order__main.common-container__main
       .order__box
         .order__box-header
           .order__box-title ДОСТАВКА
@@ -150,5 +150,5 @@ mixin order(data)
         | Оформить заказ (
         span 61 343
         | Р)
-    .order__aside
+    .order__aside.common-container__aside
       +order-box()

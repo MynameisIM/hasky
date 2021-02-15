@@ -175,6 +175,47 @@ p {
   width: 100%;
 }
 
+.common-container {
+  display: flex;
+  flex-direction: column;
+  padding: 0 rem(20) rem(80);
+
+  @media (min-width: $tablet) {
+    flex-direction: row;
+    padding: 0 rem(20) rem(100);
+  }
+
+  @media (min-width: $desktop) {
+    max-width: rem(1500);
+    margin: 0 auto;
+  }
+
+  &__main {
+    padding-bottom: rem(45);
+
+    @media (min-width: $tablet) {
+      width: 66%;
+      max-width: 66%;
+      padding-right: rem(20);
+    }
+
+    @media (min-width: $desktop) {
+      padding-right: rem(75);
+    }
+  }
+
+  &__aside {
+    @media (min-width: $tablet) {
+      width: 34%;
+      max-width: 34%;
+    }
+
+    @media (min-width: $desktop) {
+      padding-right: 9%;
+    }
+  }
+}
+
 [data-src] {
   opacity: 0 !important;
   transition: opacity $ease !important;

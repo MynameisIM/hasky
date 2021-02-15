@@ -1,20 +1,6 @@
 $parent: order;
 
 @include block($parent) {
-  display: flex;
-  flex-direction: column;
-  padding: 0 rem(20) rem(80);
-
-  @media (min-width: $tablet) {
-    flex-direction: row;
-    padding: 0 rem(20) rem(100);
-  }
-
-  @media (min-width: $desktop) {
-    max-width: rem(1500);
-    margin: 0 auto;
-  }
-
   @include element($parent, 'main') {
     padding-bottom: rem(45);
 
