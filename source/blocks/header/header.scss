@@ -494,6 +494,7 @@ $parent: header;
     width: rem(51);
     height: rem(51);
     margin-right: rem(20);
+    pointer-events: auto;
 
     @media (min-width: $portrait) {
       margin-right: rem(15);
@@ -512,6 +513,7 @@ $parent: header;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
+      pointer-events: none;
 
       @media (min-width: 1600px) {
         width: rem(54);
