@@ -1,0 +1,7 @@
+{
+  "name": "test name",
+  "description": "test description",
+  "picture": "/assets/images/goods-1.png",
+  "price": 123,
+  "price_old": 12345
+}

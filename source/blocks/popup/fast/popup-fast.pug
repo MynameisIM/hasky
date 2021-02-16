@@ -28,8 +28,8 @@ mixin popup-fast(data)
         .popup-fast__main-info-box
           .popup-fast__main-info
             .popup-fast__price-container
-              .popup-fast__price 9 328 ₽
-              .popup-fast__price.popup-fast__price--old 11 328 ₽
+              .popup-fast__price(data-popup-price) 9 328 ₽
+              .popup-fast__price.popup-fast__price--old(data-popup-price-old) 11 328 ₽
             .popup-fast__availability-box
               .popup-fast__availability-text Наличие товара:
               .popup-fast__availability
@@ -55,7 +55,7 @@ mixin popup-fast(data)
                 button.popup-fast__button-add.elem(type='button')
                   +svg('shopping-cart')
                   span В корзину
-              button.popup-fast__button(type='button')
+              button.popup-fast__button(type='button', data-ptype='popup-buy', data-view='/ajax/getProductInfo.php')
                 +svg('tap')
                 span КУПИТЬ В 1 КЛИК
           .popup-fast__footer
@@ -69,6 +69,6 @@ mixin popup-fast(data)
             //  +svg('share')
             //  span Поделиться
       .popup-fast__text
-        .popup-fast__goods-title Ударные торцевые головки название товара в две строки
-        .popup-fast__goods-text Набор инструментов предназначен для синхронизации коленвала и распредвала двигателей автомобилей VAG: Audi, Seat, Skoda, Volkswagen. Набор также используется для установки фаз ГРМ при сборке мотора, замене цепи ГРМ.
+        .popup-fast__goods-title(data-popup-name) Ударные торцевые головки название товара в две строки
+        .popup-fast__goods-text(data-popup-descr) Набор инструментов предназначен для синхронизации коленвала и распредвала двигателей автомобилей VAG: Audi, Seat, Skoda, Volkswagen. Набор также используется для установки фаз ГРМ при сборке мотора, замене цепи ГРМ.
 

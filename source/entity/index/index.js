@@ -1,3 +1,4 @@
+import Axios from 'axios';
 import FirstScreen from '@/blocks/first-screen/first-screen';
 import Header from '@/blocks/header/header';
 import Popup from '@/blocks/popup/popup';
@@ -36,6 +37,15 @@ Array.from(document.querySelectorAll('.popup-fast'))
   .forEach(block => block && new PopupFast(block));
 
 /* eslint-disable */
+function getParentWithClass(target, classname) {
+  while(target.parentElement && target !== document.body) {
+    if (target.hasAttribute(classname)) {
+      return target;
+    }
+    target = target.parentElement;
+  }
+}
+
 function declOfNum(number, words) {
   return words[(number % 100 > 4 && number % 100 < 20) ? 2 : [2, 0, 1, 1, 1, 2][(number % 10 < 5) ? number % 10 : 5]];
 }
@@ -141,3 +151,45 @@ if (!window.PAGE_DATA) {
     },
   ];
 }
+
+[].slice.call(document.querySelectorAll('[data-view]')).forEach((el) => {
+  if (el) {
+    el.addEventListener('click', () => {
+      if (getParentWithClass(el, 'data-id')) {
+        Axios.get('./ajax/getProductInfo.json', {
+          params: {
+            id: getParentWithClass(el, 'data-id').dataset.id,
+          },
+        }).then((responce) => {
+          if (responce && responce.data) {
+            const popup = document.getElementById(el.dataset.ptype);
+            if (popup) {
+              const price = popup.querySelector('[data-popup-price]');
+              const priceOld = popup.querySelector('[data-popup-price-old]');
+              const name = popup.querySelector('[data-popup-name]');
+              const descr = popup.querySelector('[data-popup-descr]');
+              const img = popup.querySelector('[data-popup-image]');
+              if (price && responce.data.price) {
+                price.innerHTML = responce.data.price;
+              }
+              if (priceOld && responce.data.price_old) {
+                priceOld.innerHTML = responce.data.price_old;
+              }
+              if (name && responce.data.name) {
+                name.innerHTML = responce.data.name;
+              }
+              if (descr && responce.data.description) {
+                descr.innerHTML = responce.data.description;
+              }
+              if (img && responce.data.picture) {
+                img.src = responce.data.picture;
+              }
+              Popup.close();
+              Popup.open(el.dataset.ptype);
+            }
+          }
+        });
+      }
+    });
+  }
+});

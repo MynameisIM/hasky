@@ -1,5 +1,4 @@
 import Swiper from 'swiper/swiper-bundle.esm.browser.min';
-import Popup from '@/blocks/popup/popup';
 
 export default class PopupFast {
   constructor(parent) {
@@ -7,7 +6,6 @@ export default class PopupFast {
       const image = item.querySelector('img');
       return image.getAttribute('src');
     };
-    const oneclick = parent.querySelector('.popup-fast__button');
     const container = parent.querySelector('.popup-fast__main-slider');
     const options = {
       observer: true,
@@ -28,12 +26,5 @@ export default class PopupFast {
     };
 
     new Swiper(container, options);
-
-    if (oneclick) {
-      oneclick.addEventListener('click', () => {
-        Popup.close();
-        Popup.open('popup-buy');
-      });
-    }
   }
 }
