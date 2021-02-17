@@ -1,0 +1,27 @@
+$parent: link-box;
+
+@include block($parent) {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  border: 1px solid #e5e5e5;
+  border-radius: 3px;
+  padding-bottom: rem(20);
+
+  @include element($parent, 'title') {
+    font-weight: 500;
+    font-size: rem(14);
+    line-height: rem(16);
+    padding: rem(22);
+  }
+
+  @include element($parent, 'link') {
+    padding: rem(19) rem(25);
+    color: #333;
+
+    &.active {
+      color: $white;
+      background-color: $c07;
+    }
+  }
+}

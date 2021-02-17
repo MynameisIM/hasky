@@ -19,7 +19,7 @@ include ../blocks/popup/fast/popup-fast.pug
 
 - var headerData = require('../data/template/header.json');
 - var footerData = require('../data/template/footer.json');
-- var init = false;
+- var whiteTheme = false;
 
 block vars
 doctype html
@@ -37,7 +37,7 @@ html(lang='ru')
       each css in htmlWebpackPlugin.files.extracted.css
         link(rel='stylesheet', href=('../' + css.file), media=css.query)
   body
-    .page
+    .page(class=whiteTheme ? 'page--white-theme': '')
       .page__wrap
         if (headerData)
           +header(headerData)

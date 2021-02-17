@@ -165,6 +165,10 @@ p {
   &--order {
     background-color: #fff;
   }
+
+  &--white-theme {
+    background-color: #fff;
+  }
 }
 
 .overflow {
@@ -179,6 +183,7 @@ p {
   display: flex;
   flex-direction: column;
   padding: 0 rem(20) rem(80);
+  background-color: $white;
 
   @media (min-width: $tablet) {
     flex-direction: row;

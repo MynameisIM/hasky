@@ -1,0 +1,5 @@
+mixin link-box(data)
+  .link-box
+    .link-box__title=data.title
+    each link in data.links
+      a.link-box__link(href=link.href, class=link.active ? 'active': '')= link.text

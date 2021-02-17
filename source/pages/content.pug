@@ -1,8 +1,10 @@
 extends ../layouts/main.pug
 
 include ../blocks/breadcrumbs/breadcrumbs
+include ../blocks/link-box/link-box
 
 block vars
+  - var whiteTheme = true;
 
 block content
   .common-container
@@ -19,6 +21,41 @@ block content
     ])
   .content.common-container
     .content__aside
+      +link-box({
+        title: "Меню",
+        links: [
+          {
+            href: '#',
+            text: 'О компании'
+          },
+          {
+            href: '#',
+            text: 'Доставка',
+            active: true
+          },
+          {
+            href: '#',
+            text: 'Оплата'
+          },
+          {
+            href: '#',
+            text: 'Условия возврата'
+          },
+          {
+            href: '#',
+            text: 'Контакты'
+          },
+          {
+            href: '#',
+            text: 'Политика кофиденциальности'
+          },
+          {
+            href: '#',
+            text: 'Пользовательское соглашение'
+          }
+        ]
+      })
+
     .content__main
       h1 Заголовок h1 например доставка
       .content__box <img src='/assets/images/content.jpg'>

@@ -1,8 +1,28 @@
 $parent: content;
 
 @include block($parent) {
+  @include element($parent, 'aside') {
+    padding-right: rem(44);
+
+    @media (min-width: $portrait) {
+      width: 30%;
+    }
+
+    @media (min-width: $desktop) {
+      width: 25%;
+    }
+  }
+
   @include element($parent, 'main') {
     color: #333;
+
+    @media (min-width: $portrait) {
+      width: 70%;
+    }
+
+    @media (min-width: $desktop) {
+      width: 75%;
+    }
 
     img {
       float: right;
