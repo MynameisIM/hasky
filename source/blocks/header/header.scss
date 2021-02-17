@@ -105,6 +105,8 @@ $parent: header;
   }
 
   @include element($parent, 'links') {
+    display: flex;
+    align-items: center;
     margin-top: rem(-4);
 
     @media (min-width: $desktop) {
@@ -174,6 +176,8 @@ $parent: header;
   }
 
   @include element($parent, 'flags') {
+    display: flex;
+    align-items: center;
     margin-left: auto;
   }
 
