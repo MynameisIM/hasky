@@ -257,7 +257,7 @@ export default class Header {
         const data = {
           id: target.dataset.id,
         };
-        Axios.get('/ajax/removeBasket.php', data).then((response) => {
+        Axios.post('/ajax/removeBasket.php', data).then((response) => {
           if (response && response.data && response.data.basket) {
             window.dispatchEvent(new window.CustomEvent('getBaskedData', { detail: { basket: response.data.basket, count: response.data.basket_count } }));
           }

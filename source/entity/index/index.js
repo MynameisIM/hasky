@@ -156,7 +156,7 @@ if (!window.PAGE_DATA) {
   if (el) {
     el.addEventListener('click', () => {
       if (getParentWithClass(el, 'data-id')) {
-        Axios.get('./ajax/getProductInfo.json', {
+        Axios.get(el.dataset.view, {
           params: {
             id: getParentWithClass(el, 'data-id').dataset.id,
           },
