@@ -18,8 +18,14 @@ $parent: link-box;
   @include element($parent, 'link') {
     padding: rem(19) rem(25);
     color: #333;
+    transition: color 0.25s, background-color 0.2s linear;
 
     &.active {
+      color: $white;
+      background-color: $c07;
+    }
+
+    &:hover {
       color: $white;
       background-color: $c07;
     }

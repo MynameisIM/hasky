@@ -208,6 +208,16 @@ $parent: popup-fast;
     display: flex;
     align-items: center;
     margin-bottom: rem(14);
+
+    @include modifier($parent, 'no-sale') {
+      @include element($parent, 'price') {
+        color: $c41;
+      }
+
+      @include element($parent, 'price--old') {
+        display: none;
+      }
+    }
   }
 
   @include element($parent, 'price-box') {

@@ -219,6 +219,18 @@ p {
       padding-right: 9%;
     }
   }
+
+  &--breadcrumbs {
+    padding: rem(25) 0;
+
+    @media (min-width: $tablet) {
+      padding: rem(25) 0;
+    }
+
+    @media (min-width: $desktop) {
+      padding: rem(25) 0 rem(50);
+    }
+  }
 }
 
 [data-src] {

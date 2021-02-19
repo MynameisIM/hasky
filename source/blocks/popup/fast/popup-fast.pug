@@ -43,12 +43,7 @@ mixin popup-fast(data)
               .popup-fast__price-header
                 span Количество
                 span Цена
-              .popup-fast__price-line
-                span 10+
-                span 9100 ₽
-              .popup-fast__price-line
-                span 20+
-                span 8800 ₽
+              div(data-popup-price-box)
             .popup-fast__buttons-box
               .popup-fast__buttons
                 +counter('elem')

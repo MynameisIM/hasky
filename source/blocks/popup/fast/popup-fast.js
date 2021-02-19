@@ -25,6 +25,6 @@ export default class PopupFast {
       },
     };
 
-    new Swiper(container, options);
+    window.popupSw = new Swiper(container, options);
   }
 }

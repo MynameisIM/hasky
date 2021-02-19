@@ -2,10 +2,12 @@ $parent: content;
 
 @include block($parent) {
   @include element($parent, 'aside') {
-    padding-right: rem(44);
+    display: none;
 
     @media (min-width: $portrait) {
+      display: block;
       width: 30%;
+      padding-right: rem(44);
     }
 
     @media (min-width: $desktop) {
@@ -26,17 +28,31 @@ $parent: content;
 
     img {
       float: right;
-      max-width: rem(638);
+      max-width: 100%;
       max-height: rem(428);
       margin: 0 0 rem(20) rem(20);
+
+      @media (min-width: $tablet) {
+        max-width: 50%;
+      }
     }
 
     h1 {
       font-weight: 700;
-      font-size: rem(48);
-      line-height: rem(48);
+      font-size: rem(28);
+      line-height: rem(28);
       text-transform: uppercase;
       margin-bottom: rem(26);
+
+      @media (min-width: $tablet) {
+        font-size: rem(48);
+        line-height: rem(48);
+        margin-bottom: rem(50);
+      }
+
+      @media (min-width: $desktop) {
+        margin-bottom: rem(26);
+      }
     }
 
     h2 {

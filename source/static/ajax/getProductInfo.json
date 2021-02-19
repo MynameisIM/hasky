@@ -3,5 +3,16 @@
   "description": "test description",
   "picture": "/assets/images/goods-1.png",
   "price": 123,
-  "price_old": 12345
+  "price_old": "",
+  "characteristics": [
+    {
+      "name": "Артикул",
+      "value": "0.0.0.0.1"
+    },
+    {
+      "name": "Вес",
+      "value": "1000 гр."
+    }
+  ],
+  "pictures_slider": ["/assets/images/first-3.png", "/assets/images/first-2.png", "/assets/images/first-1.png", "/assets/images/first-1.png"]
 }

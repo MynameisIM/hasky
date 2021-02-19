@@ -164,11 +164,21 @@ if (!window.PAGE_DATA) {
           if (responce && responce.data) {
             const popup = document.getElementById(el.dataset.ptype);
             if (popup) {
+              const priceContainer = popup.querySelector('.popup-fast__price-container');
               const price = popup.querySelector('[data-popup-price]');
               const priceOld = popup.querySelector('[data-popup-price-old]');
+              const priceBox = popup.querySelector('[data-popup-price-box]');
               const name = popup.querySelector('[data-popup-name]');
               const descr = popup.querySelector('[data-popup-descr]');
               const img = popup.querySelector('[data-popup-image]');
+              if (priceContainer) {
+                if (responce.data.price_old === '') {
+                  priceContainer.classList.add('popup-fast__price-container--no-sale');
+                } else {
+                  priceContainer.classList.remove('popup-fast__price-container--no-sale');
+                }
+              }
+
               if (price && responce.data.price) {
                 price.innerHTML = responce.data.price;
               }
@@ -183,6 +193,25 @@ if (!window.PAGE_DATA) {
               }
               if (img && responce.data.picture) {
                 img.src = responce.data.picture;
+              }
+              if (priceBox &&
+                responce.data.characteristics &&
+                responce.data.characteristics.length > 0) {
+                priceBox.innerHTML = '';
+                responce.data.characteristics.forEach((obj) => {
+                  priceBox.insertAdjacentHTML('beforeend', `<div class="popup-fast__price-line"><span>${obj.name || ''}</span><span>${obj.value || ''}</span></div>`);
+                });
+              }
+              if (responce.data.pictures_slider && window.popupSw) {
+                if (responce.data.pictures_slider.length > 0) {
+                  setTimeout(() => {
+                    window.popupSw.removeAllSlides();
+                    responce.data.pictures_slider.forEach((src) => {
+                      window.popupSw.appendSlide(`<div class="popup-fast__main-slide swiper-slide"><img src="${src}" alt="alt"></div>`);
+                    });
+                    window.popupSw.slideTo(0);
+                  }, 0);
+                }
               }
               Popup.close();
               Popup.open(el.dataset.ptype);
