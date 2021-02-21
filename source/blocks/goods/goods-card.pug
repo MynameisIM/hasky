@@ -1,0 +1,21 @@
+mixin goods-card(card, classMod)
+  .goods-card(data-id='goods-' + index, data-good, class=classMod ? classMod : '')
+    .goods-card__card-tag(class=card.tagSale ? 'persent' : '')= card.tag
+    .goods-card__card-image
+      img(src=card.src, alt='alt')
+    .goods-card__card-title= card.title
+    .goods-card__card-article Артикул:
+      span= card.article
+    .goods-card__card-price-box
+      span.goods-card__card-price.sale= card.price
+      span.goods-card__card-price.goods-card__card-price--old= card.oldPrice
+    .goods-card__card-buttons
+      button.goods-card__card-button.goods-card__card-button--one-click(type='button', data-ptype='popup-buy', data-view='/ajax/getProductInfo.php') Купить в 1 клик
+      button.goods-card__card-button.goods-card__card-button--add(type='button', data-button-basket) Добавить в корзину
+      .goods-card__card-hidden-buttons
+        button.goods-card__cards-hidden-button(type='button', data-button-like)
+          +svg('like')
+        button.goods-card__cards-hidden-button(type='button', data-button-compare)
+          +svg('compare')
+        button.goods-card__cards-hidden-button(type='button', data-ptype='popup-fast' data-view='/ajax/getProductInfo.php')
+          +svg('eye')

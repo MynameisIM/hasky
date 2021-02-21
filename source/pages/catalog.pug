@@ -3,26 +3,34 @@ extends ../layouts/main.pug
 include ../blocks/breadcrumbs/breadcrumbs
 include ../blocks/catalog/category/catalog-category
 include ../blocks/catalog/filter/catalog-filter
+include ../blocks/goods/goods-card
+include ../blocks/product-day/product-day
 
 block vars
   - var indexPage = require('../data/catalogPage.json');
+  - var whiteTheme = true;
 
 block content
-  +breadcrumbs([
-    {
-      href: "#",
-      text: "Главная"
-    },
-    {
-      href: "#",
-      text: "Каталог",
-      current: true
-    }
-  ])
-  h1.title Каталог
-  .catalog
-    button.catalog__category-button(type='button') Категории
-    .catalog__aside
-      +catalog-category()
-      +catalog-filter()
-    .catalog__main
+  .catalog-wrapper
+    +breadcrumbs([
+      {
+        href: "#",
+        text: "Главная"
+      },
+      {
+        href: "#",
+        text: "Каталог",
+        current: true
+      }
+    ])
+    h1.title Каталог
+    .catalog
+      button.catalog__category-button(type='button') Категории
+      .catalog__aside
+        +catalog-category()
+        +catalog-filter()
+      .catalog__main
+        .catalog__goods
+          each card in indexPage.goods.cards
+            +goods-card(card, 'catalog__card')
+    +product-day()

@@ -1,7 +1,16 @@
 $parent: catalog;
 
 @include block($parent) {
-  padding: 0 rem(18) rem(40);
+  padding: 0 rem(12) rem(40);
+
+  @media (min-width: $tablet) {
+    padding: 0 rem(18) rem(40);
+  }
+
+  @media (min-width: $portrait) {
+    display: flex;
+    padding: rem(43) rem(18) rem(40);
+  }
 
   @include element($parent, 'category-button') {
     width: 100%;
@@ -16,4 +25,53 @@ $parent: catalog;
       display: none;
     }
   }
+
+  @include element($parent, 'goods') {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 rem(-4);
+
+    @media (min-width: $desktop) {
+      margin: 0 rem(-15);
+    }
+  }
+
+  @include element($parent, 'card') {
+    width: calc(50% - 8px);
+
+    @media (min-width: $tablet) {
+      width: calc(50% - 8px);
+    }
+
+    @media (min-width: $desktop) {
+      width: calc(33.33% - 16px);
+    }
+
+    @media (min-width: 1900px) {
+      width: calc(33.33% - 30px);
+    }
+  }
+
+  @include element($parent, 'aside') {
+    @media (min-width: $portrait) {
+      width: 24%;
+      padding-right: rem(20);
+    }
+
+    @media (min-width: $desktop) {
+      padding-right: rem(58);
+    }
+  }
+
+  @include element($parent, 'main') {
+    @media (min-width: $portrait) {
+      width: 76%;
+    }
+  }
+}
+
+.catalog-wrapper {
+  max-width: rem(1690);
+  margin: 0 auto;
+  padding: rem(30) 0 rem(50);
 }

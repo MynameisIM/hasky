@@ -7,6 +7,30 @@ $parent: catalog-filter;
   padding: rem(13) rem(20) rem(15);
   display: none;
 
+  @media (min-width: $portrait) {
+    display: block;
+    width: 100%;
+    border: 1px solid #e5e5e5;
+  }
+
+  @include element($parent, 'main-title') {
+    display: none;
+
+    @media (min-width: $portrait) {
+      display: block;
+      font-size: rem(16);
+      line-height: rem(26);
+      color: #333;
+      border-bottom: 2px solid #0a79c8;
+      margin: 0 rem(-20);
+      padding: 0 rem(20);
+    }
+
+    @media (min-width: $desktop) {
+      font-size: rem(18);
+    }
+  }
+
   @include element($parent, 'title') {
     font-size: rem(18);
     line-height: rem(21);
@@ -56,6 +80,10 @@ $parent: catalog-filter;
     text-transform: uppercase;
     border: 1px solid #e5e5e5;
     border-radius: 1px;
+
+    @media (min-width: $portrait) {
+      width: 100%;
+    }
   }
 
   @include element($parent, 'form-group') {

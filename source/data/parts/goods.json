@@ -6,7 +6,8 @@
       "src": "/assets/images/goods-1.png",
       "article": "CZAM-15",
       "price": "6 090 ₽",
-      "oldPrice": "8 090 ₽"
+      "oldPrice": "8 090 ₽",
+      "id": "1"
     },
     {
       "tag": "-15%",
@@ -15,7 +16,8 @@
       "src": "/assets/images/goods-1.png",
       "article": "CZAM-15",
       "price": "6 090 ₽",
-      "oldPrice": "8 090 ₽"
+      "oldPrice": "8 090 ₽",
+      "id": "2"
     },
     {
       "tag": "Новинка",
@@ -23,7 +25,8 @@
       "src": "/assets/images/goods-1.png",
       "article": "CZAM-15",
       "price": "6 090 ₽",
-      "oldPrice": "8 090 ₽"
+      "oldPrice": "8 090 ₽",
+      "id": "3"
     },
     {
       "tag": "-40%",
@@ -32,7 +35,8 @@
       "src": "/assets/images/goods-1.png",
       "article": "CZAM-15",
       "price": "6 090 ₽",
-      "oldPrice": "8 090 ₽"
+      "oldPrice": "8 090 ₽",
+      "id": "4"
     },
     {
       "tag": "Новинка",
@@ -40,7 +44,8 @@
       "src": "/assets/images/goods-1.png",
       "article": "CZAM-15",
       "price": "6 090 ₽",
-      "oldPrice": "8 090 ₽"
+      "oldPrice": "8 090 ₽",
+      "id": "5"
     },
     {
       "tag": "Новинка",
@@ -48,7 +53,8 @@
       "src": "/assets/images/goods-1.png",
       "article": "CZAM-15",
       "price": "6 090 ₽",
-      "oldPrice": "8 090 ₽"
+      "oldPrice": "8 090 ₽",
+      "id": "6"
     }
   ]
 }

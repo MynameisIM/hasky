@@ -7,6 +7,13 @@ $parent: catalog-category;
   padding: rem(13) rem(20) rem(15);
   display: none;
 
+  @media (min-width: $portrait) {
+    display: block;
+    width: 100%;
+    margin-bottom: rem(24);
+    border: 1px solid #e5e5e5;
+  }
+
   @include element($parent, 'title') {
     font-size: rem(18);
     line-height: rem(21);
