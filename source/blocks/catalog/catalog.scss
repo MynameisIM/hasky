@@ -53,6 +53,8 @@ $parent: catalog;
   }
 
   @include element($parent, 'aside') {
+    position: relative;
+
     @media (min-width: $portrait) {
       width: 24%;
       padding-right: rem(20);

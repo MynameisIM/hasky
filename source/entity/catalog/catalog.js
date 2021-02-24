@@ -2,6 +2,9 @@ import Header from '@/blocks/header/header';
 import Popup from '@/blocks/popup/popup';
 import Form from '@/blocks/form/form';
 import Request from '@/blocks/request/request';
+import CatalogCategory from '@/blocks/catalog/category/catalog-category';
+import CatalogFilter from '@/blocks/catalog/filter/catalog-filter';
+import Catalog from '@/blocks/catalog/catalog';
 
 require('./catalog.scss');
 
@@ -13,6 +16,15 @@ Array.from(document.querySelectorAll('.popup'))
 
 Array.from(document.querySelectorAll('.form'))
   .forEach(block => block && new Form(block));
+
+Array.from(document.querySelectorAll('.catalog-category'))
+  .forEach(block => block && new CatalogCategory(block));
+
+Array.from(document.querySelectorAll('.catalog-filter'))
+  .forEach(block => block && new CatalogFilter(block));
+
+Array.from(document.querySelectorAll('.catalog'))
+  .forEach(block => block && new Catalog(block));
 
 Array.from(document.querySelectorAll('[data-popup]'))
   .forEach((el) => {

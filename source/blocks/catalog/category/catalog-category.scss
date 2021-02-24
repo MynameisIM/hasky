@@ -1,13 +1,21 @@
 $parent: catalog-category;
 
 @include block($parent) {
+  position: absolute;
   width: rem(277);
   background-color: $white;
   border-radius: rem(4);
   padding: rem(13) rem(20) rem(15);
-  display: none;
+  left: rem(-289);
+  transition: transform 0.25s linear;
+  z-index: 4;
+
+  @include modifier($parent, 'show') {
+    transform: translateX(100%);
+  }
 
   @media (min-width: $portrait) {
+    position: static;
     display: block;
     width: 100%;
     margin-bottom: rem(24);
@@ -69,6 +77,11 @@ $parent: catalog-category;
     line-height: rem(24);
     color: #808080;
     padding: 0 rem(25);
+    transition: color 0.25s linear;
+
+    &:hover {
+      color: $c07;
+    }
   }
 
   @include element($parent, 'dropdown') {
@@ -77,6 +90,38 @@ $parent: catalog-category;
   }
 
   @include element($parent, 'item-title') {
+    position: relative;
     padding: rem(11) rem(5);
+    cursor: pointer;
+
+    &::after {
+      position: absolute;
+      content: '';
+      width: rem(7);
+      height: rem(7);
+      border-bottom: 2px solid rgba($black, 0.5);
+      border-right: 2px solid rgba($black, 0.5);
+      top: rem(16);
+      right: rem(10);
+      transform: rotate(45deg);
+    }
+  }
+
+  @include element($parent, 'item') {
+    @include modifier($parent, 'open') {
+      @include element($parent, 'dropdown') {
+        display: block;
+      }
+
+      @include element($parent, 'item-title') {
+        color: $c07;
+
+        &::after {
+          border-color: $c07;
+          top: rem(19);
+          transform: rotate(-135deg);
+        }
+      }
+    }
   }
 }

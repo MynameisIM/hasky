@@ -1,4 +1,5 @@
 @import '~@/base/styles/_core';
+@import '~@/base/styles/jsr.css';
 @import '~@/blocks/header/header';
 @import '~@/blocks/header/menu/header-menu';
 @import '~@/blocks/footer/footer';
@@ -10,3 +11,4 @@
 @import '~@/blocks/catalog/filter/catalog-filter';
 @import '~@/blocks/goods/goods-card';
 @import '~@/blocks/product-day/product-day';
+@import '~@/blocks/range/range';

@@ -136,6 +136,21 @@ p {
     }
   }
 
+  &.catalog-page {
+    position: relative;
+
+    &::after {
+      position: absolute;
+      content: '';
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background-color: rgba(57, 85, 121, 0.83);
+      z-index: 3;
+    }
+  }
+
   &--fixed {
     .page__wrap {
       padding-top: rem(85);

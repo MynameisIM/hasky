@@ -11,6 +11,7 @@ $parent: catalog-filter;
     display: block;
     width: 100%;
     border: 1px solid #e5e5e5;
+    padding: rem(8) rem(20) rem(15);
   }
 
   @include element($parent, 'main-title') {
@@ -22,8 +23,8 @@ $parent: catalog-filter;
       line-height: rem(26);
       color: #333;
       border-bottom: 2px solid #0a79c8;
-      margin: 0 rem(-20);
-      padding: 0 rem(20);
+      margin: 0 rem(-20) rem(12);
+      padding: 0 rem(13) rem(6);
     }
 
     @media (min-width: $desktop) {
@@ -87,6 +88,7 @@ $parent: catalog-filter;
   }
 
   @include element($parent, 'form-group') {
+    padding-top: rem(15);
     border-bottom: 1px solid #e5e5e5;
 
     &:last-of-type {
@@ -99,14 +101,86 @@ $parent: catalog-filter;
     font-size: rem(12);
     line-height: rem(18);
     color: #333;
+    margin-bottom: rem(3);
   }
 
   @include element($parent, 'form-box') {
-    input {
+    padding-bottom: rem(5);
+
+    input[type='radio'] {
       display: none;
 
       &:checked + label {
         box-shadow: 0 0 rem(8) rgba(0, 0, 0, 0.25);
+      }
+    }
+  }
+
+  @include element($parent, 'form-input') {
+    width: rem(71);
+    height: rem(32);
+    border-radius: 2px;
+    border: 1px solid #f2f2f2;
+    margin-right: rem(11);
+    padding: 0 rem(10);
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 14px;
+    color: #717171;
+
+    @media (min-width: $desktop) {
+      width: rem(91);
+    }
+  }
+
+  @include element($parent, 'form-radio') {
+    line-height: rem(16);
+    padding: rem(7);
+
+    label {
+      display: inline-flex;
+      position: relative;
+      font-size: 12px;
+      line-height: 16px;
+      color: #808080;
+      padding-left: 26px;
+      cursor: pointer;
+
+      &::before {
+        position: absolute;
+        content: '';
+        width: rem(16);
+        height: rem(16);
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        border: 1px solid #dfdfdf;
+        border-radius: 50%;
+      }
+
+      &::after {
+        position: absolute;
+        content: '';
+        width: rem(8);
+        height: rem(8);
+        top: 50%;
+        left: 4px;
+        transform: translateY(-50%);
+        background-color: $c07;
+        border-radius: 50%;
+        opacity: 0;
+      }
+    }
+
+    input {
+      display: none;
+
+      &:checked + label {
+        box-shadow: none !important;
+
+        &::after {
+          opacity: 1;
+        }
       }
     }
   }

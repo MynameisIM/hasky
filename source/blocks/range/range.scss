@@ -1,0 +1,50 @@
+$parent: range;
+
+@include block($parent) {
+  padding-top: rem(5);
+
+  .jsr_slider {
+    border-radius: 50%;
+    background-color: #0a79c8;
+
+    &::before {
+      width: 7px;
+      height: 7px;
+      top: 3px;
+      left: 3px;
+      border-radius: 50%;
+      background-color: #fff;
+    }
+  }
+
+  .jsr_rail {
+    height: 3px;
+    background-color: #e3e3e3;
+    top: 9px;
+  }
+
+  .jsr_bar {
+    background-color: #0a79c8;
+  }
+
+  .jsr_label {
+    border-radius: 0;
+    background: initial;
+    padding: inherit;
+
+    & > .jsr_label {
+      position: static;
+      display: inline-block;
+      font-size: 1em;
+      opacity: 1;
+      padding-top: 0;
+      padding-right: 0;
+      padding-bottom: 0;
+
+      &::before {
+        content: '-';
+        padding: 0 rem(5);
+      }
+    }
+  }
+}

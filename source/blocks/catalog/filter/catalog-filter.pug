@@ -1,3 +1,5 @@
+include ../../range/range
+
 mixin catalog-filter()
   .catalog-filter
     .catalog-filter__main-title Фильтр по параметрам
@@ -8,12 +10,61 @@ mixin catalog-filter()
       .catalog-filter__form-group
         .catalog-filter__form-title Розничная цена
         .catalog-filter__form-box
+          input.catalog-filter__form-input(type='text', name='catalog-retail-from', data-from, value='1000', data-max='50000')
+          input.catalog-filter__form-input(type='text', name='catalog-retail-to', data-to, value='20000', data-max='50000')
+          +range({
+            inputs: [
+              {
+                "from": true,
+                "value": 1000,
+                "name": "catalog-retail-from-range",
+                "min": 1,
+                "max": 50000
+              },
+              {
+                "from": false,
+                "value": 20000,
+                "name": "catalog-retail-to-range",
+                "min": 1,
+                "max": 50000
+              }
+            ]
+          })
       .catalog-filter__form-group
         .catalog-filter__form-title Оптовая цена
         .catalog-filter__form-box
+          input.catalog-filter__form-input(type='text', name='catalog-whosale-from', data-from, value='1000', data-max='50000')
+          input.catalog-filter__form-input(type='text', name='catalog-whosale-to', data-to, value='20000', data-max='50000')
+          +range({
+            inputs: [
+              {
+                "from": true,
+                "value": 1000,
+                "name": "catalog-whosale-from-range",
+                "min": 1,
+                "max": 50000
+              },
+              {
+                "from": false,
+                "value": 20000,
+                "name": "catalog-whosale-to-range",
+                "min": 1,
+                "max": 50000
+              }
+            ]
+          })
       .catalog-filter__form-group
         .catalog-filter__form-title Тип
         .catalog-filter__form-box
+          .catalog-filter__form-radio
+            input(type='radio', name='type-of-product', value='1', id='product_type_1')
+            label(for='product_type_1') Все
+          .catalog-filter__form-radio
+            input(type='radio', name='type-of-product', value='2', id='product_type_2', checked)
+            label(for='product_type_2') Стандартный
+          .catalog-filter__form-radio
+            input(type='radio', name='type-of-product', value='3', id='product_type_3')
+            label(for='product_type_3') Еще вариант
       .catalog-filter__form-group
         .catalog-filter__form-title По цветам
         .catalog-filter__form-box

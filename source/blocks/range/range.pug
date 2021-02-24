@@ -1,0 +1,11 @@
+mixin range(data)
+  .range
+    each item in data.inputs
+      input.range__input(
+        class=(item.from ? 'range__input--from' : 'range__input--to'),
+        type='range',
+        value=item.value,
+        name=(item.name))&attributes({
+        'min': item.min,
+        'max': item.max,
+      })
