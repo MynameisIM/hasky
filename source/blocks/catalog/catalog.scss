@@ -20,6 +20,7 @@ $parent: catalog;
     line-height: rem(16);
     color: $c07;
     border: 1px solid $c07;
+    margin-bottom: rem(27);
 
     @media (min-width: $tablet) {
       display: none;
@@ -74,6 +75,7 @@ $parent: catalog;
   @include element($parent, 'view') {
     display: inline-flex;
     margin-left: auto;
+    margin-bottom: rem(15);
   }
 
   @include element($parent, 'view-item') {
@@ -131,6 +133,24 @@ $parent: catalog;
     @media (min-width: $portrait) {
       flex-direction: row;
       align-items: flex-end;
+    }
+  }
+
+  @include element($parent, 'aside-button') {
+    position: absolute;
+    background-color: $c07;
+    border-radius: 0 rem(6) rem(6) 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: rem(70);
+    height: rem(45);
+    top: 0;
+    left: rem(-12);
+
+    svg {
+      width: rem(34);
+      height: rem(34);
     }
   }
 }

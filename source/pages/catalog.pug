@@ -29,6 +29,8 @@ block content
     .catalog
       button.catalog__category-button(type='button') Категории
       .catalog__aside
+        .catalog__aside-button
+          +svg('filter')
         +catalog-category()
         +catalog-filter()
       .catalog__main

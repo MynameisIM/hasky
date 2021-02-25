@@ -93,6 +93,11 @@
     #{$select}__btn {
       padding: 7px 40px 7px 12px;
       color: #808080;
+      font-size: rem(11);
+
+      @media (min-width: $tablet) {
+        font-size: rem(14);
+      }
     }
 
     #{$select}__list {

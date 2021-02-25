@@ -1,11 +1,18 @@
 $parent: catalog-filter;
 
 @include block($parent) {
+  position: absolute;
   width: rem(277);
   background-color: $white;
   border-radius: rem(4);
   padding: rem(13) rem(20) rem(15);
-  display: none;
+  left: rem(-289);
+  transition: transform 0.25s linear;
+  z-index: 4;
+
+  @include modifier($parent, 'show') {
+    transform: translateX(100%);
+  }
 
   @media (min-width: $portrait) {
     display: block;
