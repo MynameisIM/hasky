@@ -74,4 +74,29 @@
       color: #b2bec5;
     }
   }
+
+  &--catalog {
+    width: auto;
+    min-width: auto;
+    margin-right: 16px;
+
+    &::after {
+      top: 12px;
+    }
+
+    &#{$select}--opened {
+      &::after {
+        top: 8px;
+      }
+    }
+
+    #{$select}__btn {
+      padding: 7px 40px 7px 12px;
+      color: #808080;
+    }
+
+    #{$select}__list {
+      z-index: 2;
+    }
+  }
 }

@@ -5,6 +5,8 @@ include ../blocks/catalog/category/catalog-category
 include ../blocks/catalog/filter/catalog-filter
 include ../blocks/goods/goods-card
 include ../blocks/product-day/product-day
+include ../blocks/custom-select/custom-select
+include ../core/svg
 
 block vars
   - var indexPage = require('../data/catalogPage.json');
@@ -30,6 +32,50 @@ block content
         +catalog-category()
         +catalog-filter()
       .catalog__main
+        .catalog__main-controls
+          .catalog__left-controls
+            .catalog__sort-box
+              +custom-select([{
+                text: 'Сортировка',
+                value: '_null'
+              },
+              {
+                text: 'Высокие скидки в начале',
+                value: 'sale',
+                selected: true
+              },
+              {
+                text: 'По цене',
+                value: 'price'
+              },
+              {
+                text: 'По чему-то еще',
+                value: 'some'
+              }], 'custom-select--catalog')
+              +custom-select([{
+                text: 'Результат',
+                value: '_null'
+              },
+              {
+                text: '10 на страницу',
+                value: '10'
+              },
+              {
+                text: '20 на страницу',
+                value: '20',
+                selected: true
+              },
+              {
+                text: '30 на страницу',
+                value: '30'
+              }], 'custom-select--catalog')
+          .catalog__view
+            .catalog__view-item.active
+              +svg('c-i-1')
+            .catalog__view-item
+              +svg('c-i-2')
+            .catalog__view-item
+              +svg('c-i-3')
         .catalog__goods
           each card in indexPage.goods.cards
             +goods-card(card, 'catalog__card')

@@ -5,6 +5,7 @@ import Request from '@/blocks/request/request';
 import CatalogCategory from '@/blocks/catalog/category/catalog-category';
 import CatalogFilter from '@/blocks/catalog/filter/catalog-filter';
 import Catalog from '@/blocks/catalog/catalog';
+import CustomSelect from '@/blocks/custom-select/custom-select';
 
 require('./catalog.scss');
 
@@ -25,6 +26,12 @@ Array.from(document.querySelectorAll('.catalog-filter'))
 
 Array.from(document.querySelectorAll('.catalog'))
   .forEach(block => block && new Catalog(block));
+
+[].slice.call(document.querySelectorAll('.custom-select')).forEach((item) => {
+  if (item) {
+    new CustomSelect(item);
+  }
+});
 
 Array.from(document.querySelectorAll('[data-popup]'))
   .forEach((el) => {

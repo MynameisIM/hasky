@@ -70,6 +70,69 @@ $parent: catalog;
       width: 76%;
     }
   }
+
+  @include element($parent, 'view') {
+    display: inline-flex;
+    margin-left: auto;
+  }
+
+  @include element($parent, 'view-item') {
+    width: rem(40);
+    height: rem(40);
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: rem(11);
+    cursor: pointer;
+    border-radius: 2px;
+    border: 1px solid transparent;
+
+    svg {
+      fill: none;
+      stroke: $c07;
+      width: rem(26);
+      height: rem(16);
+      pointer-events: none;
+    }
+
+    &:first-of-type {
+      margin-left: 0;
+
+      svg {
+        width: rem(15);
+      }
+    }
+
+    &:last-of-type {
+      svg {
+        fill: $c07;
+      }
+    }
+
+    &.active {
+      background-color: $c07;
+      border-color: #e5e5e5;
+
+      svg {
+        stroke: $white;
+      }
+    }
+  }
+
+  @include element($parent, 'sort-box') {
+    display: inline-flex;
+  }
+
+  @include element($parent, 'main-controls') {
+    display: flex;
+    flex-direction: column-reverse;
+    padding-bottom: rem(17);
+
+    @media (min-width: $portrait) {
+      flex-direction: row;
+      align-items: flex-end;
+    }
+  }
 }
 
 .catalog-wrapper {
