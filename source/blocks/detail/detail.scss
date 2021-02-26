@@ -1,0 +1,11 @@
+$parent: detail;
+
+@include block($parent) {
+  width: 100%;
+}
+
+.detail-wrapper {
+  max-width: rem(1690);
+  margin: 0 auto;
+  padding: rem(30) 0 rem(50);
+}

@@ -152,6 +152,10 @@ $parent: catalog;
       width: rem(34);
       height: rem(34);
     }
+
+    @media (min-width: $tablet) {
+      display: none;
+    }
   }
 }
 

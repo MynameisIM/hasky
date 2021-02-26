@@ -1,0 +1,30 @@
+extends ../layouts/main.pug
+
+include ../blocks/breadcrumbs/breadcrumbs
+include ../blocks/product-day/product-day
+include ../core/svg
+
+block vars
+  - var whiteTheme = true;
+
+block content
+  .detail-wrapper
+    +breadcrumbs([
+      {
+        href: "#",
+        text: "Главная"
+      },
+      {
+        href: "#",
+        text: "Товары для дома"
+      },
+      {
+        "href": "#",
+        text: "Ударные торцевые головки название товара в две строки",
+        current: true
+      }
+    ])
+    h1.title Ударные торцевые головки название товара в две строки
+    .detail
+      .detail__header
+    +product-day()

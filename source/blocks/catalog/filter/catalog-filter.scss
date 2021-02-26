@@ -15,6 +15,7 @@ $parent: catalog-filter;
   }
 
   @media (min-width: $portrait) {
+    position: static;
     display: block;
     width: 100%;
     border: 1px solid #e5e5e5;
