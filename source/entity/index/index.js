@@ -6,6 +6,7 @@ import Form from '@/blocks/form/form';
 import Request from '@/blocks/request/request';
 import Counter from '@/blocks/counter/counter';
 import PopupFast from '../../blocks/popup/fast/popup-fast';
+import PopupImage from '../../blocks/popup/image/popup-image';
 
 require('./index.scss');
 
@@ -35,6 +36,9 @@ Array.from(document.querySelectorAll('.counter'))
 
 Array.from(document.querySelectorAll('.popup-fast'))
   .forEach(block => block && new PopupFast(block));
+
+Array.from(document.querySelectorAll('.popup-image'))
+  .forEach(block => block && new PopupImage(block));
 
 /* eslint-disable */
 function getParentWithClass(target, classname) {
@@ -210,6 +214,17 @@ if (!window.PAGE_DATA) {
                       window.popupSw.appendSlide(`<div class="popup-fast__main-slide swiper-slide"><img src="${src}" alt="alt"></div>`);
                     });
                     window.popupSw.slideTo(0);
+                  }, 0);
+                }
+              }
+              if (responce.data.pictures_full && window.popupImage) {
+                if (responce.data.pictures_full.length > 0) {
+                  setTimeout(() => {
+                    window.popupImage.removeAllSlides();
+                    responce.data.pictures_full.forEach((src) => {
+                      window.popupImage.appendSlide(`<div class="popup-image__slide swiper-slide"><img src="${src}" alt="alt"></div>`);
+                    });
+                    window.popupImage.slideTo(0);
                   }, 0);
                 }
               }

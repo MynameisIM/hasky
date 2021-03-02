@@ -23,6 +23,17 @@ export default class PopupFast {
           return `<span class="popup-fast__main-dot ${className}" style="background-image: url(${getSrc(this.slides[index])})"></span>`;
         },
       },
+      on: {
+        click() {
+          if (window.popupImage && window.popupImage.initialized) {
+            const popupImage = document.getElementById('popup-image');
+
+            if (popupImage) {
+              popupImage.classList.add('open');
+            }
+          }
+        },
+      },
     };
 
     window.popupSw = new Swiper(container, options);
