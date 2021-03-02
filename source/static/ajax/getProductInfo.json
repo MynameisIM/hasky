@@ -14,5 +14,6 @@
       "value": "1000 гр."
     }
   ],
-  "pictures_slider": ["/assets/images/first-3.png", "/assets/images/first-2.png", "/assets/images/first-1.png", "/assets/images/first-1.png"]
+  "pictures_slider": ["/assets/images/first-3.png", "/assets/images/first-2.png", "/assets/images/first-1.png", "/assets/images/first-1.png"],
+  "pictures_full": ["/assets/images/first-2.png", "/assets/images/first-2.png", "/assets/images/first-3.png", "/assets/images/first-3.png"]
 }

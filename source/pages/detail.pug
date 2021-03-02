@@ -27,4 +27,101 @@ block content
     h1.title Ударные торцевые головки название товара в две строки
     .detail
       .detail__header
+        button.detail__header-button(type='button', data-button-like)
+          +svg('like')
+          span Избранное
+        button.detail__header-button(type='button', data-button-like)
+          +svg('like')
+          span Избранное
+        button.detail__header-button(type='button', data-button-like)
+          +svg('share')
+          span Поделиться
+        button.detail__header-button(type='button', data-button-like)
+          +svg('conversation')
+          span Задать вопрос
+        span.detail__header-code КОД:
+          span I0241GCXF9
+      .detail__main
+        .detail__main-slider
+          .detail__main-slider-container.swiper-container
+            .detail__main-slider-wrapper.swiper-wrapper
+              .detail__main-slider-slide.swiper-slide
+                img(src='/assets/images/goods-1.png', alt='alt')
+        .detail__main-info
+          .detail__tabs-box
+            .detail__tabs
+              .detail__tabs-header
+                img(src='/test/', alt='alt')
+                span Ударные торцевые головки название товара в две строки
+              .detail__tab.active
+                +svg('like')
+                span Описание
+              .detail__tab
+                +svg('like')
+                span Характеристики
+              .detail__tab
+                +svg('like')
+                span Отзывы
+              .detail__tab
+                +svg('like')
+                span Вопрос-ответ
+            .detail__tabs-content-box
+              .detail__tabs-content
+              .detail__tabs-content
+              .detail__tabs-content
+              .detail__tabs-content
+      .detail__aside
+        .detail__aside-info-box
+          .detail__aside-info
+            .detail__aside-price-container
+              .detail__aside-price(data-popup-price) 9 328 ₽
+              .detail__aside-price.detail__aside-price--old(data-popup-price-old) 11 328 ₽
+            .detail__aside-availability-box
+              .detail__aside-availability-text Наличие товара:
+              .detail__aside-availability
+                span.green
+                span.green
+                span.green
+                span.green
+                span.green
+            .detail__aside-price-box
+              .detail__aside-price-box-title Оптовые цены
+              .detail__aside-price-header
+                span Количество
+                span Цена
+              div(data-popup-price-box)
+            .detail__aside-buttons-box
+              .detail__aside-buttons
+                +counter('elem')
+                button.detail__aside-button-add.elem(type='button')
+                  +svg('shopping-cart')
+                  span В корзину
+              button.detail__aside-button(type='button', data-ptype='popup-buy', data-view='/ajax/getProductInfo.php')
+                +svg('tap')
+                span КУПИТЬ В 1 КЛИК
+          .detail__aside-footer
+            +svg('like')
+            span БЕСПЛАТНАЯ доставка – на заказ свыше 3000 рублей! Отправка заказа в течение суток.
+        .detail__accordion-box
+          .detail__accordion
+            .detail__accordion-item
+              .detail__accordion-title
+                +svg('like')
+                span Доставка
+              .detail__accordion-content Text for 1st accordion
+            .detail__accordion-item
+              .detail__accordion-title
+                +svg('like')
+                span Варианты оплаты
+              .detail__accordion-content Text for 2nd accordion
+            .detail__accordion-item
+              .detail__accordion-title
+                +svg('like')
+                span Наши преимущества
+              .detail__accordion-content Text for 3rd accordion
+            .detail__accordion-item
+              .detail__accordion-title
+                +svg('like')
+                span Предоставляем гарантии
+              .detail__accordion-content Text for 4th accordion
     +product-day()
