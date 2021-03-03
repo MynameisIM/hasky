@@ -31,7 +31,7 @@ block content
           +svg('like')
           span Избранное
         button.detail__header-button(type='button', data-button-like)
-          +svg('like')
+          +svg('compare')
           span Избранное
         button.detail__header-button(type='button', data-button-like)
           +svg('share')
@@ -51,19 +51,19 @@ block content
           .detail__tabs-box
             .detail__tabs
               .detail__tabs-header
-                img(src='/test/', alt='alt')
+                img(src='/assets/images/goods-1.png', alt='alt')
                 span Ударные торцевые головки название товара в две строки
               .detail__tab.active
-                +svg('like')
+                +svg('job-seeking')
                 span Описание
               .detail__tab
-                +svg('like')
+                +svg('3d-model')
                 span Характеристики
               .detail__tab
-                +svg('like')
+                +svg('feedback')
                 span Отзывы
               .detail__tab
-                +svg('like')
+                +svg('ask')
                 span Вопрос-ответ
             .detail__tabs-content-box
               .detail__tabs-content
@@ -90,6 +90,12 @@ block content
                 span Количество
                 span Цена
               div(data-popup-price-box)
+                .detail__aside-price-line
+                  span 10+
+                  span 12345
+                .detail__aside-price-line
+                  span 20+
+                  span 67890
             .detail__aside-buttons-box
               .detail__aside-buttons
                 +counter('elem')
@@ -100,28 +106,28 @@ block content
                 +svg('tap')
                 span КУПИТЬ В 1 КЛИК
           .detail__aside-footer
-            +svg('like')
+            +svg('info')
             span БЕСПЛАТНАЯ доставка – на заказ свыше 3000 рублей! Отправка заказа в течение суток.
         .detail__accordion-box
           .detail__accordion
             .detail__accordion-item
               .detail__accordion-title
-                +svg('like')
+                +svg('shipped')
                 span Доставка
               .detail__accordion-content Text for 1st accordion
             .detail__accordion-item
               .detail__accordion-title
-                +svg('like')
+                +svg('credit-card')
                 span Варианты оплаты
               .detail__accordion-content Text for 2nd accordion
             .detail__accordion-item
               .detail__accordion-title
-                +svg('like')
+                +svg('medal')
                 span Наши преимущества
               .detail__accordion-content Text for 3rd accordion
             .detail__accordion-item
               .detail__accordion-title
-                +svg('like')
+                +svg('shield')
                 span Предоставляем гарантии
               .detail__accordion-content Text for 4th accordion
     +product-day()
