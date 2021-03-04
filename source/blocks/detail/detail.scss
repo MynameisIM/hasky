@@ -2,6 +2,294 @@ $parent: detail;
 
 @include block($parent) {
   width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+
+  @include element($parent, 'header') {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    border-bottom: 1px solid #e5e5e5;
+    padding-bottom: rem(10);
+  }
+
+  @include element($parent, 'header-button') {
+    display: inline-flex;
+    align-items: center;
+    margin-right: rem(40);
+
+    svg {
+      width: rem(21);
+      height: rem(21);
+      fill: #808080;
+      margin-right: rem(10);
+    }
+
+    span {
+      font-size: rem(11);
+      line-height: rem(13);
+    }
+  }
+
+  @include element($parent, 'main') {
+    width: 65%;
+  }
+
+  @include element($parent, 'aside') {
+    width: 35%;
+  }
+
+  @include element($parent, 'header-code') {
+    font-size: rem(13);
+    line-height: rem(15);
+    color: #333;
+    margin-left: auto;
+
+    span {
+      color: #808080;
+      padding-left: rem(4);
+    }
+  }
+
+  @include element($parent, 'aside-info-box') {
+    box-shadow: 0 rem(4) rem(16) rgba(0, 0, 0, 0.15);
+    border-radius: rem(3);
+    margin-bottom: rem(5);
+  }
+
+  @include element($parent, 'aside-info') {
+    padding: rem(20) rem(10) rem(8);
+  }
+
+  @include element($parent, 'aside-price-container') {
+    display: flex;
+    align-items: center;
+    margin-bottom: rem(14);
+
+    @include modifier($parent, 'no-sale') {
+      @include element($parent, 'price') {
+        color: $c41;
+      }
+
+      @include element($parent, 'price--old') {
+        display: none;
+      }
+    }
+  }
+
+  @include element($parent, 'aside-price') {
+    font-weight: bold;
+    font-size: rem(20);
+    line-height: rem(29);
+    color: #ff2834;
+    margin-right: rem(14);
+
+    @include modifier($parent, 'old') {
+      font-weight: 400;
+      font-size: rem(14);
+      line-height: rem(20);
+      color: #808080;
+      text-decoration: line-through;
+    }
+  }
+
+  @include element($parent, 'aside-availability-box') {
+    display: flex;
+    align-items: center;
+    margin-bottom: rem(7);
+  }
+
+  @include element($parent, 'aside-availability-text') {
+    font-weight: 500;
+    font-size: rem(12);
+    line-height: rem(14);
+    color: #666;
+    margin-right: rem(15);
+  }
+
+  @include element($parent, 'aside-availability') {
+    display: inline-flex;
+
+    span {
+      width: rem(10);
+      height: rem(10);
+      margin-right: rem(4);
+      background-color: #f2f2f2;
+
+      &.green {
+        background-color: #6aa84f;
+      }
+    }
+  }
+
+  @include element($parent, 'aside-price-box') {
+    border: 1px solid #dfdfdf;
+    border-radius: 2px;
+    padding: rem(5);
+    margin-bottom: rem(24);
+  }
+
+  @include element($parent, 'aside-price-box-title') {
+    font-weight: 500;
+    font-size: rem(13);
+    line-height: rem(16);
+    color: #505050;
+    margin-bottom: rem(5);
+  }
+
+  @include element($parent, 'aside-price-line') {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: rem(31);
+    border-top: 1px solid #e5e5e5;
+
+    span {
+      font-weight: 600;
+      font-size: rem(11);
+      line-height: rem(19);
+      color: #666;
+
+      &:last-of-type {
+        font-size: rem(12);
+        line-height: rem(21);
+        color: #4794eb;
+      }
+    }
+  }
+
+  @include element($parent, 'aside-price-header') {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    span {
+      font-weight: 500;
+      font-size: rem(11);
+      line-height: rem(19);
+      color: #606060;
+    }
+  }
+
+  @include element($parent, 'aside-buttons') {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: rem(12);
+
+    .elem {
+      width: calc(50% - 4px);
+    }
+  }
+
+  @include element($parent, 'aside-button') {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: rem(45);
+    border: 1px solid #0776fa;
+    border-radius: 2px;
+
+    svg {
+      width: rem(24);
+      height: rem(24);
+      margin-right: rem(8);
+    }
+
+    span {
+      font-weight: 500;
+      font-size: rem(11);
+      line-height: rem(13);
+      color: #4794eb;
+      text-transform: uppercase;
+    }
+  }
+
+  @include element($parent, 'aside-button-add') {
+    height: rem(40);
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    background: #0776fa;
+    border-radius: rem(2);
+
+    span {
+      font-weight: 600;
+      font-size: rem(12);
+      line-height: rem(18);
+      color: $white;
+    }
+
+    svg {
+      width: rem(20);
+      height: rem(20);
+      fill: $white;
+      margin-right: rem(10);
+    }
+  }
+
+  @include element($parent, 'aside-footer') {
+    position: relative;
+    font-size: rem(13);
+    line-height: rem(19);
+    background-color: #f6f6f6;
+    padding: rem(11) rem(50);
+
+    svg {
+      position: absolute;
+      width: rem(17);
+      height: rem(17);
+      top: rem(12);
+      left: rem(25);
+    }
+  }
+
+  @include element($parent, 'accordion') {
+    border: 1px solid #e5e5e5;
+    border-radius: rem(3);
+  }
+
+  @include element($parent, 'tabs') {
+    border: 1px solid #e5e5e5;
+    border-radius: rem(3);
+  }
+
+  @include element($parent, 'tabs-header') {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #e5e5e5;
+
+    img {
+      width: rem(61);
+      height: rem(51);
+      margin-right: rem(5);
+    }
+
+    span {
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 16px;
+      color: #0f0f0f;
+    }
+  }
+
+  @include element($parent, 'tab') {
+    display: flex;
+    align-items: center;
+
+    svg {
+      width: rem(30);
+      height: rem(30);
+      margin-right: rem(10);
+    }
+
+    span {
+      font-size: rem(14);
+      line-height: rem(16);
+      color: #333;
+    }
+  }
 }
 
 .detail-wrapper {

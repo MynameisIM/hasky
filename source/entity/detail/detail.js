@@ -1,10 +1,14 @@
 import Header from '@/blocks/header/header';
 import Request from '@/blocks/request/request';
+import Counter from '@/blocks/counter/counter';
 
 require('./detail.scss');
 
 Array.from(document.querySelectorAll('.header'))
   .forEach(block => block && new Header(block));
+
+Array.from(document.querySelectorAll('.counter'))
+  .forEach(block => block && new Counter(block));
 
 /* eslint-disable */
 function declOfNum(number, words) {
