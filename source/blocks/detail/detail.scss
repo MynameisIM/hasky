@@ -54,7 +54,7 @@ $parent: detail;
   @include element($parent, 'aside-info-box') {
     box-shadow: 0 rem(4) rem(16) rgba(0, 0, 0, 0.15);
     border-radius: rem(3);
-    margin-bottom: rem(5);
+    margin-bottom: rem(25);
   }
 
   @include element($parent, 'aside-info') {
@@ -288,6 +288,66 @@ $parent: detail;
       font-size: rem(14);
       line-height: rem(16);
       color: #333;
+    }
+  }
+
+  @include element($parent, 'accordion-title') {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: rem(18) rem(20);
+    cursor: pointer;
+    transition: transform 0.25s linear;
+    background-color: $white;
+    border-bottom: 1px solid #e5e5e5;
+
+    svg {
+      width: rem(48);
+      height: rem(48);
+      margin-right: rem(20);
+    }
+
+    span {
+      font-size: rem(13);
+      line-height: rem(27);
+    }
+
+    &::after {
+      position: absolute;
+      content: '';
+      width: 8px;
+      height: 8px;
+      border-bottom: 2px solid #373737;
+      border-right: 2px solid #373737;
+      top: 50%;
+      right: 30px;
+      transform: translateY(-50%) rotate(45deg);
+    }
+
+    &:hover {
+      transform: scale(1.01);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+      border-radius: 3px;
+    }
+  }
+
+  @include element($parent, 'accordion-content') {
+    display: none;
+  }
+
+  @include element($parent, 'accordion-item') {
+    @include modifier($parent, 'open') {
+      @include element($parent, 'accordion-title') {
+        &::after {
+          transform: translateY(-50%) rotate(-135deg);
+        }
+      }
+
+      @include element($parent, 'accordion-content') {
+        display: block;
+        padding: rem(18) rem(20);
+        border-bottom: 1px solid #e5e5e5;
+      }
     }
   }
 }
