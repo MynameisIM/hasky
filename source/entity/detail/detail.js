@@ -86,4 +86,28 @@ window.onload = setTimer();
 const setId = setInterval(setTimer, 1000);
 /* eslint-enable */
 
+const moveBlocks = () => {
+  const main = document.querySelector('.detail .detail__main');
+  const aside = document.querySelector('.detail .detail__aside');
+
+  if (main && aside) {
+    const priceBox = document.querySelector('.detail .detail__aside-info-box');
+
+    if (priceBox) {
+      const move = () => {
+        if (window.innerWidth <= 767 && !main.contains(priceBox)) {
+          main.appendChild(priceBox);
+        } else if (window.innerWidth > 767 && !aside.contains(priceBox)) {
+          aside.appendChild(priceBox);
+        }
+      };
+      move();
+
+      window.addEventListener('resize', move);
+    }
+  }
+};
+
+moveBlocks();
+
 new Request();

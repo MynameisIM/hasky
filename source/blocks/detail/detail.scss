@@ -44,12 +44,18 @@ $parent: detail;
   }
 
   @include element($parent, 'main') {
+    display: flex;
+    flex-direction: column;
     width: 100%;
-    padding-right: rem(25);
     margin-bottom: rem(40);
+
+    @media (min-width: $tablet) {
+      display: block;
+    }
 
     @media (min-width: $portrait) {
       width: calc(100% - 362px);
+      padding-right: rem(25);
       margin-bottom: 0;
     }
 
@@ -60,13 +66,21 @@ $parent: detail;
 
   @include element($parent, 'aside') {
     width: 100%;
-    display: flex;
-    align-items: flex-start;
+
+    @media (min-width: $tablet) {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+    }
 
     @media (min-width: $portrait) {
       display: block;
       width: rem(362);
     }
+  }
+
+  @include element($parent, 'main-info') {
+    order: 1;
   }
 
   @include element($parent, 'header-code') {
@@ -98,7 +112,7 @@ $parent: detail;
   @include element($parent, 'accordion-box') {
     @media (min-width: $tablet) {
       width: calc(50% - 10px);
-      margin-left: auto;
+      order: 1;
     }
 
     @media (min-width: $portrait) {
@@ -300,11 +314,15 @@ $parent: detail;
   }
 
   @include element($parent, 'tabs') {
-    width: rem(256);
+    width: 100%;
     border: 1px solid #e5e5e5;
     border-radius: rem(3);
-    margin-right: rem(14);
     padding-bottom: rem(15);
+
+    @media (min-width: $tablet) {
+      width: rem(256);
+      margin-right: rem(14);
+    }
 
     @media (min-width: $desktop) {
       width: rem(280);
@@ -313,12 +331,16 @@ $parent: detail;
   }
 
   @include element($parent, 'tabs-header') {
-    display: flex;
-    align-items: center;
-    height: rem(90);
-    border-bottom: 1px solid #e5e5e5;
-    padding: 15px 25px 15px 8px;
-    margin-bottom: rem(12);
+    display: none;
+
+    @media (min-width: $tablet) {
+      display: flex;
+      align-items: center;
+      height: rem(90);
+      border-bottom: 1px solid #e5e5e5;
+      padding: 15px 25px 15px 8px;
+      margin-bottom: rem(12);
+    }
 
     img {
       width: rem(61);
@@ -439,8 +461,13 @@ $parent: detail;
   }
 
   @include element($parent, 'tabs-content-box') {
-    width: calc(100% - 270px);
-    padding-top: rem(10);
+    display: none;
+
+    @media (min-width: $tablet) {
+      display: block;
+      width: calc(100% - 270px);
+      padding-top: rem(10);
+    }
 
     @media (min-width: $desktop) {
       width: calc(100% - 305px);
@@ -497,7 +524,27 @@ $parent: detail;
     }
 
     &.active {
+      position: relative;
       display: block;
+      padding: 8px 13px;
+
+      &::before {
+        position: absolute;
+        content: '';
+        width: 2px;
+        height: 100%;
+        background-color: $c07;
+        top: 0;
+        left: -1px;
+
+        @media (min-width: $tablet) {
+          content: none;
+        }
+      }
+
+      @media (min-width: $tablet) {
+        padding: 0;
+      }
     }
   }
 
@@ -505,7 +552,11 @@ $parent: detail;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: rem(395);
+    height: rem(250);
+
+    @media (min-width: $tablet) {
+      height: rem(395);
+    }
 
     @media (min-width: $desktop) {
       height: rem(673);
@@ -529,5 +580,13 @@ $parent: detail;
 .detail-wrapper {
   max-width: rem(1690);
   margin: 0 auto;
-  padding: rem(30) rem(20) rem(50);
+  padding: rem(21) rem(6) rem(50);
+
+  @media (min-width: $tablet) {
+    padding: rem(30) rem(20) rem(50);
+  }
+
+  @media (min-width: $portrait) {
+    padding: rem(30) rem(26) rem(50);
+  }
 }

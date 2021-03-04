@@ -2,8 +2,9 @@ export default class DetailTabs {
   constructor(parent) {
     const tabs = [].slice.call(parent.querySelectorAll('.detail__tab'));
     const contents = [].slice.call(parent.querySelectorAll('.detail__tabs-content'));
+    const contentsContainer = parent.querySelector('.detail__tabs-content-box');
 
-    if (tabs.length > 0 && contents.length > 0) {
+    if (tabs.length > 0 && contents.length > 0 && contentsContainer) {
       tabs.forEach((tab, index) => {
         if (tab) {
           tab.addEventListener('click', () => {
@@ -17,6 +18,26 @@ export default class DetailTabs {
           });
         }
       });
+
+      const insertAfter = (newNode, referenceNode) => {
+        referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
+      };
+
+      const moveElems = () => {
+        if (window.innerWidth <= 767) {
+          tabs.forEach((tab, index) => {
+            insertAfter(contents[index], tab);
+          });
+        } else {
+          contents.forEach((el) => {
+            contentsContainer.appendChild(el);
+          });
+        }
+      };
+
+      moveElems();
+
+      window.addEventListener('resize', moveElems);
     }
   }
 }

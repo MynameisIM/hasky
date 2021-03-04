@@ -291,13 +291,15 @@ p {
   }
 
   &--detail {
-    font-size: rem(24);
-    line-height: rem(28);
+    font-size: rem(20);
+    line-height: rem(23);
     color: #0f0f0f;
+    margin-top: rem(5);
 
     @media (min-width: $tablet) {
       font-size: rem(24);
       line-height: rem(28);
+      margin-top: rem(25);
       margin-bottom: rem(32);
     }
   }
