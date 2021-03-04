@@ -4,15 +4,25 @@ $parent: detail;
   width: 100%;
   display: flex;
   flex-wrap: wrap;
+  padding-top: rem(30);
+  margin-bottom: rem(65);
+
+  @media (min-width: $desktop) {
+    padding-top: 0;
+    margin-bottom: rem(30);
+  }
 
   @include element($parent, 'header') {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    border-bottom: 1px solid #e5e5e5;
-    padding-bottom: rem(6);
-    margin-right: rem(140);
-    margin-bottom: rem(44);
+    display: none;
+
+    @media (min-width: $desktop) {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      border-bottom: 1px solid #e5e5e5;
+      padding-bottom: rem(6);
+      margin: 0 rem(140) rem(44) rem(18);
+    }
   }
 
   @include element($parent, 'header-button') {
@@ -34,12 +44,29 @@ $parent: detail;
   }
 
   @include element($parent, 'main') {
-    width: 72%;
-    padding-right: rem(85);
+    width: 100%;
+    padding-right: rem(25);
+    margin-bottom: rem(40);
+
+    @media (min-width: $portrait) {
+      width: calc(100% - 362px);
+      margin-bottom: 0;
+    }
+
+    @media (min-width: $desktop) {
+      padding-right: rem(85);
+    }
   }
 
   @include element($parent, 'aside') {
-    width: rem(362);
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+
+    @media (min-width: $portrait) {
+      display: block;
+      width: rem(362);
+    }
   }
 
   @include element($parent, 'header-code') {
@@ -58,6 +85,25 @@ $parent: detail;
     box-shadow: 0 rem(4) rem(16) rgba(0, 0, 0, 0.15);
     border-radius: rem(3);
     margin-bottom: rem(25);
+
+    @media (min-width: $tablet) {
+      width: calc(50% - 10px);
+    }
+
+    @media (min-width: $portrait) {
+      width: 100%;
+    }
+  }
+
+  @include element($parent, 'accordion-box') {
+    @media (min-width: $tablet) {
+      width: calc(50% - 10px);
+      margin-left: auto;
+    }
+
+    @media (min-width: $portrait) {
+      width: 100%;
+    }
   }
 
   @include element($parent, 'aside-info') {
@@ -254,11 +300,16 @@ $parent: detail;
   }
 
   @include element($parent, 'tabs') {
-    width: rem(280);
+    width: rem(256);
     border: 1px solid #e5e5e5;
     border-radius: rem(3);
-    margin-right: rem(28);
+    margin-right: rem(14);
     padding-bottom: rem(15);
+
+    @media (min-width: $desktop) {
+      width: rem(280);
+      margin-right: rem(28);
+    }
   }
 
   @include element($parent, 'tabs-header') {
@@ -388,8 +439,12 @@ $parent: detail;
   }
 
   @include element($parent, 'tabs-content-box') {
-    width: calc(100% - 305px);
+    width: calc(100% - 270px);
     padding-top: rem(10);
+
+    @media (min-width: $desktop) {
+      width: calc(100% - 305px);
+    }
   }
 
   @include element($parent, 'accordion-content') {
@@ -406,6 +461,9 @@ $parent: detail;
 
       @include element($parent, 'accordion-content') {
         display: block;
+        font-size: rem(13);
+        line-height: rem(20);
+        color: #333;
         padding: rem(18) rem(20);
         border-bottom: 1px solid #e5e5e5;
       }
@@ -414,6 +472,7 @@ $parent: detail;
 
   @include element($parent, 'tabs-box') {
     display: flex;
+    align-items: flex-start;
   }
 
   @include element($parent, 'tabs-content') {
@@ -446,7 +505,11 @@ $parent: detail;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: rem(673);
+    height: rem(395);
+
+    @media (min-width: $desktop) {
+      height: rem(673);
+    }
 
     img {
       max-width: 100%;
@@ -455,12 +518,16 @@ $parent: detail;
   }
 
   @include element($parent, 'main-slider') {
-    margin-bottom: rem(70);
+    margin-bottom: rem(50);
+
+    @media (min-width: $desktop) {
+      margin-bottom: rem(70);
+    }
   }
 }
 
 .detail-wrapper {
   max-width: rem(1690);
   margin: 0 auto;
-  padding: rem(30) 0 rem(50);
+  padding: rem(30) rem(20) rem(50);
 }
