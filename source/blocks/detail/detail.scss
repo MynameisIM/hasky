@@ -10,7 +10,9 @@ $parent: detail;
     align-items: center;
     width: 100%;
     border-bottom: 1px solid #e5e5e5;
-    padding-bottom: rem(10);
+    padding-bottom: rem(6);
+    margin-right: rem(140);
+    margin-bottom: rem(44);
   }
 
   @include element($parent, 'header-button') {
@@ -32,11 +34,12 @@ $parent: detail;
   }
 
   @include element($parent, 'main') {
-    width: 65%;
+    width: 72%;
+    padding-right: rem(85);
   }
 
   @include element($parent, 'aside') {
-    width: 35%;
+    width: rem(362);
   }
 
   @include element($parent, 'header-code') {
@@ -54,11 +57,11 @@ $parent: detail;
   @include element($parent, 'aside-info-box') {
     box-shadow: 0 rem(4) rem(16) rgba(0, 0, 0, 0.15);
     border-radius: rem(3);
-    margin-bottom: rem(5);
+    margin-bottom: rem(25);
   }
 
   @include element($parent, 'aside-info') {
-    padding: rem(20) rem(10) rem(8);
+    padding: rem(11) rem(24) rem(24);
   }
 
   @include element($parent, 'aside-price-container') {
@@ -96,7 +99,7 @@ $parent: detail;
   @include element($parent, 'aside-availability-box') {
     display: flex;
     align-items: center;
-    margin-bottom: rem(7);
+    margin-bottom: rem(24);
   }
 
   @include element($parent, 'aside-availability-text') {
@@ -126,7 +129,7 @@ $parent: detail;
     border: 1px solid #dfdfdf;
     border-radius: 2px;
     padding: rem(5);
-    margin-bottom: rem(24);
+    margin-bottom: rem(12);
   }
 
   @include element($parent, 'aside-price-box-title') {
@@ -251,14 +254,20 @@ $parent: detail;
   }
 
   @include element($parent, 'tabs') {
+    width: rem(280);
     border: 1px solid #e5e5e5;
     border-radius: rem(3);
+    margin-right: rem(28);
+    padding-bottom: rem(15);
   }
 
   @include element($parent, 'tabs-header') {
     display: flex;
     align-items: center;
+    height: rem(90);
     border-bottom: 1px solid #e5e5e5;
+    padding: 15px 25px 15px 8px;
+    margin-bottom: rem(12);
 
     img {
       width: rem(61);
@@ -275,13 +284,17 @@ $parent: detail;
   }
 
   @include element($parent, 'tab') {
+    position: relative;
     display: flex;
     align-items: center;
+    padding: 8px 13px;
+    cursor: pointer;
 
     svg {
       width: rem(30);
       height: rem(30);
       margin-right: rem(10);
+      fill: #808080;
     }
 
     span {
@@ -289,6 +302,160 @@ $parent: detail;
       line-height: rem(16);
       color: #333;
     }
+
+    &.active {
+      &::before {
+        position: absolute;
+        content: '';
+        width: 2px;
+        height: 100%;
+        background-color: $c07;
+        top: 0;
+        left: -1px;
+      }
+
+      span {
+        color: $c07;
+        transition: color 0.25s linear;
+      }
+
+      svg {
+        fill: $c07;
+        transition: fill 0.25s linear;
+      }
+    }
+
+    &:hover {
+      span {
+        color: $c07;
+      }
+
+      svg {
+        fill: $c07;
+      }
+
+      &::before {
+        position: absolute;
+        content: '';
+        width: 2px;
+        height: 100%;
+        background-color: $c07;
+        top: 0;
+        left: -1px;
+      }
+    }
+  }
+
+  @include element($parent, 'accordion-title') {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: rem(18) rem(20);
+    cursor: pointer;
+    transition: transform 0.25s linear;
+    background-color: $white;
+    border-bottom: 1px solid #e5e5e5;
+
+    svg {
+      width: rem(48);
+      height: rem(48);
+      fill: $c07;
+      margin-right: rem(20);
+    }
+
+    span {
+      font-size: rem(13);
+      line-height: rem(27);
+    }
+
+    &::after {
+      position: absolute;
+      content: '';
+      width: 8px;
+      height: 8px;
+      border-bottom: 2px solid #373737;
+      border-right: 2px solid #373737;
+      top: 50%;
+      right: 30px;
+      transform: translateY(-50%) rotate(45deg);
+    }
+
+    &:hover {
+      transform: scale(1.01);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+      border-radius: 3px;
+    }
+  }
+
+  @include element($parent, 'tabs-content-box') {
+    width: calc(100% - 305px);
+    padding-top: rem(10);
+  }
+
+  @include element($parent, 'accordion-content') {
+    display: none;
+  }
+
+  @include element($parent, 'accordion-item') {
+    @include modifier($parent, 'open') {
+      @include element($parent, 'accordion-title') {
+        &::after {
+          transform: translateY(-50%) rotate(-135deg);
+        }
+      }
+
+      @include element($parent, 'accordion-content') {
+        display: block;
+        padding: rem(18) rem(20);
+        border-bottom: 1px solid #e5e5e5;
+      }
+    }
+  }
+
+  @include element($parent, 'tabs-box') {
+    display: flex;
+  }
+
+  @include element($parent, 'tabs-content') {
+    display: none;
+    font-size: rem(13);
+    line-height: rem(20);
+    color: #333;
+
+    h4 {
+      font-size: rem(18);
+      line-height: rem(21);
+      text-transform: uppercase;
+      margin-bottom: rem(18);
+    }
+
+    ul {
+      li {
+        &::before {
+          content: '• ';
+        }
+      }
+    }
+
+    &.active {
+      display: block;
+    }
+  }
+
+  @include element($parent, 'main-slider-slide') {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: rem(673);
+
+    img {
+      max-width: 100%;
+      max-height: 100%;
+    }
+  }
+
+  @include element($parent, 'main-slider') {
+    margin-bottom: rem(70);
   }
 }
 

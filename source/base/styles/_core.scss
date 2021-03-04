@@ -289,6 +289,18 @@ p {
       margin: rem(25) auto rem(30);
     }
   }
+
+  &--detail {
+    font-size: rem(24);
+    line-height: rem(28);
+    color: #0f0f0f;
+
+    @media (min-width: $tablet) {
+      font-size: rem(24);
+      line-height: rem(28);
+      margin-bottom: rem(32);
+    }
+  }
 }
 
 @keyframes fadeIn {

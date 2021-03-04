@@ -1,6 +1,8 @@
 import Header from '@/blocks/header/header';
 import Request from '@/blocks/request/request';
 import Counter from '@/blocks/counter/counter';
+import DetailAccordion from '../../blocks/detail/accordion/accordion';
+import DetailSlider from '../../blocks/detail/slider/detail-slider';
 
 require('./detail.scss');
 
@@ -9,6 +11,12 @@ Array.from(document.querySelectorAll('.header'))
 
 Array.from(document.querySelectorAll('.counter'))
   .forEach(block => block && new Counter(block));
+
+Array.from(document.querySelectorAll('.detail__accordion'))
+  .forEach(block => block && new DetailAccordion(block));
+
+Array.from(document.querySelectorAll('.detail__main-slider'))
+  .forEach(block => block && new DetailSlider(block));
 
 /* eslint-disable */
 function declOfNum(number, words) {

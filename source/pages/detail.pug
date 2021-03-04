@@ -24,7 +24,7 @@ block content
         current: true
       }
     ])
-    h1.title Ударные торцевые головки название товара в две строки
+    h1.title.title--detail Ударные торцевые головки название товара в две строки
     .detail
       .detail__header
         button.detail__header-button(type='button', data-button-like)
@@ -46,7 +46,11 @@ block content
           .detail__main-slider-container.swiper-container
             .detail__main-slider-wrapper.swiper-wrapper
               .detail__main-slider-slide.swiper-slide
-                img(src='/assets/images/goods-1.png', alt='alt')
+                img(src='/assets/images/first-1.png', alt='alt')
+              .detail__main-slider-slide.swiper-slide
+                img(src='/assets/images/first-1.png', alt='alt')
+              .detail__main-slider-slide.swiper-slide
+                img(src='/assets/images/first-1.png', alt='alt')
         .detail__main-info
           .detail__tabs-box
             .detail__tabs
@@ -66,7 +70,16 @@ block content
                 +svg('ask')
                 span Вопрос-ответ
             .detail__tabs-content-box
-              .detail__tabs-content
+              .detail__tabs-content.active
+                h4 Ударные торцевые головки название товара в две строки
+                | Набор инструментов предназначен для синхронизации коленвала и распредвала двигателей автомобилей VAG: Audi, Seat, Skoda, Volkswagen. Набор также используется для установки фаз ГРМ при сборке мотора, замене цепи ГРМ. В набор для замены цепи ГРМ VAG входят следующие инструменты:
+                ul
+                  li T10171 Фиксатор распредвала
+                  li T10170 Держатель микрометра часового типа
+                  li T10340 Фиксатор коленвала
+                  li T40011 Фиксатор ролика натяжителя ремня
+                  li Микрометр часового типа. Диапазон измерений от 0-8 мм, точность 0,01 мм
+                | Набор подходит для двигателей 1.4 FSI / TFSI и 1.6 FSI / MPI.
               .detail__tabs-content
               .detail__tabs-content
               .detail__tabs-content
@@ -114,20 +127,20 @@ block content
               .detail__accordion-title
                 +svg('shipped')
                 span Доставка
-              .detail__accordion-content Text for 1st accordion
+              .detail__accordion-content Text for 1st accordion Text for 1st accordion Text for 1st accordion Text for 1st accordion
             .detail__accordion-item
               .detail__accordion-title
                 +svg('credit-card')
                 span Варианты оплаты
-              .detail__accordion-content Text for 2nd accordion
+              .detail__accordion-content Text for 2nd accordion Text for 2nd accordion Text for 2nd accordion Text for 2nd accordion
             .detail__accordion-item
               .detail__accordion-title
                 +svg('medal')
                 span Наши преимущества
-              .detail__accordion-content Text for 3rd accordion
+              .detail__accordion-content Text for 3rd accordion Text for 3rd accordionText for 3rd accordion Text for 3rd accordion
             .detail__accordion-item
               .detail__accordion-title
                 +svg('shield')
                 span Предоставляем гарантии
-              .detail__accordion-content Text for 4th accordion
+              .detail__accordion-content Text for 4th accordion Text for 4th accordion Text for 4th accordion Text for 4th accordion
     +product-day()
