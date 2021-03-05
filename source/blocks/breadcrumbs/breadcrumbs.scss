@@ -3,6 +3,7 @@ $parent: breadcrumbs;
 @include block($parent) {
   display: inline-flex;
   align-items: center;
+  flex-wrap: wrap;
   padding: 0 rem(18);
 
   @include element($parent, 'item') {
