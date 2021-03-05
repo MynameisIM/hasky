@@ -2,6 +2,7 @@ extends ../layouts/main.pug
 
 include ../blocks/breadcrumbs/breadcrumbs
 include ../blocks/product-day/product-day
+include ../blocks/detail/rate/detail-rate
 include ../core/svg
 
 block vars
@@ -81,8 +82,30 @@ block content
                   li Микрометр часового типа. Диапазон измерений от 0-8 мм, точность 0,01 мм
                 | Набор подходит для двигателей 1.4 FSI / TFSI и 1.6 FSI / MPI.
               .detail__tabs-content
+                .detail__table.table
+                  .table__header
+                    .table__name Изделие
+                    .table__size Размер
+                    .table__weight Вес
+                    .table__dimensions Габариты
+                  .table__row
+                    .table__name Ключ на десять
+                    .table__size 10
+                    .table__weight 10 гр
+                    .table__dimensions 5х5х5 см
+                  .table__row
+                    .table__name Ключ на десять
+                    .table__size 10
+                    .table__weight 10 гр
+                    .table__dimensions 5х5х5 см
+                  .table__row
+                    .table__name Ключ на десять
+                    .table__size 10
+                    .table__weight 10 гр
+                    .table__dimensions 5х5х5 см
               .detail__tabs-content
               .detail__tabs-content
+          +detail-rate('4.8')
       .detail__aside
         .detail__aside-info-box
           .detail__aside-info

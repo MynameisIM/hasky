@@ -1,4 +1,5 @@
 $parent: detail;
+$table: table;
 
 @include block($parent) {
   width: 100%;
@@ -574,6 +575,58 @@ $parent: detail;
     @media (min-width: $desktop) {
       margin-bottom: rem(70);
     }
+  }
+}
+
+@include block($table) {
+  width: 100%;
+  font-weight: 500;
+  font-size: rem(13);
+  line-height: 1.5;
+  color: #333;
+  border: 1px solid #e5e5e5;
+
+  @include element($table, 'header') {
+    display: flex;
+    align-items: center;
+    font-size: rem(11);
+    padding: rem(16) 0;
+    background-color: #fafafa;
+    border-bottom: 1px solid #e5e5e5;
+  }
+
+  @include element($table, 'row') {
+    display: flex;
+    align-items: center;
+    padding: rem(25) 0;
+    border-bottom: 1px dashed #e5e5e5;
+
+    &:last-of-type {
+      border-bottom: none;
+    }
+  }
+
+  @include element($table, 'name') {
+    padding: 0 rem(20);
+    margin-right: auto;
+  }
+
+  @include element($table, 'size') {
+    width: rem(195);
+    padding: 0 rem(20);
+    text-align: center;
+  }
+
+  @include element($table, 'weight') {
+    width: rem(165);
+    padding: 0 rem(20);
+    text-align: center;
+  }
+
+  @include element($table, 'dimensions') {
+    width: rem(132);
+    padding: 0 rem(20);
+    text-align: center;
   }
 }
 

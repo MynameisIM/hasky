@@ -1,0 +1,12 @@
+mixin detail-rate(data)
+  .detail-rate.detail-rate--detail
+    svg(class='ring', expanded='true', height='200px', width='200px', viewport='0 0 200 200')
+      circle(cx='50%', cy='50%', r='97', stroke='url(#paint0_linear)', stroke-width='6px', fill='none')
+      defs
+        linearGradient(id='paint0_linear', x1='146', y1='13.999', x2='12', y2='69.999', gradientUnits='userSpaceOnUse')
+          stop(stop-color='#ff6e00')
+          stop(offset='1', stop-color='#ffc915')
+    .detail-rate__data
+      .detail-rate__count= data
+      .detail-rate__text общий рейтинг
+      a.detail-rate__link(href='#') 21 отзыв
