@@ -82,6 +82,10 @@ $parent: catalog-category;
     &:hover {
       color: $c07;
     }
+
+    @include modifier($parent, 'active') {
+      color: $c07;
+    }
   }
 
   @include element($parent, 'dropdown') {

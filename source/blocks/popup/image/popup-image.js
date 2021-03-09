@@ -17,11 +17,5 @@ export default class PopupImage {
         parent.classList.remove('open');
       });
     }
-
-    parent.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') {
-        parent.classList.remove('open');
-      }
-    });
   }
 }

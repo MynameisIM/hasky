@@ -212,7 +212,7 @@ export default class Header {
   }
 
   updateCart(e) {
-    if (e.detail && e.detail.basket) {
+    if (e.detail) {
       this.basketContainer.innerHTML = '';
       const basketData = e.detail.basket;
       const { count } = e.detail;
@@ -227,7 +227,8 @@ export default class Header {
         this.basketCount.innerHTML = count;
       }
 
-      if (count === 0) {
+      if (count === 0 && this.basketCount) {
+        this.basketCount.innerHTML = count;
         const container = this.parent.querySelector('.header__cart .header__cart-dropdown');
         if (container) {
           container.classList.remove('open');
@@ -246,7 +247,7 @@ export default class Header {
               </a>
               <div class="header__cart-dropdown-item-count">x<span>${obj.quantity || 0}</span></div>
               <div class="header__cart-dropdown-item-price">${obj.summ || 0}₽</div>
-              <button class="header__cart-dropdown-item-remove" type="button" data-id="${obj.id || ''}"></button>
+              <button class="header__cart-dropdown-item-remove" type="button" data-id="${obj.id || obj.product_id || ''}"></button>
             </div>`;
   }
 

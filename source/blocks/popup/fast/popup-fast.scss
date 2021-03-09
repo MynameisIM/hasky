@@ -9,7 +9,7 @@ $parent: popup-fast;
   align-items: flex-start;
   top: 0;
   left: 0;
-  z-index: 10;
+  z-index: 110;
   overflow: auto;
 
   @media (min-width: $tablet) {
@@ -277,11 +277,14 @@ $parent: popup-fast;
     height: rem(45);
     border: 1px solid #0776fa;
     border-radius: 2px;
+    transition: background-color 0.25s linear;
 
     svg {
       width: rem(24);
       height: rem(24);
       margin-right: rem(8);
+      fill: #4794eb;
+      transition: fill 0.25s linear;
     }
 
     span {
@@ -290,6 +293,19 @@ $parent: popup-fast;
       line-height: rem(13);
       color: #4794eb;
       text-transform: uppercase;
+      transition: color 0.25s linear;
+    }
+
+    &:hover {
+      background-color: $c07;
+
+      span {
+        color: $white;
+      }
+
+      svg {
+        fill: $white;
+      }
     }
   }
 
@@ -298,14 +314,17 @@ $parent: popup-fast;
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    background: #0776fa;
+    background-color: $c07;
     border-radius: rem(2);
+    border: 1px solid $c07;
+    transition: background-color 0.25s linear;
 
     span {
       font-weight: 600;
       font-size: rem(12);
       line-height: rem(18);
       color: $white;
+      transition: color 0.25s linear;
     }
 
     svg {
@@ -313,6 +332,19 @@ $parent: popup-fast;
       height: rem(20);
       fill: $white;
       margin-right: rem(10);
+      transition: fill 0.25s linear;
+    }
+
+    &:hover {
+      background-color: $white;
+
+      span {
+        color: $c07;
+      }
+
+      svg {
+        fill: $c07;
+      }
     }
   }
 

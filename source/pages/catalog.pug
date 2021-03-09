@@ -78,7 +78,13 @@ block content
               +svg('c-i-2')
             .catalog__view-item
               +svg('c-i-3')
-        .catalog__goods
-          each card in indexPage.goods.cards
-            +goods-card(card, 'catalog__card')
+        .catalog__goods-wrapper
+          .catalog__goods(data-compare='ajax/addCompare.php', data-likes='ajax/addFavorites.php', data-basket='/ajax/addBasket.php')
+            each card, index in indexPage.goods.cards
+              +goods-card(card, 'catalog__card', index)
+          .catalog__pagination-box
+            a.catalog__pagination(href='#') 1
+            a.catalog__pagination.active(href='#') 2
+            a.catalog__pagination(href='#') 3
+            a.catalog__pagination(href='#') 4
     +product-day()

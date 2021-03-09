@@ -10,23 +10,23 @@ mixin catalog-filter()
       .catalog-filter__form-group
         .catalog-filter__form-title Розничная цена
         .catalog-filter__form-box
-          input.catalog-filter__form-input(type='text', name='catalog-retail-from', data-from, value='1000', data-max='50000')
-          input.catalog-filter__form-input(type='text', name='catalog-retail-to', data-to, value='20000', data-max='50000')
+          input.catalog-filter__form-input(type='text', name='catalog-retail-from', data-from, value='1000', data-max='49590')
+          input.catalog-filter__form-input(type='text', name='catalog-retail-to', data-to, value='20000', data-max='49590')
           +range({
             inputs: [
               {
                 "from": true,
                 "value": 1000,
                 "name": "catalog-retail-from-range",
-                "min": 1,
-                "max": 50000
+                "min": 25,
+                "max": 49590
               },
               {
                 "from": false,
                 "value": 20000,
                 "name": "catalog-retail-to-range",
-                "min": 1,
-                "max": 50000
+                "min": 25,
+                "max": 49590
               }
             ]
           })

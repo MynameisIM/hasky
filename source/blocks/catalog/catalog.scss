@@ -30,10 +30,14 @@ $parent: catalog;
   @include element($parent, 'goods') {
     display: flex;
     flex-wrap: wrap;
-    margin: 0 rem(-4);
+    margin: 0 rem(-4) rem(25);
+
+    @media (min-width: $tablet) {
+      margin: 0 rem(-4) rem(34);
+    }
 
     @media (min-width: $desktop) {
-      margin: 0 rem(-15);
+      margin: 0 rem(-15) rem(40);
     }
   }
 
@@ -155,6 +159,37 @@ $parent: catalog;
 
     @media (min-width: $tablet) {
       display: none;
+    }
+  }
+
+  @include element($parent, 'pagination-box') {
+    display: flex;
+    justify-content: center;
+  }
+
+  @include element($parent, 'pagination') {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: rem(40);
+    height: rem(30);
+    font-weight: 500;
+    font-size: rem(12);
+    line-height: rem(14);
+    color: #4794eb;
+    border: 1px solid $c07;
+    border-radius: 3px;
+    margin: 0 rem(5);
+    transition: color 0.25s, background-color 0.25s linear;
+
+    &.active {
+      background-color: $c07;
+      color: $white;
+    }
+
+    &:hover {
+      background-color: $c07;
+      color: $white;
     }
   }
 }

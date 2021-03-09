@@ -11,8 +11,8 @@ export default class Range {
         sliders: 2,
         step: 1,
         values: [1000, 20000],
-        min: 1,
-        max: 50000,
+        min: Number(inputs[0].getAttribute('min')) || 1,
+        max: Number(inputs[1].getAttribute('max')) || 50000,
         modules: {
           labels: false,
         },

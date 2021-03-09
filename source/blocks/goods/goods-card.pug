@@ -1,5 +1,5 @@
-mixin goods-card(card, classMod)
-  .goods-card(data-id='goods-' + index, data-good, class=classMod ? classMod : '')
+mixin goods-card(card, classMod, cardIndex)
+  .goods-card(data-id='goods-' + cardIndex, data-good, class=classMod ? classMod : '')
     .goods-card__card-tag(class=card.tagSale ? 'persent' : '')= card.tag
     .goods-card__card-image
       img(src=card.src, alt='alt')

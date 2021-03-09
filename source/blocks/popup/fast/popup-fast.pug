@@ -2,7 +2,7 @@ include ../../../core/svg
 include ../../counter/counter
 
 mixin popup-fast(data)
-  .popup-fast.popup(id=data.id, data-likes="ajax/addFavorites.php", data-compare="ajax/addCompare.php")
+  .popup-fast.popup(id=data.id, data-likes="ajax/addFavorites.php", data-compare="ajax/addCompare.php", data-basket="/ajax/addBasket.php")
     .popup-fast__layout
     .popup-fast__content
       .popup-fast__header
@@ -47,7 +47,7 @@ mixin popup-fast(data)
             .popup-fast__buttons-box
               .popup-fast__buttons
                 +counter('elem')
-                button.popup-fast__button-add.elem(type='button')
+                button.popup-fast__button-add.elem(type='button', data-button-basket, data-add-count)
                   +svg('shopping-cart')
                   span В корзину
               button.popup-fast__button(type='button', data-ptype='popup-buy', data-view='/ajax/getProductInfo.php')

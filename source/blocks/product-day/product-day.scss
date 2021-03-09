@@ -3,10 +3,6 @@ $parent: product-day;
 @include block($parent) {
   margin-bottom: rem(42);
 
-  &.hide {
-    display: none;
-  }
-
   @media (min-width: $tablet) {
     margin-bottom: 0;
   }
@@ -503,6 +499,16 @@ $parent: product-day;
 
     @media (min-width: $portrait) {
       display: inline-flex;
+    }
+  }
+
+  &.hide {
+    @include element($parent, 'main') {
+      display: none;
+    }
+
+    @include element($parent, 'aside') {
+      margin-left: auto;
     }
   }
 }
