@@ -247,7 +247,7 @@ export default class Header {
               </a>
               <div class="header__cart-dropdown-item-count">x<span>${obj.quantity || 0}</span></div>
               <div class="header__cart-dropdown-item-price">${obj.summ || 0}₽</div>
-              <button class="header__cart-dropdown-item-remove" type="button" data-id="${obj.id || ''}"></button>
+              <button class="header__cart-dropdown-item-remove" type="button" data-id="${obj.id || obj.product_id || ''}"></button>
             </div>`;
   }
 

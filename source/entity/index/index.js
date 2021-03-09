@@ -175,6 +175,10 @@ if (!window.PAGE_DATA) {
               const name = popup.querySelector('[data-popup-name]');
               const descr = popup.querySelector('[data-popup-descr]');
               const img = popup.querySelector('[data-popup-image]');
+              const inputCounter = popup.querySelector('.counter .counter__input');
+              if (inputCounter) {
+                inputCounter.value = 1;
+              }
               if (priceContainer) {
                 if (responce.data.price_old === '') {
                   priceContainer.classList.add('popup-fast__price-container--no-sale');

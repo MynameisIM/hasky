@@ -10,6 +10,12 @@ export default class Popup {
         document.body.classList.remove('overflow');
       }
     });
+
+    document.body.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        parent.classList.remove('open');
+      }
+    });
   }
 
   static open(id) {
