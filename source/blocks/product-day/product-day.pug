@@ -35,7 +35,7 @@ mixin product-day()
             button.product-day__compare(type='button', data-button-compare)
               +svg('compare')
           .product-day__main-buttons
-            button.product-day__main-button.product-day__main-button--one-click(type='button', data-popup='popup-buy') Купить в один клик
+            button.product-day__main-button.product-day__main-button--one-click(type='button', data-ptype='popup-buy', data-view='/ajax/getProductInfo.php') Купить в один клик
             button.product-day__main-button.product-day__main-button--add(type='button', data-button-basket) Добавить в корзину
       a.product-day__sale(href='#')
         .product-day__sale-header

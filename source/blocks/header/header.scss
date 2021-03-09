@@ -445,6 +445,8 @@ $parent: header;
     }
 
     svg {
+      fill: $white;
+
       @media (min-width: $portrait) {
         width: rem(24);
         height: rem(24);
@@ -759,6 +761,7 @@ $parent: header;
     border-radius: rem(4);
     border: 1px solid $c07;
     padding: 0 rem(11);
+    transition: background-color 0.25s, color 0.25s linear;
 
     span {
       font-size: rem(13);
@@ -768,6 +771,14 @@ $parent: header;
 
     @include modifier($parent, 'sign-up') {
       margin-right: rem(2);
+
+      &:hover {
+        background-color: $c07;
+
+        span {
+          color: $white;
+        }
+      }
     }
 
     @include modifier($parent, 'auth') {
@@ -777,6 +788,18 @@ $parent: header;
       span {
         color: $white;
         margin-right: rem(12);
+      }
+
+      &:hover {
+        background-color: $white;
+
+        span {
+          color: $c07;
+        }
+
+        svg {
+          fill: $c07;
+        }
       }
     }
   }

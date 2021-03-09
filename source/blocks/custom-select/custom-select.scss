@@ -103,5 +103,9 @@
     #{$select}__list {
       z-index: 2;
     }
+
+    @media (min-width: $desktop) {
+      min-width: rem(220);
+    }
   }
 }

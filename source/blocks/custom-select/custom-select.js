@@ -34,8 +34,8 @@ export default class CustomSelect {
     container.append(dropdown);
 
     btn.onclick = () => {
-      dropdown.classList.add('custom-select__list--opened');
-      container.classList.add('custom-select--opened');
+      dropdown.classList.toggle('custom-select__list--opened');
+      container.classList.toggle('custom-select--opened');
     };
 
     document.addEventListener('click', (e) => {

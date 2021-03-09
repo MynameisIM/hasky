@@ -25,6 +25,12 @@ export default class Request {
                 const data = {
                   id: card.dataset.id,
                 };
+                if (likeBtn.hasAttribute('data-add-count')) {
+                  const count = el.querySelector('.counter .counter__input');
+                  if (count) {
+                    data.count = count.value;
+                  }
+                }
                 Axios.post(ajax, data).then((response) => {
                   if (response && response.data && response.data.basket) {
                     window.dispatchEvent(new window.CustomEvent('getBaskedData', { detail: { basket: response.data.basket, count: response.data.basket_count } }));
