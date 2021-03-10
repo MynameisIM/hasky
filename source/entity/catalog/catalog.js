@@ -1,7 +1,3 @@
-import Axios from 'axios/index';
-import Header from '@/blocks/header/header';
-import Popup from '@/blocks/popup/popup';
-import Form from '@/blocks/form/form';
 import Request from '@/blocks/request/request';
 import CatalogCategory from '@/blocks/catalog/category/catalog-category';
 import CatalogFilter from '@/blocks/catalog/filter/catalog-filter';
@@ -12,15 +8,6 @@ import PopupFast from '../../blocks/popup/fast/popup-fast';
 import PopupImage from '../../blocks/popup/image/popup-image';
 
 require('./catalog.scss');
-
-Array.from(document.querySelectorAll('.header'))
-  .forEach(block => block && new Header(block));
-
-Array.from(document.querySelectorAll('.popup'))
-  .forEach(block => block && new Popup(block));
-
-Array.from(document.querySelectorAll('.form'))
-  .forEach(block => block && new Form(block));
 
 Array.from(document.querySelectorAll('.catalog-category'))
   .forEach(block => block && new CatalogCategory(block));
@@ -45,15 +32,6 @@ Array.from(document.querySelectorAll('.popup-image'))
     new CustomSelect(item);
   }
 });
-
-Array.from(document.querySelectorAll('[data-popup]'))
-  .forEach((el) => {
-    if (el) {
-      el.addEventListener('click', () => {
-        Popup.open(el.dataset.popup);
-      });
-    }
-  });
 
 /* eslint-disable */
 function getParentWithClass(target, classname) {
@@ -129,131 +107,3 @@ const setId = setInterval(setTimer, 1000);
 /* eslint-enable */
 
 new Request();
-
-if (!window.PAGE_DATA) {
-  window.PAGE_DATA = {};
-  window.PAGE_DATA.cities = [
-    {
-      id: 1,
-      title: 'Ульяновск',
-    },
-    {
-      id: 2,
-      title: 'Москва',
-    },
-    {
-      id: 3,
-      title: 'Екатеринбург',
-    },
-    {
-      id: 4,
-      title: 'Нижний Новгород',
-    },
-    {
-      id: 5,
-      title: 'Ростов-на-Дону',
-    },
-    {
-      id: 6,
-      title: 'Самара',
-    },
-    {
-      id: 7,
-      title: 'Санкт-Петербург',
-    },
-    {
-      id: 8,
-      title: 'Уфа',
-    },
-    {
-      id: 9,
-      title: 'Челябинск',
-    },
-  ];
-}
-
-[].slice.call(document.querySelectorAll('[data-view]')).forEach((el) => {
-  if (el) {
-    el.addEventListener('click', () => {
-      if (getParentWithClass(el, 'data-id')) {
-        Axios.get(el.dataset.view, {
-          params: {
-            id: getParentWithClass(el, 'data-id').dataset.id,
-          },
-        }).then((responce) => {
-          if (responce && responce.data) {
-            const popup = document.getElementById(el.dataset.ptype);
-            if (popup) {
-              const priceContainer = popup.querySelector('.popup-fast__price-container');
-              const price = popup.querySelector('[data-popup-price]');
-              const priceOld = popup.querySelector('[data-popup-price-old]');
-              const priceBox = popup.querySelector('[data-popup-price-box]');
-              const name = popup.querySelector('[data-popup-name]');
-              const descr = popup.querySelector('[data-popup-descr]');
-              const img = popup.querySelector('[data-popup-image]');
-              const inputCounter = popup.querySelector('.counter .counter__input');
-              if (inputCounter) {
-                inputCounter.value = 1;
-              }
-              if (priceContainer) {
-                if (responce.data.price_old === '') {
-                  priceContainer.classList.add('popup-fast__price-container--no-sale');
-                } else {
-                  priceContainer.classList.remove('popup-fast__price-container--no-sale');
-                }
-              }
-
-              if (price && responce.data.price) {
-                price.innerHTML = responce.data.price;
-              }
-              if (priceOld && responce.data.price_old) {
-                priceOld.innerHTML = responce.data.price_old;
-              }
-              if (name && responce.data.name) {
-                name.innerHTML = responce.data.name;
-              }
-              if (descr && responce.data.description) {
-                descr.innerHTML = responce.data.description;
-              }
-              if (img && responce.data.picture) {
-                img.src = responce.data.picture;
-              }
-              if (priceBox &&
-                responce.data.characteristics &&
-                responce.data.characteristics.length > 0) {
-                priceBox.innerHTML = '';
-                responce.data.characteristics.forEach((obj) => {
-                  priceBox.insertAdjacentHTML('beforeend', `<div class="popup-fast__price-line"><span>${obj.name || ''}</span><span>${obj.value || ''}</span></div>`);
-                });
-              }
-              if (responce.data.pictures_slider && window.popupSw) {
-                if (responce.data.pictures_slider.length > 0) {
-                  setTimeout(() => {
-                    window.popupSw.removeAllSlides();
-                    responce.data.pictures_slider.forEach((src) => {
-                      window.popupSw.appendSlide(`<div class="popup-fast__main-slide swiper-slide"><img src="${src}" alt="alt"></div>`);
-                    });
-                    window.popupSw.slideTo(0);
-                  }, 0);
-                }
-              }
-              if (responce.data.pictures_full && window.popupImage) {
-                if (responce.data.pictures_full.length > 0) {
-                  setTimeout(() => {
-                    window.popupImage.removeAllSlides();
-                    responce.data.pictures_full.forEach((src) => {
-                      window.popupImage.appendSlide(`<div class="popup-image__slide swiper-slide"><img src="${src}" alt="alt"></div>`);
-                    });
-                    window.popupImage.slideTo(0);
-                  }, 0);
-                }
-              }
-              Popup.close();
-              Popup.open(el.dataset.ptype);
-            }
-          }
-        });
-      }
-    });
-  }
-});

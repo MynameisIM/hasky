@@ -1,4 +1,3 @@
-import Header from '@/blocks/header/header';
 import Request from '@/blocks/request/request';
 import Counter from '@/blocks/counter/counter';
 import DetailAccordion from '../../blocks/detail/accordion/accordion';
@@ -7,9 +6,6 @@ import DetailTabs from '../../blocks/detail/tabs/detail-tabs';
 import DetailRate from '../../blocks/detail/rate/detail-rate';
 
 require('./detail.scss');
-
-Array.from(document.querySelectorAll('.header'))
-  .forEach(block => block && new Header(block));
 
 Array.from(document.querySelectorAll('.counter'))
   .forEach(block => block && new Counter(block));
