@@ -1,5 +1,7 @@
 import Request from '@/blocks/request/request';
 import Counter from '@/blocks/counter/counter';
+import PopupFast from '@/blocks/popup/fast/popup-fast';
+import PopupImage from '@/blocks/popup/image/popup-image';
 import DetailAccordion from '../../blocks/detail/accordion/accordion';
 import DetailSlider from '../../blocks/detail/slider/detail-slider';
 import DetailTabs from '../../blocks/detail/tabs/detail-tabs';
@@ -21,6 +23,12 @@ Array.from(document.querySelectorAll('.detail__tabs-box'))
 
 Array.from(document.querySelectorAll('.detail-rate'))
   .forEach(block => block && new DetailRate(block));
+
+Array.from(document.querySelectorAll('.popup-fast'))
+  .forEach(block => block && new PopupFast(block));
+
+Array.from(document.querySelectorAll('.popup-image'))
+  .forEach(block => block && new PopupImage(block));
 
 /* eslint-disable */
 function declOfNum(number, words) {

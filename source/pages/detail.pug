@@ -106,9 +106,9 @@ block content
               .detail__tabs-content
               .detail__tabs-content
           +detail-rate('4.8')
-      .detail__aside
+      .detail__aside(data-basket='/ajax/addBasket.php')
         .detail__aside-info-box
-          .detail__aside-info
+          .detail__aside-info(data-id='123', data-good)
             .detail__aside-price-container
               .detail__aside-price(data-popup-price) 9 328 ₽
               .detail__aside-price.detail__aside-price--old(data-popup-price-old) 11 328 ₽
@@ -135,7 +135,7 @@ block content
             .detail__aside-buttons-box
               .detail__aside-buttons
                 +counter('elem')
-                button.detail__aside-button-add.elem(type='button')
+                button.detail__aside-button-add.elem(type='button', data-button-basket, data-add-count)
                   +svg('shopping-cart')
                   span В корзину
               button.detail__aside-button(type='button', data-ptype='popup-buy', data-view='/ajax/getProductInfo.php')
