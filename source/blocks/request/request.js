@@ -9,7 +9,7 @@ export default class Request {
     const addEvent = (parent, btn, url) => {
       parent.forEach((el) => {
         const items = [].slice.call(el.querySelectorAll('[data-good]'));
-        // const ajax = el.getAttribute(`${url}`);
+        const ajax = el.getAttribute(`${url}`);
 
         if (items.length > 0) {
           items.forEach((card) => {
@@ -26,7 +26,7 @@ export default class Request {
                     data.count = count.value;
                   }
                 }
-                Axios.get('./ajax/basket.json', data).then((response) => {
+                Axios.post(ajax, data).then((response) => {
                   if (response && response.data) {
                     window.dispatchEvent(new window.CustomEvent('getBaskedData', { detail: { basket: response.data.basket || null, count: response.data.basket_count || null, action: url } }));
                   }
