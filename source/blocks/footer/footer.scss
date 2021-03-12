@@ -322,12 +322,14 @@ $parent: footer;
   }
 
   @include element($parent, 'contacts-mail') {
+    display: block;
     font-weight: 600;
     font-size: rem(13);
     line-height: rem(26);
     color: $white;
     padding-right: rem(13);
     letter-spacing: 0.2px;
+    white-space: nowrap;
     transition: color 0.25s linear;
 
     &:hover {

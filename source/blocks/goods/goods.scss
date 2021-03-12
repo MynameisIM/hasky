@@ -177,6 +177,8 @@ $parent: goods;
   }
 
   @include element($parent, 'card-buttons') {
+    margin-top: auto;
+
     @media (min-width: $portrait) {
       display: flex;
       flex-wrap: wrap;
@@ -251,6 +253,8 @@ $parent: goods;
     margin: 0 rem(4) rem(8);
     transition: transform 0.25s linear;
     background-color: $white;
+    display: flex;
+    flex-direction: column;
 
     &:hover {
       transform: scale(1.08);

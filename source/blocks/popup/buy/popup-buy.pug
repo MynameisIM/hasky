@@ -11,14 +11,15 @@ mixin popup-buy(data)
         .popup-buy__main-text-box
           .popup-buy__main-title(data-popup-name) Ударные торцевые головки название товара в две строки
           .popup-buy__main-text(data-popup-descr) Набор инструментов предназначен для синхронизации коленвала и распредвала двигателей автомобилей VAG: Audi, Seat, Skoda, Volkswagen. Набор также используется для установки фаз ГРМ при сборке мотора, замене цепи ГРМ.
-      form.popup-buy__form.form(action='/ajax/fastBuy.php', method='get')
+      form.popup-buy__form.form-custom(action='/ajax/fastBuy.php', method='get')
+        input(type='hidden', name='buy_id')
         .popup-buy__form-group
-          input(type='text', name='buy_name', placeholder='Ваше имя')
+          input(type='text', name='buy_name', placeholder='Ваше имя', data-group-name)
         .popup-buy__form-group
-          input(type='text', name='buy_phone', placeholder='Ваш телефон')
+          input(type='text', name='buy_phone', placeholder='Ваш телефон', data-group-name)
         .popup-buy__form-text – ИЛИ –
         .popup-buy__form-group
-          input(type='email', name='buy_email', placeholder='Email')
+          input(type='email', name='buy_email', placeholder='Email', data-group-email)
         .popup-buy__form-footer
           button.popup-buy__form-submit(type='submit') Отправить
           .popup-buy__form-checkbox-wrapper

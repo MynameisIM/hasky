@@ -7,16 +7,16 @@ import CoreInput from '@/blocks/input/input';
 
 require('./order.scss');
 
-Array.from(document.querySelectorAll('.header'))
+[].slice.call(document.querySelectorAll('.header'))
   .forEach(block => block && new Header(block));
 
-Array.from(document.querySelectorAll('.popup'))
+[].slice.call(document.querySelectorAll('.popup'))
   .forEach(block => block && new Popup(block));
 
-Array.from(document.querySelectorAll('.form'))
+[].slice.call(document.querySelectorAll('.form'))
   .forEach(block => block && new Form(block));
 
-Array.from(document.querySelectorAll('[data-popup]'))
+[].slice.call(document.querySelectorAll('[data-popup]'))
   .forEach((el) => {
     if (el) {
       el.addEventListener('click', () => {

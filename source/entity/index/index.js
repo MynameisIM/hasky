@@ -6,16 +6,16 @@ import PopupImage from '../../blocks/popup/image/popup-image';
 
 require('./index.scss');
 
-Array.from(document.querySelectorAll('.first-screen'))
+[].slice.call(document.querySelectorAll('.first-screen'))
   .forEach(block => block && new FirstScreen(block));
 
-Array.from(document.querySelectorAll('.counter'))
+[].slice.call(document.querySelectorAll('.counter'))
   .forEach(block => block && new Counter(block));
 
-Array.from(document.querySelectorAll('.popup-fast'))
+[].slice.call(document.querySelectorAll('.popup-fast'))
   .forEach(block => block && new PopupFast(block));
 
-Array.from(document.querySelectorAll('.popup-image'))
+[].slice.call(document.querySelectorAll('.popup-image'))
   .forEach(block => block && new PopupImage(block));
 
 /* eslint-disable */

@@ -9,25 +9,25 @@ import DetailRate from '../../blocks/detail/rate/detail-rate';
 
 require('./detail.scss');
 
-Array.from(document.querySelectorAll('.counter'))
+[].slice.call(document.querySelectorAll('.counter'))
   .forEach(block => block && new Counter(block));
 
-Array.from(document.querySelectorAll('.detail__accordion'))
+[].slice.call(document.querySelectorAll('.detail__accordion'))
   .forEach(block => block && new DetailAccordion(block));
 
-Array.from(document.querySelectorAll('.detail__main-slider'))
+[].slice.call(document.querySelectorAll('.detail__main-slider'))
   .forEach(block => block && new DetailSlider(block));
 
-Array.from(document.querySelectorAll('.detail__tabs-box'))
+[].slice.call(document.querySelectorAll('.detail__tabs-box'))
   .forEach(block => block && new DetailTabs(block));
 
-Array.from(document.querySelectorAll('.detail-rate'))
+[].slice.call(document.querySelectorAll('.detail-rate'))
   .forEach(block => block && new DetailRate(block));
 
-Array.from(document.querySelectorAll('.popup-fast'))
+[].slice.call(document.querySelectorAll('.popup-fast'))
   .forEach(block => block && new PopupFast(block));
 
-Array.from(document.querySelectorAll('.popup-image'))
+[].slice.call(document.querySelectorAll('.popup-image'))
   .forEach(block => block && new PopupImage(block));
 
 /* eslint-disable */

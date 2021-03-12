@@ -5,16 +5,16 @@ import Axios from 'axios/index';
 
 require('./common.scss');
 
-Array.from(document.querySelectorAll('.header'))
+[].slice.call(document.querySelectorAll('.header'))
   .forEach(block => block && new Header(block));
 
-Array.from(document.querySelectorAll('.popup'))
+[].slice.call(document.querySelectorAll('.popup'))
   .forEach(block => block && new Popup(block));
 
-Array.from(document.querySelectorAll('.form'))
+[].slice.call(document.querySelectorAll('.form'))
   .forEach(block => block && new Form(block));
 
-Array.from(document.querySelectorAll('[data-popup]'))
+[].slice.call(document.querySelectorAll('[data-popup]'))
   .forEach((el) => {
     if (el) {
       el.addEventListener('click', () => {
@@ -95,7 +95,9 @@ function getParentWithClass(target, classname) {
               const name = popup.querySelector('[data-popup-name]');
               const descr = popup.querySelector('[data-popup-descr]');
               const img = popup.querySelector('[data-popup-image]');
+              const inputs = [].slice.call(popup.querySelectorAll('[data-group-name], [data-group-email]'));
               const inputCounter = popup.querySelector('.counter .counter__input');
+              const hiddenInputId = popup.querySelector('input[type=hidden]');
               if (inputCounter) {
                 inputCounter.value = 1;
               }
@@ -106,7 +108,9 @@ function getParentWithClass(target, classname) {
                   priceContainer.classList.remove('popup-fast__price-container--no-sale');
                 }
               }
-
+              if (inputs.length > 0) {
+                inputs.forEach(inpt => inpt.classList.remove('error'));
+              }
               if (price && responce.data.price) {
                 price.innerHTML = responce.data.price;
               }
@@ -152,6 +156,10 @@ function getParentWithClass(target, classname) {
                   }, 0);
                 }
               }
+
+              if (hiddenInputId) {
+                hiddenInputId.value = getParentWithClass(el, 'data-id').dataset.id;
+              }
               Popup.close();
               Popup.open(el.dataset.ptype);
             }
@@ -161,3 +169,38 @@ function getParentWithClass(target, classname) {
     });
   }
 });
+
+const customForms = [].slice.call(document.querySelectorAll('.form-custom'));
+
+const validateCustom = (form) => {
+  const elems = [].slice.call(form.querySelectorAll('[data-group-name], [data-group-email]'));
+  const errors = [];
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    elems.forEach(el => el.classList.remove('error'));
+    errors.length = 0;
+
+    elems.forEach((item) => {
+      if (item.value.length === 0) {
+        item.classList.add('error');
+        errors.push(item);
+      }
+    });
+
+    if (errors.length === 0
+      || !errors.find(input => input.type === 'email')
+      || !errors.find(input => input.type === 'text')) {
+      const data = new window.FormData(form);
+      Axios.post(form.getAttribute('data-url') || form.action, data).then(() => {
+        Popup.close();
+      });
+    }
+  });
+};
+
+if (customForms.length > 0) {
+  customForms.forEach((form) => {
+    validateCustom(form);
+  });
+}
