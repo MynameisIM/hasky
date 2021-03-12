@@ -1,6 +1,8 @@
 {
   "name": "test name",
   "description": "test description",
+  "availability": "123",
+  "measure": "шт",
   "picture": "/assets/images/goods-1.png",
   "price": 123,
   "price_old": "",

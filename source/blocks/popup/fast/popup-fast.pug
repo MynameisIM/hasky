@@ -33,11 +33,6 @@ mixin popup-fast(data)
             .popup-fast__availability-box
               .popup-fast__availability-text Наличие товара:
               .popup-fast__availability
-                span.green
-                span.green
-                span.green
-                span.green
-                span.green
             .popup-fast__price-box
               .popup-fast__price-box-title Оптовые цены
               .popup-fast__price-header
@@ -47,7 +42,7 @@ mixin popup-fast(data)
             .popup-fast__buttons-box
               .popup-fast__buttons
                 +counter('elem')
-                button.popup-fast__button-add.elem(type='button', data-button-basket, data-add-count)
+                button.popup-fast__button-add.elem(type='button', data-button-basket, data-add-count, data-redirect='/basket/')
                   +svg('shopping-cart')
                   span В корзину
               button.popup-fast__button(type='button', data-ptype='popup-buy', data-view='/ajax/getProductInfo.php')

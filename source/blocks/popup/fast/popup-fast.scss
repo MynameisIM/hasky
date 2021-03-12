@@ -178,6 +178,10 @@ $parent: popup-fast;
   @include element($parent, 'availability-box') {
     display: flex;
     align-items: center;
+    font-weight: 500;
+    font-size: rem(12);
+    line-height: rem(14);
+    color: #666;
     margin-bottom: rem(7);
   }
 

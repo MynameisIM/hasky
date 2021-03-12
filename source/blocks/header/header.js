@@ -220,7 +220,7 @@ export default class Header {
       const { count } = e.detail;
       const { action } = e.detail;
 
-      if (basketData.length > 0) {
+      if (basketData && basketData.length > 0) {
         basketData.forEach((goods) => {
           this.basketContainer.insertAdjacentHTML('beforeend', this.constructor.basketItemTemplate(goods));
         });

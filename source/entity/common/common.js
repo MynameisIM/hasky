@@ -95,6 +95,7 @@ function getParentWithClass(target, classname) {
               const name = popup.querySelector('[data-popup-name]');
               const descr = popup.querySelector('[data-popup-descr]');
               const img = popup.querySelector('[data-popup-image]');
+              const avGoods = popup.querySelector('.popup-fast__availability');
               const inputs = [].slice.call(popup.querySelectorAll('[data-group-name], [data-group-email]'));
               const inputCounter = popup.querySelector('.counter .counter__input');
               const hiddenInputId = popup.querySelector('input[type=hidden]');
@@ -155,6 +156,10 @@ function getParentWithClass(target, classname) {
                     window.popupImage.slideTo(0);
                   }, 0);
                 }
+              }
+
+              if (avGoods && responce.data.availability && responce.data.measure) {
+                avGoods.innerHTML = `${responce.data.availability} ${responce.data.measure}`;
               }
 
               if (hiddenInputId) {
