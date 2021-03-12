@@ -20,6 +20,8 @@ export default class Header {
     const citySpan = parent.querySelector('.header__geo span span');
     this.basketContainer = parent.querySelector('.header__cart-dropdown-list');
     this.basketCount = parent.querySelector('[data-header-basket]');
+    this.favoriteCount = parent.querySelector('[data-header-like]');
+    this.compareCount = parent.querySelector('[data-header-compare]');
     const geo = {
       btn: parent.querySelector('.header__geo'),
       drop: parent.querySelector('.header__geo-dropdown'),
@@ -216,6 +218,7 @@ export default class Header {
       this.basketContainer.innerHTML = '';
       const basketData = e.detail.basket;
       const { count } = e.detail;
+      const { action } = e.detail;
 
       if (basketData.length > 0) {
         basketData.forEach((goods) => {
@@ -223,8 +226,16 @@ export default class Header {
         });
       }
 
-      if (count && this.basketCount) {
+      if (count && this.basketCount && action && action === 'data-basket') {
         this.basketCount.innerHTML = count;
+      }
+
+      if (count && this.favoriteCount && action && action === 'data-likes') {
+        this.favoriteCount.innerHTML = count;
+      }
+
+      if (count && this.compareCount && action && action === 'data-compare') {
+        this.compareCount.innerHTML = count;
       }
 
       if (count === 0 && this.basketCount) {
