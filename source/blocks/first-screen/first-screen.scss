@@ -120,6 +120,14 @@ $parent: first-screen;
 
       @include element($parent, 'thumbs-slide-image') {
         transform: translateY(-30px);
+
+        @media (min-width: $tablet) {
+          transform: translateY(-20px);
+        }
+
+        @media (min-width: $desktop) {
+          transform: translateY(-25px);
+        }
       }
     }
   }
@@ -157,6 +165,16 @@ $parent: first-screen;
       max-width: 100%;
       max-height: 100%;
     }
+
+    @media (min-width: $tablet) {
+      min-height: 65%;
+      height: 65%;
+    }
+
+    @media (min-width: $portrait) {
+      min-height: 70%;
+      height: 70%;
+    }
   }
 
   @include element($parent, 'thumbs-slide-title') {
@@ -188,12 +206,16 @@ $parent: first-screen;
     justify-content: flex-end;
     align-items: flex-start;
     height: rem(348);
-    padding: rem(15) rem(17) rem(154);
+    padding: rem(15) rem(17) rem(134);
     overflow: hidden;
 
     @media (min-width: $tablet) {
       height: rem(582);
       padding: rem(15) rem(39) rem(128);
+    }
+
+    @media (min-width: $portrait) {
+      padding: rem(15) rem(39) rem(90);
     }
 
     @media (min-width: $desktop) {
@@ -268,7 +290,7 @@ $parent: first-screen;
     display: flex;
     justify-content: space-between;
     width: 100%;
-    bottom: rem(100);
+    bottom: rem(80);
     padding: 0 rem(17);
     pointer-events: none;
     z-index: 1;

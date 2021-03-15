@@ -65,7 +65,8 @@ $parent: goods-card;
       margin: 0 auto;
 
       @media (min-width: $tablet) {
-        width: 100%;
+        width: auto;
+        max-height: 100%;
       }
     }
 

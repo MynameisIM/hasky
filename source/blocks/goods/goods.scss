@@ -77,7 +77,8 @@ $parent: goods;
       margin: 0 auto;
 
       @media (min-width: $tablet) {
-        width: 100%;
+        width: auto;
+        max-height: 100%;
       }
     }
 
@@ -102,14 +103,16 @@ $parent: goods;
     overflow: hidden;
 
     @media (min-width: $tablet) {
-      max-height: rem(55);
-      min-height: rem(55);
+      max-height: rem(38);
+      min-height: rem(38);
       font-size: rem(16);
       line-height: rem(18);
       padding: 0 rem(10);
     }
 
     @media (min-width: $desktop) {
+      max-height: rem(48);
+      min-height: rem(48);
       font-size: rem(20);
       line-height: rem(23);
       margin-bottom: 0;
