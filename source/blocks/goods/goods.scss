@@ -143,6 +143,7 @@ $parent: goods;
     display: flex;
     align-items: center;
     padding: 0 rem(2);
+    margin-top: auto;
     margin-bottom: rem(13);
 
     @media (min-width: $tablet) {
@@ -180,8 +181,6 @@ $parent: goods;
   }
 
   @include element($parent, 'card-buttons') {
-    margin-top: auto;
-
     @media (min-width: $portrait) {
       display: flex;
       flex-wrap: wrap;

@@ -23,8 +23,12 @@ export default class FirstScreen {
         tb.removeAttribute('style');
         dFont = 16;
       }
-      while (tb.offsetWidth < (c.offsetWidth - 30)) {
-        tb.style.fontSize = `${dFont}px`;
+      while (tb.offsetWidth < (c.offsetWidth - 35)) {
+        if (window.innerWidth < 768) {
+          tb.style.fontSize = `${dFont}px`;
+        } else {
+          tb.style.fontSize = `${dFont - 15}px`;
+        }
         dFont += 1;
       }
     };

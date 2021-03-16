@@ -131,6 +131,7 @@ $parent: goods-card;
     display: flex;
     align-items: center;
     padding: 0 rem(2);
+    margin-top: auto;
     margin-bottom: rem(13);
 
     @media (min-width: $tablet) {

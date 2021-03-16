@@ -28,7 +28,13 @@ export default class Request {
                 }
                 Axios.post(ajax, data).then((response) => {
                   if (response && response.data) {
-                    window.dispatchEvent(new window.CustomEvent('getBaskedData', { detail: { basket: response.data.basket || null, count: response.data.basket_count || null, action: url } }));
+                    window.dispatchEvent(new window.CustomEvent('getBaskedData', {
+                      detail: {
+                        basket: response.data.basket || null,
+                        count: response.data.basket_count || null,
+                        action: url,
+                      },
+                    }));
 
                     if (likeBtn.hasAttribute('data-redirect')) {
                       window.location.href = likeBtn.getAttribute('data-redirect');

@@ -17,7 +17,7 @@ $parent: first-screen;
 
   @include element($parent, 'main-container') {
     @media (min-width: $desktop) {
-      width: 60%;
+      width: 65%;
     }
   }
 
@@ -189,6 +189,11 @@ $parent: first-screen;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow-y: hidden;
+    padding: 0 rem(10);
+
+    @media (min-width: $desktop) {
+      padding: 0 rem(15);
+    }
   }
 
   @include element($parent, 'thumbs-slide-price') {
