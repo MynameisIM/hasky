@@ -5,6 +5,7 @@ export default class PopupResponse {
     if (close) {
       close.addEventListener('click', () => {
         parent.classList.remove('open');
+        document.body.classList.remove('overflow');
       });
     }
 
