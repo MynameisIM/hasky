@@ -4,6 +4,7 @@ include ../blocks/popup/popup.pug
 include ../blocks/popup/buy/popup-buy.pug
 include ../blocks/popup/fast/popup-fast.pug
 include ../blocks/popup/image/popup-image.pug
+include ../blocks/popup/response/popup-response.pug
 
 -
   loadAssets = function(file) {
@@ -82,6 +83,10 @@ html(lang='ru')
       +popup-fast({
         title: 'Быстрый просмотр товаров',
         id: 'popup-fast'
+      })
+      +popup-response({
+        linkHref: '#',
+        linkText: 'Перейти в корзину'
       })
       +popup-image()
     block inits

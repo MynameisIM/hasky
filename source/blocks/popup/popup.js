@@ -14,6 +14,8 @@ export default class Popup {
     document.body.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
         parent.classList.remove('open');
+        document.body.classList.remove('overflow');
+        window.dispatchEvent(new window.CustomEvent('popupEscape'));
       }
     });
   }

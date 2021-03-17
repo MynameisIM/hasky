@@ -2,6 +2,7 @@ import Header from '@/blocks/header/header';
 import Popup from '@/blocks/popup/popup';
 import Form from '@/blocks/form/form';
 import Axios from 'axios/index';
+import PopupResponse from '@/blocks/popup/response/popup-response';
 
 require('./common.scss');
 
@@ -10,6 +11,9 @@ require('./common.scss');
 
 [].slice.call(document.querySelectorAll('.popup'))
   .forEach(block => block && new Popup(block));
+
+[].slice.call(document.querySelectorAll('.popup-response'))
+  .forEach(block => block && new PopupResponse(block));
 
 [].slice.call(document.querySelectorAll('.form'))
   .forEach(block => block && new Form(block));
