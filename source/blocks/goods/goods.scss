@@ -161,6 +161,7 @@ $parent: goods;
     font-size: rem(24);
     line-height: rem(28);
     color: $c41;
+    letter-spacing: rem(-0.5);
 
     @include modifier($parent, 'old') {
       font-weight: 400;
@@ -171,7 +172,7 @@ $parent: goods;
       margin-left: auto;
 
       @media (min-width: 375px) {
-        margin-left: rem(20);
+        margin-left: rem(15);
       }
     }
 

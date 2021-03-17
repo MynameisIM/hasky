@@ -2,6 +2,8 @@ $parent: goods-card;
 
 @include block($parent) {
   position: relative;
+  display: flex;
+  flex-direction: column;
   width: calc(50% - 8px);
   padding: rem(36) rem(8) rem(14);
   border: 1px solid $e2;
@@ -149,6 +151,7 @@ $parent: goods-card;
     font-size: rem(24);
     line-height: rem(28);
     color: $c41;
+    letter-spacing: rem(-0.5);
 
     @include modifier($parent, 'old') {
       font-weight: 400;
@@ -159,7 +162,7 @@ $parent: goods-card;
       margin-left: auto;
 
       @media (min-width: 375px) {
-        margin-left: rem(20);
+        margin-left: rem(15);
       }
     }
 
