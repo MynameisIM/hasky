@@ -5,6 +5,7 @@ export default class Request {
     const likeParent = [].slice.call(document.querySelectorAll('[data-likes]'));
     const compareParent = [].slice.call(document.querySelectorAll('[data-compare]'));
     const basketParent = [].slice.call(document.querySelectorAll('[data-basket]'));
+    const infoPopup = document.getElementById('popup-response');
 
     const addEvent = (parent, btn, url) => {
       parent.forEach((el) => {
@@ -14,7 +15,6 @@ export default class Request {
         if (items.length > 0) {
           items.forEach((card) => {
             const likeBtn = card.querySelector(`[${btn}]`);
-
             if (likeBtn) {
               likeBtn.addEventListener('click', () => {
                 const data = {
@@ -38,6 +38,12 @@ export default class Request {
 
                     if (likeBtn.hasAttribute('data-redirect')) {
                       window.location.href = likeBtn.getAttribute('data-redirect');
+                    }
+                    if (infoPopup) {
+                      window.dispatchEvent(new window.CustomEvent('updateInfoPopup', {
+                        detail: response.data,
+                      }));
+                      infoPopup.classList.add('open');
                     }
                   }
                 });

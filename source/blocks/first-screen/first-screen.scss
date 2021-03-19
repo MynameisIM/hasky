@@ -2,6 +2,12 @@ $parent: first-screen;
 
 @include block($parent) {
   position: relative;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  &.background {
+    background-image: url(../../assets/images/bgimage.jpg);
+  }
 
   @media (min-width: $tablet) {
     margin-bottom: rem(50);

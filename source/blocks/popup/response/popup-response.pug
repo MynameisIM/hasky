@@ -1,13 +1,7 @@
 mixin popup-response(data)
-  .popup-response
+  .popup-response(id='popup-response')
     .popup-response__box
       .popup-response__content
         button.popup-response__close(type='button')
         .popup-response__text-box
-          .popup-response__text-block
-            span В корзине:
-            span 1 товар
-          .popup-response__text-block
-            span На сумму:
-            span 15 000 ₽
         a.popup-response__link(href=data.linkHref)=data.linkText

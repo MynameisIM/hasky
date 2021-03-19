@@ -1,0 +1,10 @@
+{
+  "basket": [],
+  "basket_count": 1,
+  "buttonLink": "/basket/",
+  "buttonText": "Перейти в корзину",
+  "code": "Товар успешно добавлен в корзину",
+  "text1": "<span>В корзине:</span><span>1 товар</span>",
+  "text2": "<span>На сумму:</span><span>2 090 ₽</span>",
+  "total_price": 2090
+}
