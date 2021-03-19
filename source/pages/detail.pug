@@ -3,6 +3,8 @@ extends ../layouts/main.pug
 include ../blocks/breadcrumbs/breadcrumbs
 include ../blocks/product-day/product-day
 include ../blocks/detail/rate/detail-rate
+include ../blocks/detail/review/detail-review
+include ../blocks/detail/faq/detail-faq
 include ../core/svg
 
 block vars
@@ -104,7 +106,9 @@ block content
                     .table__weight 10 гр
                     .table__dimensions 5х5х5 см
               .detail__tabs-content
+                +detail-review()
               .detail__tabs-content
+                +detail-faq()
           +detail-rate('4.8')
       .detail__aside(data-basket='/ajax/addBasket.php')
         .detail__aside-info-box

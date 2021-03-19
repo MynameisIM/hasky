@@ -1,0 +1,88 @@
+$parent: detail-faq;
+
+@include block($parent) {
+  @include element($parent, 'title') {
+    font-size: rem(18);
+    line-height: rem(21);
+    color: #333;
+    text-transform: uppercase;
+    margin-bottom: rem(22);
+  }
+
+  @include element($parent, 'data') {
+    display: flex;
+    margin-bottom: rem(32);
+  }
+
+  @include element($parent, 'data-item') {
+    margin-right: rem(32);
+
+    span {
+      font-size: rem(14);
+      line-height: rem(16);
+
+      &:last-of-type {
+        color: $c07;
+        padding-left: rem(5);
+      }
+    }
+  }
+
+  @include element($parent, 'question') {
+    padding-bottom: rem(22);
+    margin-bottom: rem(18);
+    border-bottom: 1px solid #cdcdcd;
+  }
+
+  @include element($parent, 'question-ask') {
+    font-size: rem(11);
+    line-height: rem(13);
+    color: #808080;
+    margin-bottom: rem(10);
+  }
+
+  @include element($parent, 'question-title') {
+    font-weight: 500;
+    font-size: rem(16);
+    margin-bottom: rem(19);
+  }
+
+  @include element($parent, 'question-text') {
+    font-size: rem(14);
+    margin-bottom: rem(20);
+  }
+
+  @include element($parent, 'footer') {
+    display: flex;
+    align-items: center;
+  }
+
+  @include element($parent, 'author') {
+    display: flex;
+    align-items: center;
+    margin-right: rem(110);
+
+    img {
+      width: rem(18);
+      max-width: rem(18);
+      height: rem(18);
+      max-height: rem(18);
+      margin-right: rem(9);
+    }
+
+    span {
+      font-size: rem(12);
+      line-height: rem(14);
+    }
+  }
+
+  @include element($parent, 'answer') {
+    padding-left: rem(40);
+  }
+
+  @include element($parent, 'date') {
+    font-size: rem(12);
+    line-height: rem(14);
+    color: #333;
+  }
+}

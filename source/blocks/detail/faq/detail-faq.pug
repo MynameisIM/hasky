@@ -1,0 +1,50 @@
+include ../../custom-select/custom-select
+
+mixin detail-faq()
+  .detail-faq
+    .detail-faq__title вопрос-ответ
+    +custom-select([{
+      text: 'Фильтр',
+      value: 'default'
+    },
+    {
+      text: 'Фильтр по темам',
+      value: 'themes',
+      selected: true
+    },
+    {
+      text: 'Фильтр по дате',
+      value: 'date'
+    }], 'custom-select--faq', 'sort')
+    .detail-faq__data
+      .detail-faq__data-item
+        span Вопросы:
+        span 2
+      .detail-faq__data-item
+        span Ответы:
+        span 1
+      .detail-faq__data-item
+        span Вопросы без ответов:
+        span 1
+    .detail-faq__list
+      .detail-faq__question
+        .detail-faq__question-ask Помогите с выбором?
+        .detail-faq__question-title Комплектация
+        .detail-faq__question-text Какой андроид стоит и подерживает ли ZOOM
+        .detail-faq__footer
+          .detail-faq__author
+            img(src='/assets/images/user-author.jpg', alt='alt')
+            span Антон
+          .detail-faq__right-box
+            span.detail-faq__date 15 декабря 2020 г. 08:19
+      .detail-faq__question
+        .detail-faq__question-ask Помогите с выбором?
+        .detail-faq__question-title Комплектация
+        .detail-faq__question-text Какой андроид стоит и подерживает ли ZOOM
+        .detail-faq__footer
+          .detail-faq__author
+            img(src='/assets/images/user-author.jpg', alt='alt')
+            span Антон
+          .detail-faq__right-box
+            span.detail-faq__date 15 декабря 2020 г. 08:19
+        .detail-faq__answer

@@ -2,6 +2,7 @@ import Request from '@/blocks/request/request';
 import Counter from '@/blocks/counter/counter';
 import PopupFast from '@/blocks/popup/fast/popup-fast';
 import PopupImage from '@/blocks/popup/image/popup-image';
+import CustomSelect from '@/blocks/custom-select/custom-select';
 import DetailAccordion from '../../blocks/detail/accordion/accordion';
 import DetailSlider from '../../blocks/detail/slider/detail-slider';
 import DetailTabs from '../../blocks/detail/tabs/detail-tabs';
@@ -29,6 +30,12 @@ require('./detail.scss');
 
 [].slice.call(document.querySelectorAll('.popup-image'))
   .forEach(block => block && new PopupImage(block));
+
+[].slice.call(document.querySelectorAll('.custom-select')).forEach((item) => {
+  if (item) {
+    new CustomSelect(item);
+  }
+});
 
 /* eslint-disable */
 function declOfNum(number, words) {

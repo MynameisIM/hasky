@@ -108,4 +108,38 @@
       min-width: rem(220);
     }
   }
+
+  &--faq {
+    width: auto;
+    min-width: auto;
+    margin-bottom: rem(30);
+
+    &::after {
+      top: 12px;
+    }
+
+    &#{$select}--opened {
+      &::after {
+        top: 8px;
+      }
+    }
+
+    #{$select}__btn {
+      padding: 7px 40px 7px 12px;
+      color: #808080;
+      font-size: rem(11);
+
+      @media (min-width: $tablet) {
+        font-size: rem(14);
+      }
+    }
+
+    #{$select}__list {
+      z-index: 2;
+    }
+
+    @media (min-width: $desktop) {
+      min-width: rem(220);
+    }
+  }
 }
