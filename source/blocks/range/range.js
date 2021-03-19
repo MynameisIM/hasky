@@ -25,6 +25,7 @@ export default class Range {
         } else {
           to.value = value;
         }
+        window.dispatchEvent(new window.CustomEvent('updateCatalogFilter'));
       });
 
       if (from && to) {
@@ -37,6 +38,7 @@ export default class Range {
           }
           from.value = from.value.replace(/\D/g, '');
           jsr.setValue(0, +from.value);
+          window.dispatchEvent(new window.CustomEvent('updateCatalogFilter'));
         });
 
         to.addEventListener('input', () => {
@@ -48,6 +50,7 @@ export default class Range {
           }
           to.value = to.value.replace(/\D/g, '');
           jsr.setValue(1, +to.value);
+          window.dispatchEvent(new window.CustomEvent('updateCatalogFilter'));
         });
       }
     }

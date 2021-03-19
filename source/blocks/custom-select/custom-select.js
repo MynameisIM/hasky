@@ -17,7 +17,6 @@ export default class CustomSelect {
       if (optionsItem[i].hasAttribute('selected')) {
         btn.textContent = dropitem.textContent;
         select.selectedIndex = i;
-        select.dispatchEvent(new window.Event('change'));
       }
 
       dropitem.onclick = () => {

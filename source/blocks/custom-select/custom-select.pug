@@ -1,5 +1,5 @@
-mixin custom-select(items, nameClass)
+mixin custom-select(items, nameClass, name)
   .custom-select(class=nameClass)
-    select.custom-select__select
+    select.custom-select__select(name=name, form='catalog-filter')
       each item in items
         option.custom-select__option(value=item.value, selected=item.selected) #{item.text}
