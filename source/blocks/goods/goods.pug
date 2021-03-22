@@ -8,21 +8,24 @@ mixin goods(data)
          each card, index in data.cards
            .goods__card(data-id='goods-'+index, data-good)
              .goods__card-tag(class=card.tagSale ? 'persent': '')= card.tag
-             .goods__card-image
-               img(src=card.src, alt='alt')
-             .goods__card-title= card.title
-             .goods__card-article Артикул:
-               span= card.article
-             .goods__card-price-box
-               span.goods__card-price.sale= card.price
-               span.goods__card-price.goods__card-price--old= card.oldPrice
-             .goods__card-buttons
-               button.goods__card-button.goods__card-button--one-click(type='button', data-ptype='popup-buy', data-view='/ajax/getProductInfo.php') Купить в 1 клик
-               button.goods__card-button.goods__card-button--add(type='button', data-button-basket) Добавить в корзину
-               .goods__card-hidden-buttons
-                 button.goods__cards-hidden-button(type='button', data-button-like)
-                   +svg('like')
-                 button.goods__cards-hidden-button(type='button', data-button-compare)
-                   +svg('compare')
-                 button.goods__cards-hidden-button(type='button', data-ptype='popup-fast' data-view='/ajax/getProductInfo.php')
-                   +svg('eye')
+             .goods__image-wapeer
+               .goods__card-image
+                 img(src=card.src, alt='alt')
+               .goods__text-wrapper
+                 .goods__card-title= card.title
+                 .goods__card-article Артикул:
+                   span= card.article
+             .goods__price-wrapper
+               .goods__card-price-box
+                 span.goods__card-price.sale= card.price
+                 span.goods__card-price.goods__card-price--old= card.oldPrice
+               .goods__card-buttons
+                 button.goods__card-button.goods__card-button--one-click(type='button', data-ptype='popup-buy', data-view='/ajax/getProductInfo.php') Купить в 1 клик
+                 button.goods__card-button.goods__card-button--add(type='button', data-button-basket) Добавить в корзину
+                 .goods__card-hidden-buttons
+                   button.goods__cards-hidden-button(type='button', data-button-like)
+                     +svg('like')
+                   button.goods__cards-hidden-button(type='button', data-button-compare)
+                     +svg('compare')
+                   button.goods__cards-hidden-button(type='button', data-ptype='popup-fast' data-view='/ajax/getProductInfo.php')
+                     +svg('eye')
