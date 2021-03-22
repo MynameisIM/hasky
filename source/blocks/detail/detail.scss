@@ -81,6 +81,7 @@ $table: table;
   }
 
   @include element($parent, 'main-info') {
+    position: relative;
     order: 1;
   }
 
@@ -324,6 +325,7 @@ $table: table;
     @media (min-width: $tablet) {
       width: rem(256);
       margin-right: rem(14);
+      margin-bottom: rem(220);
     }
 
     @media (min-width: $desktop) {
@@ -372,6 +374,7 @@ $table: table;
       fill: #808080;
     }
 
+    a,
     span {
       font-size: rem(14);
       line-height: rem(16);
@@ -389,6 +392,7 @@ $table: table;
         left: -1px;
       }
 
+      a,
       span {
         color: $c07;
         transition: color 0.25s linear;
@@ -401,6 +405,7 @@ $table: table;
     }
 
     &:hover {
+      a,
       span {
         color: $c07;
       }
@@ -642,5 +647,26 @@ $table: table;
 
   @media (min-width: $portrait) {
     padding: rem(30) rem(26) rem(50);
+  }
+}
+
+.detail-button {
+  font-weight: 500;
+  font-size: rem(14);
+  line-height: rem(16);
+  letter-spacing: 0.09em;
+  background-color: $c07;
+  color: $white;
+  text-transform: uppercase;
+  padding: rem(16) rem(33);
+  margin-bottom: rem(33);
+  border: 1px solid $c07;
+  transition: background-color 0.25s, color 0.25s linear;
+
+  @media (min-width: $desktop) {
+    &:hover {
+      background-color: $white;
+      color: $c07;
+    }
   }
 }

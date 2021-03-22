@@ -946,16 +946,21 @@ $parent: header;
 
   @include element($parent, 'geo-dropdown') {
     position: absolute;
-    width: rem(400);
+    width: rem(310);
     background-color: $white;
     border-radius: rem(4);
     top: calc(100% + 8px);
     left: 0;
     color: #0f0f0f;
     z-index: 1;
-    padding: rem(27) rem(35);
+    padding: rem(20) rem(15);
     box-shadow: 0 rem(8) rem(16) rgba(0, 0, 0, 0.1);
     display: none;
+
+    @media (min-width: $tablet) {
+      width: rem(400);
+      padding: rem(27) rem(35);
+    }
 
     &.open {
       display: block;

@@ -1,20 +1,15 @@
 export default class DetailTabs {
   constructor(parent) {
-    const tabs = [].slice.call(parent.querySelectorAll('.detail__tab'));
-    const contents = [].slice.call(parent.querySelectorAll('.detail__tabs-content'));
+    this.tabs = [].slice.call(parent.querySelectorAll('.detail__tab'));
+    this.contents = [].slice.call(parent.querySelectorAll('.detail__tabs-content'));
     const contentsContainer = parent.querySelector('.detail__tabs-content-box');
+    const rateLink = document.querySelector('.detail-rate .detail-rate__link');
 
-    if (tabs.length > 0 && contents.length > 0 && contentsContainer) {
-      tabs.forEach((tab, index) => {
+    if (this.tabs.length > 0 && this.contents.length > 0 && contentsContainer) {
+      this.tabs.forEach((tab, index) => {
         if (tab) {
           tab.addEventListener('click', () => {
-            tabs.forEach(el => el.classList.remove('active'));
-            contents.forEach(el => el.classList.remove('active'));
-
-            tab.classList.add('active');
-            if (contents[index]) {
-              contents[index].classList.add('active');
-            }
+            this.openTab(tab, index);
           });
         }
       });
@@ -25,11 +20,11 @@ export default class DetailTabs {
 
       const moveElems = () => {
         if (window.innerWidth <= 767) {
-          tabs.forEach((tab, index) => {
-            insertAfter(contents[index], tab);
+          this.tabs.forEach((tab, index) => {
+            insertAfter(this.contents[index], tab);
           });
         } else {
-          contents.forEach((el) => {
+          this.contents.forEach((el) => {
             contentsContainer.appendChild(el);
           });
         }
@@ -38,6 +33,40 @@ export default class DetailTabs {
       moveElems();
 
       window.addEventListener('resize', moveElems);
+    }
+
+    if (/#\w+/.test(window.location.href)) {
+      this.openTabWithHash();
+    }
+
+    if (rateLink) {
+      rateLink.addEventListener('click', () => {
+        setTimeout(() => {
+          this.openTabWithHash();
+        }, 100);
+      });
+    }
+  }
+
+  openTab(tab, index) {
+    this.tabs.forEach(el => el.classList.remove('active'));
+    this.contents.forEach(el => el.classList.remove('active'));
+
+    tab.classList.add('active');
+    if (this.contents[index]) {
+      this.contents[index].classList.add('active');
+    }
+  }
+
+  openTabWithHash() {
+    const hash = window.location.href.split('#').pop();
+    if (hash && hash.length > 0) {
+      const currentTab = this.tabs.find(el => el.querySelector(`a[href="#${hash}"]`));
+      const currentIndex = this.tabs.findIndex(el => el.querySelector(`a[href="#${hash}"]`));
+
+      if (currentTab && currentIndex !== -1) {
+        this.openTab(currentTab, currentIndex);
+      }
     }
   }
 }

@@ -9,18 +9,6 @@ $parent: detail-review;
     margin-bottom: rem(23);
   }
 
-  @include element($parent, 'add-review') {
-    font-weight: 500;
-    font-size: rem(14);
-    line-height: rem(16);
-    letter-spacing: 0.09em;
-    background-color: $c07;
-    color: $white;
-    text-transform: uppercase;
-    padding: rem(16) rem(33);
-    margin-bottom: rem(33);
-  }
-
   @include element($parent, 'item') {
     border: 1px solid #e5e5e5;
     border-radius: 3px;

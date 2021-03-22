@@ -2,12 +2,6 @@ $parent: first-screen;
 
 @include block($parent) {
   position: relative;
-  background-repeat: no-repeat;
-  background-size: cover;
-
-  &.background {
-    background-image: url(../../assets/images/bgimage.jpg);
-  }
 
   @media (min-width: $tablet) {
     margin-bottom: rem(50);
@@ -19,12 +13,6 @@ $parent: first-screen;
 
   @media (min-width: 1900px) {
     margin-bottom: rem(130);
-  }
-
-  @include element($parent, 'main-container') {
-    @media (min-width: $desktop) {
-      width: 65%;
-    }
   }
 
   @include element($parent, 'thumbs-buttons') {
@@ -211,6 +199,15 @@ $parent: first-screen;
   }
 
   @include element($parent, 'main-slide') {
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    &.background {
+      background-image: url(../../assets/images/bgimage.jpg);
+    }
+  }
+
+  @include element($parent, 'main-slide-wrapper') {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -230,8 +227,10 @@ $parent: first-screen;
     }
 
     @media (min-width: $desktop) {
+      width: 65%;
       height: calc(100vh - 150px);
       padding: rem(15) rem(44) rem(112);
+      margin: 0 auto;
     }
   }
 
@@ -316,7 +315,7 @@ $parent: first-screen;
 
     @media (min-width: $desktop) {
       flex-direction: row;
-      right: 0;
+      right: calc(35% - 332px);
       bottom: rem(135);
     }
   }
@@ -368,6 +367,7 @@ $parent: first-screen;
   @include element($parent, 'thumbs-box') {
     @media (min-width: $tablet) {
       display: flex;
+      margin-top: rem(-55);
     }
   }
 

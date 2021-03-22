@@ -148,10 +148,14 @@ $parent: goods-card;
 
   @include element($parent, 'card-price') {
     font-weight: 700;
-    font-size: rem(24);
+    font-size: rem(21);
     line-height: rem(28);
     color: $c41;
     letter-spacing: rem(-0.5);
+
+    @media (min-width: $tablet) {
+      font-size: rem(24);
+    }
 
     @include modifier($parent, 'old') {
       font-weight: 400;

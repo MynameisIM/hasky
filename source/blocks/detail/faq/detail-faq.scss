@@ -78,6 +78,10 @@ $parent: detail-faq;
 
   @include element($parent, 'answer') {
     padding-left: rem(40);
+
+    @include element($parent, 'question-text') {
+      margin-top: rem(15);
+    }
   }
 
   @include element($parent, 'date') {

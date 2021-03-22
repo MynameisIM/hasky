@@ -13,7 +13,9 @@ $parent: detail-rate;
   }
 
   @include modifier($parent, 'detail') {
-    margin: rem(40) 0 0 rem(40);
+    position: absolute;
+    left: 30px;
+    top: 330px;
   }
 
   svg {

@@ -42,9 +42,12 @@ export default class FirstScreen {
       on: {
         slideChange() {
           this.slides.forEach((slide) => {
-            const tb = slide.querySelector('.first-screen__main-slide-title:not(.init)');
-            if (tb) {
-              setFontSize(slide, tb);
+            const wrapper = slide.querySelector('.first-screen__main-slide-wrapper');
+            if (wrapper) {
+              const tb = slide.querySelector('.first-screen__main-slide-title:not(.init)');
+              if (tb) {
+                setFontSize(wrapper, tb);
+              }
             }
           });
         },
@@ -63,12 +66,15 @@ export default class FirstScreen {
 
     if (slides.length > 0) {
       slides.forEach((slide) => {
-        const text = slide.querySelector('.first-screen__main-slide-title');
-        if (!text.classList.contains('init')) {
-          setFontSize(slide, text);
-        }
+        const wrapper = slide.querySelector('.first-screen__main-slide-wrapper');
+        if (wrapper) {
+          const text = wrapper.querySelector('.first-screen__main-slide-title');
+          if (!text.classList.contains('init')) {
+            setFontSize(wrapper, text);
+          }
 
-        window.addEventListener('resize', setFontSize.bind(this, slide, text));
+          window.addEventListener('resize', setFontSize.bind(this, wrapper, text));
+        }
       });
     }
   }
