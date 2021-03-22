@@ -28,18 +28,18 @@ block content
       }
     ])
     h1.title.title--detail Ударные торцевые головки название товара в две строки
-    .detail
-      .detail__header
+    .detail(data-compare='ajax/addCompare.php', data-likes='ajax/addFavorites.php')
+      .detail__header(data-id='goods-1', data-good)
         button.detail__header-button(type='button', data-button-like)
           +svg('like')
           span Избранное
-        button.detail__header-button(type='button', data-button-like)
+        button.detail__header-button(type='button', data-button-compare)
           +svg('compare')
-          span Избранное
-        button.detail__header-button(type='button', data-button-like)
+          span Сравнение
+        button.detail__header-button(type='button')
           +svg('share')
           span Поделиться
-        button.detail__header-button(type='button', data-button-like)
+        button.detail__header-button(type='button')
           +svg('conversation')
           span Задать вопрос
         span.detail__header-code КОД:

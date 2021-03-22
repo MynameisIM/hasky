@@ -53,7 +53,7 @@ function setTimer() {
     mins.innerHTML = timeLeft[2] < 10 ? `0${timeLeft[2]}`: timeLeft[2];
     minsT.innerHTML = declOfNum(timeLeft[2], ['минута', 'минуты', 'минут']);
     seconds.innerHTML = timeLeft[3] < 10 ? `<span>0</span><span>${timeLeft[3]}</span>`: `<span>${String(timeLeft[3]).split('')[0]}</span><span>${String(timeLeft[3]).split('')[1]}</span>`;
-    secondsT.innerHTML = declOfNum(timeLeft[3], ['секунда', 'секнды', 'секунд']);
+    secondsT.innerHTML = declOfNum(timeLeft[3], ['секунда', 'секунды', 'секунд']);
   } else {
     clearInterval(setId);
   }
