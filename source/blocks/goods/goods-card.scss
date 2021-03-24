@@ -241,4 +241,8 @@ $parent: goods-card;
       fill: $c7d;
     }
   }
+
+  @include element($parent, 'price-wrapper') {
+    margin-top: auto;
+  }
 }
