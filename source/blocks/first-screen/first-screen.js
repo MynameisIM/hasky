@@ -17,19 +17,21 @@ export default class FirstScreen {
       },
     };
     const setFontSize = (c, tb) => {
-      tb.classList.add('init');
-      let dFont = parseInt(getComputedStyle(tb)['font-size'], 10);
-      if (tb.offsetWidth >= c.offsetWidth) {
-        tb.removeAttribute('style');
-        dFont = 16;
-      }
-      while (tb.offsetWidth < (c.offsetWidth - 35)) {
-        if (window.innerWidth < 768) {
-          tb.style.fontSize = `${dFont}px`;
-        } else {
-          tb.style.fontSize = `${dFont - 15}px`;
+      if (tb && tb.textContent.length > 2) {
+        tb.classList.add('init');
+        let dFont = parseInt(getComputedStyle(tb)['font-size'], 10);
+        if (tb.offsetWidth >= c.offsetWidth) {
+          tb.removeAttribute('style');
+          dFont = 16;
         }
-        dFont += 1;
+        while (tb.offsetWidth < (c.offsetWidth - 35)) {
+          if (window.innerWidth < 768) {
+            tb.style.fontSize = `${dFont}px`;
+          } else {
+            tb.style.fontSize = `${dFont - 15}px`;
+          }
+          dFont += 1;
+        }
       }
     };
     const sw = new Swiper(thumbSlider, thumbOptions);
