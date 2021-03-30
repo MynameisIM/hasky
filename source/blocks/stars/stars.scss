@@ -4,6 +4,8 @@ $parent: stars;
   display: flex;
 
   label {
+    pointer-events: none;
+
     svg {
       width: rem(16);
       height: rem(16);
@@ -13,5 +15,45 @@ $parent: stars;
 
   input {
     display: none;
+  }
+
+  &[data-rate='1'] {
+    label:nth-child(-n + 2) {
+      svg {
+        fill: #fac917;
+      }
+    }
+  }
+
+  &[data-rate='2'] {
+    label:nth-child(-n + 4) {
+      svg {
+        fill: #fac917;
+      }
+    }
+  }
+
+  &[data-rate='3'] {
+    label:nth-child(-n + 6) {
+      svg {
+        fill: #fac917;
+      }
+    }
+  }
+
+  &[data-rate='4'] {
+    label:nth-child(-n + 8) {
+      svg {
+        fill: #fac917;
+      }
+    }
+  }
+
+  &[data-rate='5'] {
+    label:nth-child(-n + 10) {
+      svg {
+        fill: #fac917;
+      }
+    }
   }
 }

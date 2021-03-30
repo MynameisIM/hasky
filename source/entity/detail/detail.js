@@ -126,3 +126,20 @@ const moveBlocks = () => {
 moveBlocks();
 
 new Request();
+
+const stars = () => {
+  const rates = [].slice.call(document.querySelectorAll('.stars'));
+
+  if (rates.length) {
+    rates.forEach((r) => {
+      const inputs = [].slice.call(r.querySelectorAll('input'));
+      if (inputs.length) {
+        const checkedIndex = inputs.findIndex(inp => inp.checked);
+        if (checkedIndex !== -1) {
+          r.setAttribute('data-rate', checkedIndex + 1);
+        }
+      }
+    });
+  }
+};
+stars();
