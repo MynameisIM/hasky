@@ -1,0 +1,17 @@
+$parent: stars;
+
+@include block($parent) {
+  display: flex;
+
+  label {
+    svg {
+      width: rem(16);
+      height: rem(16);
+      fill: #e3e1e1;
+    }
+  }
+
+  input {
+    display: none;
+  }
+}

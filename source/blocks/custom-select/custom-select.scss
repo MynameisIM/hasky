@@ -16,6 +16,7 @@
     border-top: 6px solid #595959;
     right: 14px;
     top: 17px;
+    pointer-events: none;
   }
 
   &--opened {
@@ -140,6 +141,37 @@
 
     @media (min-width: $desktop) {
       min-width: rem(220);
+    }
+  }
+
+  &--sort {
+    display: inline-flex;
+    width: auto;
+    min-width: auto;
+    border: none;
+
+    @media (min-width: $tablet) {
+      margin-right: rem(25);
+    }
+
+    &::after {
+      border-top-color: $c07;
+    }
+
+    #{$select}__btn {
+      padding-right: rem(30);
+      color: $c07;
+    }
+
+    #{$select}__list {
+      width: auto;
+      border-top: 1px solid #e5e5e5;
+    }
+
+    #{$select}__item {
+      &::before {
+        content: none !important;
+      }
     }
   }
 }

@@ -35,6 +35,7 @@ $parent: detail-review;
 
   @include element($parent, 'right-box') {
     margin-left: auto;
+    text-align: right;
   }
 
   @include element($parent, 'author') {
@@ -58,9 +59,11 @@ $parent: detail-review;
   }
 
   @include element($parent, 'date') {
+    display: inline-block;
     font-size: rem(12);
     line-height: rem(14);
     color: #333;
+    margin-bottom: rem(5);
   }
 
   @include element($parent, 'pagination-box') {
@@ -92,5 +95,14 @@ $parent: detail-review;
       background-color: $c07;
       color: $white;
     }
+  }
+
+  @include element($parent, 'sort-box') {
+    margin-bottom: rem(15);
+  }
+
+  @include element($parent, 'sort-item') {
+    display: inline-flex;
+    align-items: center;
   }
 }

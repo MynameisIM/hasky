@@ -1,8 +1,43 @@
+include ../../custom-select/custom-select
+include ../../stars/stars
+
 mixin detail-review()
   .detail-review
     .detail-review__title Отзывы
     button.detail-review__add-review.detail-button(type='button') Написать отзыв
     .detail-review__sort-box
+      .detail-review__sort-item
+        span Сортировать по:
+        +custom-select([
+          {
+            text: 'Фильтр',
+            value: 'default'
+          },
+          {
+            text: 'Дата',
+            value: 'date',
+            selected: true
+          },
+          {
+            text: 'Имя',
+            value: 'name'
+          }], 'custom-select--sort', 'sort')
+      .detail-review__sort-item
+        span Оценка:
+        +custom-select([
+          {
+            text: 'Любая',
+            value: 'default',
+            selected: true
+          },
+          {
+            text: 'Сначала высокие',
+            value: 'asc'
+          },
+          {
+            text: 'Сначала негативные',
+            value: 'desc'
+          }], 'custom-select--sort', 'opinion')
     .detail-review__container
       .detail-review__item
         .detail-review__item-header
@@ -11,6 +46,7 @@ mixin detail-review()
             span Антон
           .detail-review__right-box
             span.detail-review__date 28.12.2020
+            +stars('review-1', 3)
         .detail-review__item-block
           .detail-review__item-title Достоинства
           .detail-review__item-text Добротный гайковёрт с отличным соотношением цены и качества, своих денег стоит. Для частного использования в гараже более чем достаточно. Для сервиса конечно надо брать King Tony или что-то подобное по цене от 10 тыс. руб.
