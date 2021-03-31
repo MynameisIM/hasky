@@ -4,6 +4,7 @@ include ../radio/radio
 include ../textarea/textarea
 include ../checkbox/checkbox
 include ../custom-select/custom-select
+include ../goods/dropdown/goods-dropdown
 
 mixin order(data)
   .order.common-container
@@ -11,6 +12,7 @@ mixin order(data)
       .order__box
         .order__box-header
           .order__box-title ДОСТАВКА
+          +goods-dropdown()
         .order__form-group
           .order__form-item.order__form-item--city
             +core-input({ name: 'city', label: 'Город' }, 'core-input--city')
