@@ -637,12 +637,22 @@ $table: table;
 }
 
 @include block($table) {
+  display: flex;
   width: 100%;
   font-weight: 500;
   font-size: rem(13);
   line-height: 1.5;
   color: #333;
   border: 1px solid #e5e5e5;
+  overflow-x: auto;
+
+  @media (min-width: $desktop-1440) {
+    display: inline-flex;
+  }
+
+  @include element($table, 'wrapper') {
+    flex-shrink: 0;
+  }
 
   @include element($table, 'header') {
     display: flex;
@@ -651,6 +661,10 @@ $table: table;
     padding: rem(16) 0;
     background-color: #fafafa;
     border-bottom: 1px solid #e5e5e5;
+
+    & > div {
+      flex-shrink: 0;
+    }
   }
 
   @include element($table, 'row') {
@@ -659,12 +673,17 @@ $table: table;
     padding: rem(25) 0;
     border-bottom: 1px dashed #e5e5e5;
 
+    & > div {
+      flex-shrink: 0;
+    }
+
     &:last-of-type {
       border-bottom: none;
     }
   }
 
   @include element($table, 'name') {
+    width: rem(150);
     padding: 0 rem(20);
     margin-right: auto;
   }
