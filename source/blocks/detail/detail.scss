@@ -647,7 +647,7 @@ $table: table;
   overflow-x: auto;
 
   @media (min-width: $desktop-1440) {
-    display: inline-flex;
+    display: block;
   }
 
   @include element($table, 'wrapper') {
