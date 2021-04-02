@@ -4,6 +4,7 @@ import Form from '@/blocks/form/form';
 import Request from '@/blocks/request/request';
 import CustomSelect from '@/blocks/custom-select/custom-select';
 import CoreInput from '@/blocks/input/input';
+import GoodsDropdown from '@/blocks/goods/dropdown/goods-dropdown';
 
 require('./order.scss');
 
@@ -28,6 +29,12 @@ require('./order.scss');
 [].slice.call(document.querySelectorAll('.custom-select')).forEach((item) => {
   if (item) {
     new CustomSelect(item);
+  }
+});
+
+[].slice.call(document.querySelectorAll('.goods-dropdown')).forEach((item) => {
+  if (item) {
+    new GoodsDropdown(item);
   }
 });
 

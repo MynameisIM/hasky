@@ -3,3 +3,24 @@ mixin goods-dropdown()
     .goods-dropdown__header
       +svg('cart-order')
       span Товары в заказе
+    .goods-dropdown__dropdown
+      .goods-dropdown__item
+        a.goods-dropdown__item-link(href='#')
+          .goods-dropdown__item-image
+            img(src='/assets/images/goods-1.png', alt='alt')
+          .goods-dropdown__item-name name
+        .goods-dropdown__item-count
+          | x
+          span 1
+        .goods-dropdown__item-price 70 ₽
+        button.goods-dropdown__item-remove(data-id='123', type='button')
+      .goods-dropdown__item
+        a.goods-dropdown__item-link(href='#')
+          .goods-dropdown__item-image
+            img(src='/assets/images/goods-1.png', alt='alt')
+          .goods-dropdown__item-name name
+        .goods-dropdown__item-count
+          | x
+          span 1
+        .goods-dropdown__item-price 70 ₽
+        button.goods-dropdown__item-remove(data-id='123', type='button')

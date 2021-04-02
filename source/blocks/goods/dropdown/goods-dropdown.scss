@@ -3,10 +3,26 @@ $parent: goods-dropdown;
 @include block($parent) {
   position: relative;
   display: inline-flex;
+  margin: rem(20) 0;
 
   @include element($parent, 'header') {
+    position: relative;
     display: flex;
     align-items: center;
+    padding: rem(15) rem(25) rem(15) rem(15);
+    cursor: pointer;
+
+    &::after {
+      position: absolute;
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-right: 2px solid #808080;
+      border-bottom: 2px solid #808080;
+      right: 5px;
+      top: 50%;
+      transform: translateY(-50%) rotate(45deg);
+    }
 
     svg {
       width: rem(19);
@@ -17,6 +33,107 @@ $parent: goods-dropdown;
     span {
       font-size: rem(12);
       color: #808080;
+    }
+  }
+
+  @include element($parent, 'dropdown') {
+    position: absolute;
+    display: none;
+    top: 100%;
+    left: 0;
+    border-radius: 0 0 rem(4) rem(4);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+    background-color: $white;
+    z-index: 4;
+  }
+
+  @include element($parent, 'item') {
+    position: relative;
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+    font-size: rem(12);
+    line-height: rem(14);
+    color: #0f0f0f;
+    padding: rem(7);
+    background-color: $white;
+    transition: transform 0.25s, box-shadow 0.25s linear;
+
+    &:hover {
+      transform: scale(1.05);
+      box-shadow: 0 rem(4) rem(4) rgba(0, 0, 0, 0.1);
+
+      @include element($parent, 'item-remove') {
+        opacity: 1;
+      }
+    }
+  }
+
+  @include element($parent, 'item-link') {
+    display: inline-flex;
+    align-items: center;
+    color: #0f0f0f;
+  }
+
+  @include element($parent, 'item-image') {
+    width: rem(75);
+    height: rem(63);
+    margin-right: rem(8);
+
+    img {
+      width: 100%;
+    }
+  }
+
+  @include element($parent, 'item-name') {
+    width: rem(130);
+    margin-right: rem(11);
+  }
+
+  @include element($parent, 'item-count') {
+    width: rem(30);
+    margin-right: rem(10);
+  }
+
+  @include element($parent, 'item-price') {
+    width: rem(54);
+  }
+
+  @include element($parent, 'item-remove') {
+    position: absolute;
+    width: rem(10);
+    height: rem(10);
+    opacity: 0;
+    right: rem(4);
+    top: 50%;
+    transform: translateY(-50%);
+
+    &::before,
+    &::after {
+      position: absolute;
+      content: '';
+      width: rem(10);
+      height: 1px;
+      background-color: $black;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(45deg);
+    }
+
+    &::after {
+      transform: translate(-50%, -50%) rotate(-45deg);
+    }
+  }
+
+  @include modifier($parent, 'open') {
+    @include element($parent, 'header') {
+      &::after {
+        transform: translateY(-50%) rotate(-135deg);
+      }
+    }
+
+    @include element($parent, 'dropdown') {
+      display: block;
     }
   }
 }
