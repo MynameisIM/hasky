@@ -1,4 +1,3 @@
-import Header from '@/blocks/header/header';
 import Popup from '@/blocks/popup/popup';
 import Form from '@/blocks/form/form';
 import Request from '@/blocks/request/request';
@@ -8,8 +7,6 @@ import GoodsDropdown from '@/blocks/goods/dropdown/goods-dropdown';
 
 require('./order.scss');
 
-[].slice.call(document.querySelectorAll('.header'))
-  .forEach(block => block && new Header(block));
 
 [].slice.call(document.querySelectorAll('.popup'))
   .forEach(block => block && new Popup(block));

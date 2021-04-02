@@ -1,6 +1,7 @@
 include ../../core/svg
 
-mixin header-order(data)
+mixin header-order()
   header.header-order
-    a.header-order__main-logo(href='#')
-      +svg('logo')
+    .header-order__wrapper
+      a.header-order__main-logo(href='#')
+        +svg('logo')

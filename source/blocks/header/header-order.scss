@@ -1,0 +1,27 @@
+$parent: header-order;
+
+@include block($parent) {
+  width: 100%;
+  border-bottom: 1px solid #d2d2d2;
+  padding: rem(20) rem(15);
+
+  @media (min-width: $portrait) {
+    padding: rem(30) rem(15);
+  }
+
+  @include element($parent, 'wrapper') {
+    @media (min-width: $desktop) {
+      max-width: rem(1470);
+      margin: 0 auto;
+    }
+  }
+
+  @include element($parent, 'main-logo') {
+    display: inline-flex;
+    height: rem(30);
+
+    svg {
+      fill: $c07;
+    }
+  }
+}
