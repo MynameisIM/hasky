@@ -625,6 +625,7 @@ $table: table;
     background-size: 100% 100%;
     opacity: 1;
     background-color: $white;
+    left: 0 !important;
 
     @media (min-width: $tablet) {
       margin: rem(7) 0 !important;
