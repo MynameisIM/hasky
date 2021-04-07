@@ -56,4 +56,10 @@ $parent: stars;
       }
     }
   }
+
+  @include modifier($parent, 'check') {
+    label {
+      pointer-events: auto;
+    }
+  }
 }

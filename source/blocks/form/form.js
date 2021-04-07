@@ -3,7 +3,10 @@ import Popup from '@/blocks/popup/popup';
 
 export default class Form {
   constructor(parent) {
-    const elems = [].slice.call(parent.elements).filter(el => el.tagName !== 'BUTTON').filter(i => i.type !== 'hidden');
+    const elems = [].slice.call(parent.elements)
+      .filter(el => el.tagName !== 'BUTTON')
+      .filter(i => i.type !== 'hidden')
+      .filter(elm => !elm.hasAttribute('data-not-required'));
     const errors = [];
 
     if (parent && elems.length > 0) {

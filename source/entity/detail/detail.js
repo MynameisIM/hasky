@@ -138,6 +138,18 @@ const stars = () => {
         if (checkedIndex !== -1) {
           r.setAttribute('data-rate', checkedIndex + 1);
         }
+        inputs.forEach((el) => {
+          el.addEventListener('change', () => {
+            /* eslint-disable */
+            inputs.forEach(eln => eln.checked = false);
+            /* eslint-enable */
+            el.checked = true;
+            const ci = inputs.findIndex(inp => inp.checked);
+            if (ci !== -1) {
+              r.setAttribute('data-rate', ci + 1);
+            }
+          });
+        });
       }
     });
   }
