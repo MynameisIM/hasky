@@ -30,4 +30,31 @@ $parent: link-box;
       background-color: $c07;
     }
   }
+
+  @include element($parent, 'more') {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: rem(40);
+    font-weight: 500;
+    font-size: rem(12);
+    line-height: rem(18);
+    color: $white;
+    background-color: $c07;
+    border: 1px solid $c07;
+    border-radius: 2px;
+    transition: background-color 0.25s, color 0.25s linear;
+    margin: rem(20) rem(18) 0;
+
+    @media (min-width: $desktop) {
+      &:hover {
+        background-color: $white;
+        color: $c07;
+      }
+    }
+  }
+
+  @include modifier($parent, 'mb22') {
+    margin-bottom: rem(22);
+  }
 }

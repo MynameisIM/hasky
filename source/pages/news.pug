@@ -1,0 +1,111 @@
+extends ../layouts/main.pug
+
+include ../blocks/breadcrumbs/breadcrumbs
+include ../blocks/link-box/link-box
+
+block vars
+  - var whiteTheme = true;
+
+block content
+  .common-container.common-container--breadcrumbs
+    +breadcrumbs([
+      {
+        href: "#",
+        text: "Главная"
+      },
+      {
+        href: "#",
+        text: "Доставка",
+        current: true
+      }
+    ])
+  .news.common-container
+    .news__aside
+      +link-box({
+        title: "НЕДАВНЕЕ",
+        links: [
+          {
+            href: '#',
+            text: 'Для любителей качественного звука, мы завезли отличные динамики Pioneer!'
+          },
+          {
+            href: '#',
+            text: 'Мы завезли новые игры для Nintendo Wii!',
+            active: true
+          },
+          {
+            href: '#',
+            text: '​Только в нашем магазине! Знаменитые американские палатки WeatherMaster!'
+          }
+        ]
+      }, 'link-box--mb22')
+      +link-box({
+        title: "АРХИВ НОВОСТЕЙ",
+        links: [
+          {
+            href: '#',
+            text: 'Декабрь, 2018'
+          },
+          {
+            href: '#',
+            text: 'Ноябрь, 2018'
+          },
+          {
+            href: '#',
+            text: 'Май, 2018'
+          },
+          {
+            href: '#',
+            text: 'Апрель, 2018'
+          },
+          {
+            href: '#',
+            text: 'Март, 2018'
+          },
+          {
+            href: '#',
+            text: 'Февраль, 2018'
+          }
+        ],
+        more: '#'
+      })
+    .news__main
+      .news__list
+        .news-item
+          a.news-item__link(href='#')
+          .news-item__image-box
+            img(src='/assets/images/content.jpg', alt='alt')
+          .news-item__content
+            .news-item__content-header
+              span 15.12.2020
+              span Администратор
+            .news-item__content-title Какие поворотные кулаки лучше ставить на Ниву
+            .news-item__content-text Тема сегодняшнего разговора – ступицы и поворотные кулаки. Этот узел подвески нечасто требует внимания, но по мере проявления «усталости» лучше взяться и полностью его обновить.
+            span.news-item__content-more ЧИТАТЬ ДАЛЬШЕ
+        .news-item
+          a.news-item__link(href='#')
+          .news-item__image-box
+            img(src='/assets/images/content.jpg', alt='alt')
+          .news-item__content
+            .news-item__content-header
+              span 15.12.2020
+              span Администратор
+            .news-item__content-title Какие поворотные кулаки лучше ставить на Ниву
+            .news-item__content-text Тема сегодняшнего разговора – ступицы и поворотные кулаки. Этот узел подвески нечасто требует внимания, но по мере проявления «усталости» лучше взяться и полностью его обновить.
+            span.news-item__content-more ЧИТАТЬ ДАЛЬШЕ
+        .news-item
+          a.news-item__link(href='#')
+          .news-item__image-box
+            img(src='/assets/images/content.jpg', alt='alt')
+          .news-item__content
+            .news-item__content-header
+              span 15.12.2020
+              span Администратор
+            .news-item__content-title Какие поворотные кулаки лучше ставить на Ниву
+            .news-item__content-text Тема сегодняшнего разговора – ступицы и поворотные кулаки. Этот узел подвески нечасто требует внимания, но по мере проявления «усталости» лучше взяться и полностью его обновить.
+            span.news-item__content-more ЧИТАТЬ ДАЛЬШЕ
+      .news__pagination-box
+        a.news__pagination(href='#') 1
+        a.news__pagination.active(href='#') 2
+        a.news__pagination(href='#') 3
+        a.news__pagination(href='#') 4
